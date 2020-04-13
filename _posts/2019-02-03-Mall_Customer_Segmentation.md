@@ -159,7 +159,7 @@ summary(Age)
 ggplot(as.data.frame(Age), aes(y = Age)) + geom_boxplot(fill='#F8766D')
 ```
 
-![](Mall_Customer_Segmentation_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](img/unnamed-chunk-6-1.png)
 
 ``` r
 ## AGE VARIABLE DISTRIBUTION
