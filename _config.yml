@@ -20,7 +20,7 @@ url: "https://ioannismesionis.github.io"
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: "Data Scientist"
+  About Me: ""
 #   Resources:
 #     - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
 #     - Learn markdown: "http://www.markdowntutorial.com/"
