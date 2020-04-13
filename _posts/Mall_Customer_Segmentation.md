@@ -1,5 +1,8 @@
-Mall Customer Segmentation
-================
+---
+layout: post
+title: Mall Customer Segmentation
+---
+
 Ioannis Mesionis
 24/02/2019
 
