@@ -141,7 +141,7 @@ as.data.frame(table(Gender))  %>%
     geom_text(y = as.vector(table(Gender)), label = paste0((as.vector(table(Gender))/sum(as.vector(table(Gender))))*100, "%"))
 ```
 
-![](Mall_Customer_Segmentation_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](/img/unnamed-chunk-5-1.png)
 
 From a business perspective, most the companies that appear to have a successful story are extremely focuced on a particular target group so as to provide the best experience for them. Hence, businesses are primarly focused on such relevant activities. In addition, occasionally, a business may select more than one segment as the focus of its activities, in which case, it would normally identify a primary target and a secondary target. Primary target markets are those market segments to which marketing efforts are primarily directed and where more of the business's resources are allocated, while secondary markets are often smaller segments or less vital to a product's success.
 
@@ -166,7 +166,7 @@ ggplot(as.data.frame(Age), aes(y = Age)) + geom_boxplot(fill='#F8766D')
 ggplot(customers, aes( x = Age, fill = Gender)) + geom_density(alpha = 0.4)
 ```
 
-![](Mall_Customer_Segmentation_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](/img/unnamed-chunk-7-1.png)
 
 It is quite interesting that there is a difference between the two genders. It appears that in both groups (i.e. Males & Females) there is a strong activity at the ages 25-35, while the data shows another frequent group from the female part at the age of around 45 years old. In contrast, the group of men curve declines as the age reaches the maximum age of 70.
 
@@ -179,7 +179,7 @@ p2 <- ggplot(as.data.frame(Spending.Score..1.100.), aes(y = Spending.Score..1.10
 grid.arrange(p1, p2, ncol = 2)
 ```
 
-![](Mall_Customer_Segmentation_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![](/img/unnamed-chunk-8-1.png)
 
 FInally, the dataset does not contain any N/A values so no missing values techniques need to be applied for that reason. Our model is really sensitive in N/A values as will be discussed next.
 
@@ -231,7 +231,7 @@ ggplot(as.data.frame(tot.withinss), aes(x = seq(1,10), y = tot.withinss)) +
     ggtitle("Elbow K Estimation")
 ```
 
-![](Mall_Customer_Segmentation_files/figure-markdown_github/unnamed-chunk-11-1.png)
+![](/img/unnamed-chunk-11-1.png)
 
 It can be seen from the graph above that a reasonable selection for the K value would be the k = 5. Hence, we are going to create 5 clusters to generate our segments.
 
@@ -279,7 +279,7 @@ ggplot(Kdata, aes(x = Annual.Income..k.., y = Spending.Score..1.100.)) +
     ggtitle("Mall Customer Segmens", subtitle = "K-means Clustering")
 ```
 
-![](Mall_Customer_Segmentation_files/figure-markdown_github/unnamed-chunk-13-1.png)
+![](/img/unnamed-chunk-13-1.png)
 
 The generated "Clusters of Customers" plot shows the distribution of the 5 clusters. A sensible interpretation for the mall customer segments can be:
 
