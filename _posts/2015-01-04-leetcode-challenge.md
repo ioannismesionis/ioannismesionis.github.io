@@ -2,8 +2,8 @@
 layout: post
 title: LeetCode 30-Day Challenge
 subtitle: Quarantine time spent well
-image: /img/hello_world.jpeg
-bigimage: /
+image: /img/leetcode/marathon.jpg
+bigimage: /img/leetcode/python-pixabay.png
 tags: [python, code, leetcode]
 ---
 
