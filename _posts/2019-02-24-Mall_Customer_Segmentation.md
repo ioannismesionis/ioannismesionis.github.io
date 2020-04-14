@@ -2,12 +2,10 @@
 layout: post
 title: Mall Customer Segmentation
 subtitle: How to segment customers to validate a hypothesis
+image: /img/circle-segment.png
 bigimg: /img/segment.jpg
 tags: [unsupervised-learning, k-means, customer-segmentation]
 ---
-
-INTRODUCTION
-------------
 
 **Customer segmentation** is the practice of dividing a customer base into groups of individuals that are similar in specific ways relevant to marketing, such as age, gender, interests and spending habits.
 
