@@ -1,12 +1,10 @@
 ---
 layout: post
 title: Mall Customer Segmentation
+subtitle: How to segment customers to validate a hypothesis
+bigimg: /img/segment.jpg
+tags: [unsupervised-learning, k-means, customer-segmentation]
 ---
-
-Mall Customer Segmentation
-================
-Ioannis Mesionis
-24/02/2019
 
 INTRODUCTION
 ------------
