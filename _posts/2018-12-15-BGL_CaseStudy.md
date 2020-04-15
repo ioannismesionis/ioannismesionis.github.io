@@ -7,9 +7,8 @@ image: /img/product-user/image-click.png
 tags: [supervised-learning, R, classification, lasso, logistic-regression, roc-curve]
 ---
 
-## Introduction
-
 Comparethemarket.com is exploring ways to offer a more personalised, relevant experience to each of its customers. In order to achieve a great content recommendation and targeted products, it is strongly advised to model BGL's user data to better understand customer's behaviour.
+
 For the purpose of this case study, a sample dataset was kindly provided by BGL to assist in the process. RStudio is the software that is used with the modelling of the data being implemented using Machine Learning techniques.  
 
 ## Context and Proposed Approach
