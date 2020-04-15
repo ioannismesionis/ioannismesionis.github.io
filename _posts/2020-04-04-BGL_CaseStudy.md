@@ -1,10 +1,7 @@
 ---
-title: "BGL-Case Study"
-author: "Ioannis Mesionis"
-date: "15/12/2018"
-output:
-  html_document: default
-  pdf_document: default
+layout: post
+title: test
+
 ---
 
 ```{r setup, include=FALSE}
