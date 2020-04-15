@@ -81,44 +81,101 @@ colnames(data)
 
 We observe that there are no duplicated entries in the data and that every user ID is unique and corresponds to a single individual. 
 
-```{r DUPLICATED ENTRIES}
+``` r
 ## CHECK FOR DUPLICATED ENTRIES 
 sum(duplicated(data))    ## 0 DUPLICATED
+```
+
+    ## [1] 0
+    
+``` r    
 n_distinct(data$UserID)  ## 100.000 UNIQUE CUSTOMER IDS
 ```
 
+    ## [1] 100000
+
 For a sanity check, we make sure that the columns of the data are in the correct format as this plays a major role in the modelling process later on.
 
-```{r FORMAT OF THE VARIABLES}
+``` r 
 ## CHECK IF VARIABLES ARE IN THE CORRECT FORM 
 str(data)
 ```
 
+    ## 'data.frame':    100000 obs. of  6 variables:
+    ##  $ UserID     : int  1 2 3 4 5 6 7 8 9 10 ...
+    ##  $ Age        : int  56 39 62 29 41 53 30 44 71 40 ...
+    ##  $ UserSegment: Factor w/ 4 levels "A","B","C","NULL": 1 1 1 3 3 1 3 1 3 2 ...
+    ##  $ Recency    : Factor w/ 4 levels "Active","Dormant",..: 3 3 1 3 2 1 3 1 2 1 ...
+    ##  $ PriorEvent : int  0 0 1 0 0 1 0 0 0 0 ...
+    ##  $ Event      : int  0 0 1 0 0 1 1 0 0 1 ...
+
+
 To explore the data even further, it is highly recommended to have a summary of the data and the values that exist in each column. We also investigate for any N/A values. As it is shown below,
 
-```{r SOME INSIGHTS OF THE VARIABLES}
+``` r
 ## TAKE A GENERAL INSIGHT OF THE DATA
 summary(data)
+```
+
+    ##      UserID            Age        UserSegment      Recency     
+    ##  Min.   :     1   Min.   :18.00   A   :21017   Active  :55428  
+    ##  1st Qu.: 25001   1st Qu.:28.00   B   :19973   Dormant :22275  
+    ##  Median : 50000   Median :36.00   C   :58517   Inactive:21804  
+    ##  Mean   : 50000   Mean   :38.75   NULL:  493   NULL    :  493  
+    ##  3rd Qu.: 75000   3rd Qu.:48.00                                
+    ##  Max.   :100000   Max.   :75.00                                
+    ##    PriorEvent          Event    
+    ##  Min.   :0.00000   Min.   :0.0  
+    ##  1st Qu.:0.00000   1st Qu.:0.0  
+    ##  Median :0.00000   Median :0.0  
+    ##  Mean   :0.09178   Mean   :0.3  
+    ##  3rd Qu.:0.00000   3rd Qu.:1.0  
+    ##  Max.   :1.00000   Max.   :1.0
+    
+``` r 
 cat("The number of N/A values are:", sum(is.na(data)), "\n")   ## NO N/A VALUES
+```
+
+    ## The number of N/A values are: 0
+    
+    
+``` r
 cat("The valid User Segment entries are:", levels(data$UserSegment), "\n")   ##   "A"        "B"        "C"      "NULL"
+```
+
+    ## The valid User Segment entries are: A B C NULL
+    
+    
+``` r
 cat("The valid Recency entries are:",levels(data$Recency))      ## "Active"   "Dormant"  "Inactive" "NULL"
 ```
+
+    ## The valid Recency entries are: Active Dormant Inactive NULL
+    
 
 Although there are no N/A values per se, we discovered entries both in the "UserSegment" and "Recency" columns with the entry of "NULL". These entries are 493 in both cases, which corresponds to almost 0.5% of the data. Therefore, and since we do not have any data on what the NULL values mean, we are going to ignore these records as this approach is considered an effective method for handling such data when the number of the occurrences is so low.
 
 Our predictions will be focused on the "Event" variable as it will be treated as our response. "Event" will have the value of "1" when a customer interacted with a specific product or service (i.e. shown interest) and the value "0" otherwise. In our sample, 70% percent of the data corresponds to products where the customer showed no interest and the rest of 30% the opposite.
 
-```{r TARGET VARIABLE}
+```r
 ## DISTRIBUTION OF THE INTEREST OF THE CUSTOMER FOR A PRODUCT
 table(data$Event)        ## POSTERIOR: NO INTEREST(0): 70.000      INTEREST(1): 30.000
 ```
 
+    ##     0     1 
+    ## 70000 30000
+    
+    
 Apart from that, previous knowledge of the customer's interest is also available in the "PriorEvent" variable where we see that the percentages are slightly more skewed in favor of the "No Interest" incidents. More specifically, almost 90% of the proposed products, were of no interest to the customers.
 
-```{r PRIOR OF THE TARGET VARIABLE}
+``` r
 ## DISTRIBUTION OF THE PRIOR INTEREST OF THE CUSTOMER FOR A PRODUCT
 table(data$PriorEvent)   ## PRIOR: NO INTEREST(0): 90.822      INTEREST(1): 9.178
 ```
+ 
+    ##     0     1 
+    ## 90822  9178
+    
 
 Two major observations need to be discussed here. The first one is about what changed between the period of the "PriorEvent" and the "Event". Whether this corresponds to a change in a marketing campaign or a period of economic growth, it could be a factor that needs to be investigated in order to understand the difference of interest of the customers. The second point that needs to be discussed is the question that the BGL group is trying to answer out of the data. The variable "PriorEvent" is going to be part of the modelling process. This denotes that the output of the model will indicate the probability that a customer will re-grow, or not, interest in the particular product. Thus, the question that will be answered is going to be whether the customer will re-perform an action to this particular product.
 
@@ -126,13 +183,17 @@ Two major observations need to be discussed here. The first one is about what ch
 
 Our age range is from customers between 18 and 75 years old with an average age of almost 39 years old. 
 
-```{r SUMMARY OF AGE}
+```r
 summary(data$Age)  ## CHECK THE SUMMARY OF THE AGE
 ```
 
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##   18.00   28.00   36.00   38.75   48.00   75.00
+
+
 The major user segment is the "C" segment which accounts for 58,8% of the data and the rest almost evenly split between segments "A" and "B"; Segment "A" with 21,1% and segment "B" with 20,1%.
 
-```{r USER SEGMENT DISTRIBUTION}
+``` r
 ## DISTRIBUTION OF SEGMENTS
 Segment <- as.data.frame(table(data$UserSegment))
 Segment <- Segment[Segment$Var1 != "NULL",]   ## REMOVE THE NULL OBSERVATIONS
@@ -145,10 +206,11 @@ ggplot(data = Segment, aes(x = Var1, y = Freq)) +
   ggtitle("User Segments Distribution")
 ```
 
+![](/img/product-user/distribution-segment.png)
 
 In addition, almost 55,7% of the data are described as "Active" users, 22,4% as "Dormant" and 21,9% as "Inactive". 
 
-```{r RECENCY DISTRIBUTION}
+``` r
 ## DISTRIBUTION OF RECENCY
 RecencyDis <- as.data.frame(table(data$Recency))
 RecencyDis <- RecencyDis[RecencyDis$Var1 != "NULL", ]  ## REMOVE THE NULL OBSERVATIONS
@@ -161,9 +223,12 @@ ggplot(data = RecencyDis, aes(x = Var1, y = Freq)) +
   ggtitle("Recency Distribution")
 ```
 
+![](/img/product-user/recency-distribution.png)
+
+
 We also observe that the "Ages" distribution with respect to the "Recency" status follows the same pattern. The age group of 20-35 looks to be the most frequent in the respective "Recency" statuses. 
 
-```{r RECENCY WITH AGE, fig.width=10}
+``` r
 ## DISTRIBUTION OF THE AGES ACCORDING TO RECENCY
 ## VISUALISE THE CORRESPONDING DATA
 AgeActivity <- as.data.frame(data %>%
@@ -185,12 +250,14 @@ p2 <- ggplot(data = AgeActivity, aes(x = AgeActivity[,2], y = AgeActivity[,3], f
   labs(x="Ages", y="Frequency", fill="Recency")
 
 grid.arrange(p1, p2, ncol = 1)
-
 ```
+
+![](/img/product-user/recency-age.png)
+
 
 Finally, for the different types of "Recency" and "Segments", we can see how the Users are distributed in the graphs below.
 
-```{r SEGMENT BY RECENCY AND VICE VERSA, fig.width=10}
+``` r
 ## DISTRIBUTION OF THE RECENCY ACCORDING TO USER SEGMENT
 ## VISUALISE THE CORRESPONDING DATA
 ActivitySegment <- as.data.frame(data %>% 
@@ -227,6 +294,9 @@ p2.2 <- ggplot(data = ActivitySegment2, aes(x = ActivitySegment2[,2], y = Activi
 grid.arrange(p1.2, p2.2, nrow = 2)
 ```
 
+![](/img/product-user/vice-versa.png)
+
+
 ## MODEL CREATION AND CONCLUSIONS
 
 Since there is a  better understanding of the data, we can implement the Lasso Logistic Regression model to create our recommendation model. As it was mentioned, Lasso is an amazing technique as it prevents over-fitting by taking into account possible correlated features and eliminate variables that add noise to the model. Therefore, the final model is considered to provide with objective results and recommendations that can generalise well in unseen data.
@@ -235,7 +305,7 @@ In order for the model to work correctly, it is advised to be provided with bala
 
 To validate the model, 10-Fold Cross Validation is performed and an additional test set is withheld from the training process with an 80%-20% split to test the model even further.
 
-```{r MODEL CREATION}
+``` r
 ## SET NUMBER OF REPETITIONS
 n <- 10
 ## EMPTY CONFUSION MATRIX TO BE STORED FROM VARIOUS REPETITIONS 
@@ -302,7 +372,7 @@ confusion[i,] <- as.vector(table(predictions, responseTest))
 
 The most common and widest metric to rate the success of a machine learning model is the accuracy metric. As the name denotes, accuracy is the fraction of predictions the model got right in total. However, we are also interested in the proportion of the predictions that the user would interact with a product and the predictions that the user would not. Both of these proportions are measured with the Sensitivity and Specificity metrics respectively. Sometimes, we are more interested in obtaining a higher value in one of these metrics over the other as it is considered to be more important. In our case, more of a significant error it would be to not recommend a product that the customer would interact rather than suggesting a product that the customer would not. Therefore, a priority is to obtain a high value of Sensitivity as possible while keeping a reasonable balance between them. This can be achieved by being a little bit more willing to recommend a product to a customer. Recall that the model will have an output of a probability which means that an output of 0.5 would indicate half a chance of the customer re-showing interest for a particular product. Setting a cut-off slightly lower than that, we can be sure to not miss a high number of products or services that would be of an interest to a customer.
 
-```{r RESULTS}
+``` r
 ## CREATE A FUNCTION TO CALCULATE THE AVERAGE ACCURACY, SPECIFICITY, SENSITIVITY OF THE VARIOUS REPETITIONS
 res <- function(x) {
   x <- matrix(as.numeric(x), ncol = 2)
@@ -349,7 +419,7 @@ cat("The standard deviation of the specificity for", n, "repetitions is:", round
 
 Last but not least, the following graphs create a bigger picture between the trade-off of Sensitivity and Specificity so as to have a wider sense of the performance of the machine learning model. The AUC value, which stands for Area Under the Curve, is another validation value that was put for cross-reference with the Accuracy, Sensitivity and Specificity.
 
-```{r ROC CURVES}
+``` r
 ## ROC CURVE
 predictions.bal <- prediction(pred.roc, responseTest)
 roc.lasso <- performance(predictions.bal, measure = "tpr", x.measure = "fpr")
@@ -361,7 +431,12 @@ sd.auc <- round(sd(auc.total),3)       ## STANDARD DEVIATION AUC
 ## ACCURACY CUT-OFF
 perf.bal.ac <- performance(predictions.bal, "acc")
 plot(perf.bal.ac)
+```
 
+![](/img/product-user/cut-off.png)
+
+
+``` r
 ## PLOT ROC CURVE AND AUC VALUE TO FURTHER VALIDATE THE MODEL
 plot(roc.lasso, colorize = TRUE, ylab = "Sensitivity", xlab = "1 - Specificity", main = "ROC Curve - Logistic Regression with L1")
 lines(c(0,1), c(0,1), col = "black", lty = 2)
@@ -369,9 +444,12 @@ legend(.6, .35, mean.auc, title = "AUC", cex = .8)
 legend(.8, .35, sd.auc, title = "+- SD", cex = .8)
 ```
 
+![](/img/product-user/roc-curve.png)
+
+
 Finally, it is of a great interest to see which variables show strong predictive power and towards what behaviour. For instance, knowing the segment of a specific customer, would it help in recommending a particular product or would that push the user to the opposite direction? The graph below shows the predictive power of each variable as it was captured by the model.
 
-```{r COEFFICIENTS}
+``` r
 ## STORE THE LASSO LOGISTIC REGRESSION COEFFICIENTS
 tmp_coef <- coef(cv, s = "lambda.min")   # COEF OF LAMBDA MIN
 coef <- data.frame(name = tmp_coef@Dimnames[[1]][tmp_coef@i + 1], coefficient = tmp_coef@x)
@@ -385,6 +463,9 @@ ggplot(b_coef, aes(y = b_coef[,2], x = b_coef[,1], color = if_else(sign(b_coef[,
   theme(axis.title.x = element_blank(), axis.title.y = element_blank(), legend.title = element_blank()) +
   ggtitle("Coefficients Predictive Contribution")
 ```
+
+![](/img/product-user/coef.png)
+
 
 ## FUTURE DEVELOPMENT AND ENHANCEMENT
 
@@ -402,7 +483,7 @@ The aforementioned approaches were created with the purpose of recommending part
 
 This section offers an attempt of different machine learning model for a product recommendation. The approach uses a quick implementation of the Random Forest algorithm. Note that Random Forest is a parametric model and thus, it is time-consuming to fully develop such a model.
 
-```{r RANDOM FOREST}
+``` r
 ## SET NUMBER OF REPETITIONS
 n <- 10
 ## EMPTY CONFUSION MATRIX TO BE STORED FROM VARIOUS REPETITIONS 
@@ -470,7 +551,11 @@ for(i in 1:n){
 # VISUALIZATIONS
 # plot(rforest)
 varImpPlot(rf, sort = TRUE, main = "Variable Importance")
+```
 
+![](/img/product-user/variable-importance.png)
+
+```r
 ## CREATE A FUNCTION TO CALCULATE THE AVERAGE ACCURACY, SPECIFICITY, SENSITIVITY OF THE VARIOUS REPETITIONS
 res <- function(x) {
   x <- matrix(as.numeric(x), ncol = 2)
@@ -530,3 +615,4 @@ legend(.6, .35, auc.rf.avg, title = "AUC", cex = .8)
 legend(.8, .35, auc.rf.sd, title = "+- SD", cex = .8)
 ```
 
+![](/img/product-user/roc-rf.png)
