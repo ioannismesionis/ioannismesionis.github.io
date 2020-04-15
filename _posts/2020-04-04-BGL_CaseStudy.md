@@ -4,21 +4,6 @@ title: test
 
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r REQUIRED PACKAGES}
-## REQUIRED PACKAGES
-library(ggplot2)
-library(dplyr)
-library(ROCR)
-library(caret)
-library(randomForest)
-library(glmnet)
-library(gridExtra)
-```
-
 ## Introduction
 
 Comparethemarket.com is exploring ways to offer a more personalised, relevant experience to each of its customers. In order to achieve a great content recommendation and targeted products, it is strongly advised to model BGL's user data to better understand customer's behaviour.
@@ -32,27 +17,59 @@ Using Logistic Regression with L1 penalisation (Lasso Logistic Regression), we i
 
 ## Preliminary Insights and Conclusions
 
+```r
+## REQUIRED PACKAGES
+library(ggplot2)
+library(dplyr)
+library(ROCR)
+library(caret)
+library(randomForest)
+library(glmnet)
+library(gridExtra)
+```
+
 In order to have the best results possible, it is highly important to explore the data and prepare it for modelling - preprocessing. 
 
 First, let us explore how the data looks like
 
-```{r READ THE DATA AND HAVE A FIRST IMPRESSION}
+``` r
 ## READ THE DATA
 data <- read.csv("CTM_DataScientistCaseStudy.csv")
 
 ## EXPLORE HOW THE DATA LOOKS
 dim(data)  ## 100.000   6
+```
+  ## [1] 100000      6
+``` r
 head(data)
+```
+  ##   UserID Age UserSegment  Recency PriorEvent Event
+  ## 1      1  56           A Inactive          0     0
+  ## 2      2  39           A Inactive          0     0
+  ## 3      3  62           A   Active          1     1
+  ## 4      4  29           C Inactive          0     0
+  ## 5      5  41           C  Dormant          0     0
+  ## 6      6  53           A   Active          1     1
+``` r
 tail(data)
 ```
+  ##        UserID Age UserSegment Recency PriorEvent Event
+  ## 99995   99995  23           C  Active          0     0
+  ## 99996   99996  43           C  Active          0     0
+  ## 99997   99997  58           C  Active          0     0
+  ## 99998   99998  70           A  Active          0     0
+  ## 99999   99999  24           C  Active          0     0
+  ## 100000 100000  45           C  Active          0     0
 
 
 The data consists of 100.000 instances (i.e. customers) and 6 columns that correspond to
 
-```{r COLUMNS NAMES}
+``` r
 ## EXPLORE THE ATTRIBUTES OF THE DATA
 colnames(data)
 ```
+  ## [1] "UserID"      "Age"         "UserSegment" "Recency"     "PriorEvent" 
+  ## [6] "Event"
 
 We observe that there are no duplicated entries in the data and that every user ID is unique and corresponds to a single individual. 
 
