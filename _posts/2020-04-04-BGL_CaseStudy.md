@@ -411,14 +411,40 @@ for(i in 1:n){
 ## MODEL VALIDATION RESULTS
 ## AVERAGE AVERAGE ACCURACY, SPECIFICITY, SENSITIVITY
 cat("The accuracy of the model for", n, "repetitions is:", round(avg.acc/n, digits = 2))
-cat("The sensitivity of the model for", n, "repetitions is:", round(avg.sens/n, digits = 2))
-cat("The specificity of the model for", n, "repetitions is:", round(avg.spec/n, digits = 2))
+```
 
+    ## The accuracy of the model for 10 repetitions is: 0.65
+    
+``` r
+cat("The sensitivity of the model for", n, "repetitions is:", round(avg.sens/n, digits = 2))
+```
+
+    ## The sensitivity of the model for 10 repetitions is: 0.82
+    
+``` r
+cat("The specificity of the model for", n, "repetitions is:", round(avg.spec/n, digits = 2))
+```
+
+    ## The specificity of the model for 10 repetitions is: 0.48
+    
+``` r
 ## STANDARD DEVIATIONS OF ACCURACY, SPECIFICITY, SENSITIVITY
 cat("The standard deviation of the accuracy for", n, "repetitions is:", round(sd(acc.total),3))
+```
+
+    ## The standard deviation of the accuracy for 10 repetitions is: 0.007
+    
+``` r
 cat("The standard deviation of the sensitivity for", n, "repetitions is:", round(sd(sens.total),3))
+```
+
+    ## The standard deviation of the sensitivity for 10 repetitions is: 0.03
+    
+``` r
 cat("The standard deviation of the specificity for", n, "repetitions is:", round(sd(spec.total),3))
 ```
+
+    ## The standard deviation of the specificity for 10 repetitions is: 0.043
 
 Last but not least, the following graphs create a bigger picture between the trade-off of Sensitivity and Specificity so as to have a wider sense of the performance of the machine learning model. The AUC value, which stands for Area Under the Curve, is another validation value that was put for cross-reference with the Accuracy, Sensitivity and Specificity.
 
