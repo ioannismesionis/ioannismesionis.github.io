@@ -39,27 +39,27 @@ data <- read.csv("CTM_DataScientistCaseStudy.csv")
 ## EXPLORE HOW THE DATA LOOKS
 dim(data)  ## 100.000   6
 ```
-  ## [1] 100000      6
+    ## [1] 100000      6
 ``` r
 head(data)
 ```
-  ##   UserID Age UserSegment  Recency PriorEvent Event
-  ## 1      1  56           A Inactive          0     0
-  ## 2      2  39           A Inactive          0     0
-  ## 3      3  62           A   Active          1     1
-  ## 4      4  29           C Inactive          0     0
-  ## 5      5  41           C  Dormant          0     0
-  ## 6      6  53           A   Active          1     1
+    ##   UserID Age UserSegment  Recency PriorEvent Event
+    ## 1      1  56           A Inactive          0     0
+    ## 2      2  39           A Inactive          0     0
+    ## 3      3  62           A   Active          1     1
+    ## 4      4  29           C Inactive          0     0
+    ## 5      5  41           C  Dormant          0     0
+    ## 6      6  53           A   Active          1     1
 ``` r
 tail(data)
 ```
-  ##        UserID Age UserSegment Recency PriorEvent Event
-  ## 99995   99995  23           C  Active          0     0
-  ## 99996   99996  43           C  Active          0     0
-  ## 99997   99997  58           C  Active          0     0
-  ## 99998   99998  70           A  Active          0     0
-  ## 99999   99999  24           C  Active          0     0
-  ## 100000 100000  45           C  Active          0     0
+    ##        UserID Age UserSegment Recency PriorEvent Event
+    ## 99995   99995  23           C  Active          0     0
+    ## 99996   99996  43           C  Active          0     0
+    ## 99997   99997  58           C  Active          0     0
+    ## 99998   99998  70           A  Active          0     0
+    ## 99999   99999  24           C  Active          0     0
+    ## 100000 100000  45           C  Active          0     0
 
 
 The data consists of 100.000 instances (i.e. customers) and 6 columns that correspond to
@@ -68,8 +68,8 @@ The data consists of 100.000 instances (i.e. customers) and 6 columns that corre
 ## EXPLORE THE ATTRIBUTES OF THE DATA
 colnames(data)
 ```
-  ## [1] "UserID"      "Age"         "UserSegment" "Recency"     "PriorEvent" 
-  ## [6] "Event"
+    ## [1] "UserID"      "Age"         "UserSegment" "Recency"     "PriorEvent" 
+    ## [6] "Event"
 
 We observe that there are no duplicated entries in the data and that every user ID is unique and corresponds to a single individual. 
 
