@@ -39,10 +39,13 @@ data <- read.csv("CTM_DataScientistCaseStudy.csv")
 ## EXPLORE HOW THE DATA LOOKS
 dim(data)  ## 100.000   6
 ```
+
     ## [1] 100000      6
+
 ``` r
 head(data)
 ```
+
     ##   UserID Age UserSegment  Recency PriorEvent Event
     ## 1      1  56           A Inactive          0     0
     ## 2      2  39           A Inactive          0     0
@@ -50,9 +53,11 @@ head(data)
     ## 4      4  29           C Inactive          0     0
     ## 5      5  41           C  Dormant          0     0
     ## 6      6  53           A   Active          1     1
+
 ``` r
 tail(data)
 ```
+
     ##        UserID Age UserSegment Recency PriorEvent Event
     ## 99995   99995  23           C  Active          0     0
     ## 99996   99996  43           C  Active          0     0
@@ -68,6 +73,7 @@ The data consists of 100.000 instances (i.e. customers) and 6 columns that corre
 ## EXPLORE THE ATTRIBUTES OF THE DATA
 colnames(data)
 ```
+
     ## [1] "UserID"      "Age"         "UserSegment" "Recency"     "PriorEvent" 
     ## [6] "Event"
 
