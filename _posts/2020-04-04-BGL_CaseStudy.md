@@ -1,7 +1,10 @@
 ---
 layout: post
-title: test
-
+title: User-Product Engagement
+subtitle: My first project ever!
+bigimg: /img/product-user/bigimg-user-product.jpg
+image: /img/product-user/image-click.png
+tags: [supervised-learning, R, classification, lasso, logistic-regression, roc-curve]
 ---
 
 ## Introduction
