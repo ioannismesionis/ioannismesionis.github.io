@@ -40,6 +40,7 @@ data <- read.csv("CTM_DataScientistCaseStudy.csv")
 dim(data)  ## 100.000   6
 ```
 
+
     ## [1] 100000      6
 
 ``` r
@@ -53,6 +54,7 @@ head(data)
     ## 4      4  29           C Inactive          0     0
     ## 5      5  41           C  Dormant          0     0
     ## 6      6  53           A   Active          1     1
+
 
 ``` r
 tail(data)
