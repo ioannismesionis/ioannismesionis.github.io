@@ -2,7 +2,7 @@
 layout: post
 title: An R-tistict Application
 subtitle: R Shiny Template
-image: /img/r-shiny-template/r-shiny-logo.png
+image: /img/r-shiny-template/r.png
 bigimg: /img/r-shiny-template/analytics-r-shiny.jpg
 tags: [R, shiny, template]
 ---
