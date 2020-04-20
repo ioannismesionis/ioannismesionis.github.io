@@ -11,7 +11,7 @@ Shiny is an R package that makes it easy to build interactive web apps straight 
 
 Shiny combines the computational power of R with the interactivity of the modern web.
 
-The purpose of this post is to present a minimalistic R shiny app I developed some time ago. The full code is present on my GitHub repository. [I'm an inline-style link with title](https://github.com/ioannismesionis/r-shiny-template "GitHub Repository").
+The purpose of this post is to present a minimalistic R shiny app I developed some time ago. The full code is present on my GitHub repository. [GitHub Repository](https://github.com/ioannismesionis/r-shiny-template "GitHub Repository").
 
 For sample images, please see below.
 
@@ -20,4 +20,4 @@ R Shiny Template
 
 The welcome page of the app let's you upload a file. 
 
-![](/img/r-shiny-template/about.png)
+![](/img/r-shiny-template/upload.png)
