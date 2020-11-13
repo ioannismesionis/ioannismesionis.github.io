@@ -58,6 +58,13 @@ A **sampling distribution** is the probability distribution of a sample statisti
 
 In general, we would expect the sampling the mean of the sampling distribution to be approximately equivalent to the population mean i.e. E(x̄) = μ
 
+## 2.4 Standard Error
+The **standard error** quantifies the variation in the means from multiple sets of measurements.
+
+[![](http://img.youtube.com/vi/A82brFpdr9g/0.jpg)](https://www.youtube.com/watch?v=A82brFpdr9g)
+
+
+
 # 3. Hypothesis Testing
 # 3.1 Critical Region
 # 3.2 P-Value
