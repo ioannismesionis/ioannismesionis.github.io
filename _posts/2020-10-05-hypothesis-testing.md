@@ -9,7 +9,8 @@ tags: [statistics, inference, hypothesis-testing, p-value, critical-region, deci
 Let the decision begin!
 
 # 1. Introduction
-As a data science geek, I constantly try to base a decision based on data and facts rather than gut feeling. I see it more like a game, to be honest, _"What would data tell me?"_
+As a data science geek, I constantly try to base a decision based on data and facts rather than gut feeling. <br>
+I see it more like a game, to be honest, _"What would data tell me?"_
 
 ![](/img/hypothesis-testing/Data-has-a-better-idea.jpg)
 
@@ -53,7 +54,7 @@ _Examples:_ Sample mean (x̄), Sample Variance (S²), Sample proportion(p)
 ## 2.3 Sample Distribution
 A **sampling distribution** is the probability distribution of a sample statistic that is formed when samples of size _n_ are repeatedly taken from a population. If the sample statistic is the sample mean, then the distribution is called the sampling distribution of sample means.
 
-![Parameter and Statistics by reddit](/img/hypothesis-testing/sampling_distribution.jpeg)
+![Parameter and Statistics by reddit](/img/hypothesis-testing/sampling_distribution.jpg)
 
 In general, we would expect the sampling the mean of the sampling distribution to be approximately equivalent to the population mean i.e. E(x̄) = μ
 
@@ -64,8 +65,11 @@ In general, we would expect the sampling the mean of the sampling distribution t
 # Conclusion
 
 # References
-![Everything you need to know about hypothesis testing](https://towardsdatascience.com/everything-you-need-to-know-about-hypothesis-testing-part-i-4de9abebbc8a)
-![What is a Parameter in Statistics](https://www.statisticshowto.com/what-is-a-parameter-statisticshowto/)
-![Sample distribution](https://mathbitsnotebook.com/Algebra2/Statistics/STsamplingVariability.html)
-![What is sampling distribution](https://www.investopedia.com/terms/s/sampling-distribution.asp#:~:text=A%20sampling%20distribution%20is%20a,a%20statistic%20of%20a%20population.)
+[Everything you need to know about hypothesis testing](https://towardsdatascience.com/everything-you-need-to-know-about-hypothesis-testing-part-i-4de9abebbc8a)
+
+[What is a Parameter in Statistics](https://www.statisticshowto.com/what-is-a-parameter-statisticshowto/)
+
+[Sample distribution](https://mathbitsnotebook.com/Algebra2/Statistics/STsamplingVariability.html)
+
+[What is sampling distribution](https://www.investopedia.com/terms/s/sampling-distribution.asp#:~:text=A%20sampling%20distribution%20is%20a,a%20statistic%20of%20a%20population.)
 
