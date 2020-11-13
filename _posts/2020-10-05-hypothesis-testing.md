@@ -61,13 +61,38 @@ In general, we would expect the sampling the mean of the sampling distribution t
 ## 2.4 Standard Error
 The **standard error** quantifies the variation in the means from multiple sets of measurements.
 
+A confusion that usually arises in regards to the Standard Error is what is the difference with the standard deviation. And understandably given that both are measures of spread. Frankly, these two terms are equal with one main difference. <br>
+While the standard error uses statistics (sample data) standard deviation use parameters (population data).
+
+In nutshell, standard error tells you how far your sample statistic (like the sample mean) deviates from the actual population mean. The larger your sample size, the smaller the SE. In other words, the larger your sample size, the closer your sample mean is to the actual population mean.
+
+If this still does not make sense, please make sure to check this video from StatQuest with some useful visualisation to capture the difference between standard error and stardard deviation
+
 [![](http://img.youtube.com/vi/A82brFpdr9g/0.jpg)](https://www.youtube.com/watch?v=A82brFpdr9g)
 
-
-
 # 3. Hypothesis Testing
-# 3.1 Critical Region
-# 3.2 P-Value
+PUT THE APPROACH HERE
+
+Now that we have the framework to conduct our experiment, my friend and I were ready to collect the data and see what fate has to say.
+
+## 3.1 Formulate Hypothesis
+We take out a (fare?) coin from our pockets and we are ready to throw it. We randomly assigned success as landing Heads and if the (extreme) result was in favor of Heads, I would proceed with the purchase. <br>
+The hypothesis formulation is quite straightforward:
+
+\\[H_{0}: π = 0.5 \\]: The coin is fare (Fate does not care) **VS** \\[H_{1}: π > 0.5\\]: The coin is _not_ fare (Fate intervened)
+ 
+That means that I would expect the true proportion of landing Heads to be 0.5 (i.e. 50%) as opposed to the alternative saying that is larger.  
+ 
+## 3.2 Collect Data
+Recall, that I would throw the coin 7 times - and 7 times I did! <br>
+The outcome was the following:
+* Head (H): 6 times out of 7
+* Tails (T): 1 time out of 7.
+
+We can easily understand that the sample proportion p = 0.86
+
+# 3.3.1 Critical Region
+# 3.3.2 P-Value
 
 # Conclusion
 
@@ -79,4 +104,9 @@ The **standard error** quantifies the variation in the means from multiple sets 
 [Sample distribution](https://mathbitsnotebook.com/Algebra2/Statistics/STsamplingVariability.html)
 
 [What is sampling distribution](https://www.investopedia.com/terms/s/sampling-distribution.asp#:~:text=A%20sampling%20distribution%20is%20a,a%20statistic%20of%20a%20population.)
+
+[Standard error of a sample](https://www.statisticshowto.com/what-is-the-standard-error-of-a-sample/)
+
+
+
 
