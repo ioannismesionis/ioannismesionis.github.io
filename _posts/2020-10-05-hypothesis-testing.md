@@ -91,6 +91,11 @@ The outcome was the following:
 
 We can easily understand that the sample proportion p = 0.86
 
+One interesting thing to note here is that under the assumption of the null hypothesis, sample proportions pˆ should follow an approximately normal distribution. <br>
+This is established thanks to the [Central-Limit theorem](https://sphweb.bumc.bu.edu/otlt/mph-modules/bs/bs704_probability/BS704_Probability12.html#:~:text=The%20central%20limit%20theorem%20states,will%20be%20approximately%20normally%20distributed.) which states that if you have a population with mean μ and standard deviation σ and take sufficiently large random samples from the population with replacement, then the distribution of the sample means will be approximately normally distributed.
+
+Therefore, I know that my sampling distribution ~ N(m = p = 0.5, $\sigma$  σ = 
+
 # 3.3.1 Critical Region
 # 3.3.2 P-Value
 
