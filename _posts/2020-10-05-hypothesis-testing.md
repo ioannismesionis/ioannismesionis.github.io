@@ -61,14 +61,26 @@ In general, we would expect the sampling the mean of the sampling distribution t
 ## 2.4 Standard Error
 The **standard error** quantifies the variation in the means from multiple sets of measurements.
 
-A confusion that usually arises in regards to the Standard Error is what is the difference with the standard deviation. And understandably given that both are measures of spread. Frankly, these two terms are equal with one main difference. <br>
+A confusion that usually arises in regards to the Standard Error is what is the difference with the standard deviation. And understandably given that both are measures of spread. Frankly, these two terms are equal to one main difference. <br>
 While the standard error uses statistics (sample data) standard deviation use parameters (population data).
 
-In nutshell, standard error tells you how far your sample statistic (like the sample mean) deviates from the actual population mean. The larger your sample size, the smaller the SE. In other words, the larger your sample size, the closer your sample mean is to the actual population mean.
+In nutshell, the standard error tells you how far your sample statistic (like the sample mean) deviates from the actual population mean. The larger your sample size, the smaller the SE. In other words, the larger your sample size, the closer your sample mean is to the actual population mean.
 
-If this still does not make sense, please make sure to check this video from StatQuest with some useful visualisation to capture the difference between standard error and stardard deviation
+If this still does not make sense, please make sure to check this video from StatQuest with some useful visualisation to capture the difference between standard error and standard deviation
 
 [![](http://img.youtube.com/vi/A82brFpdr9g/0.jpg)](https://www.youtube.com/watch?v=A82brFpdr9g)
+
+## 2.5 Type I & Type II error
+When we use the power of statistics, we are interested in making wise decisions based on data. We want to know if our action is well justified by substantial evidence - the evidence we observed. <br>
+However, even in the presence of data, it is easy to be tricked and take a false decision due to an outcome that was observed by chance and not by an actual effect that is present in our population. These errors are known as the Type I & Type II error.
+
+*Type I error <br>
+**Type I error** occurs when an effect was captured by chance and we reject the null hypothesis when the null hypothesis is actually true
+
+*Type II error <br>
+**Type II error** occurs when the null hypothesis is not rejected when it is, in fact, false, i.e. an effect is actually present but we failed to detect it.
+
+![](/img/hypothesis-testing/errors.jpg)
 
 # 3. Hypothesis Testing
 PUT THE APPROACH HERE
@@ -76,7 +88,7 @@ PUT THE APPROACH HERE
 Now that we have the framework to conduct our experiment, my friend and I were ready to collect the data and see what fate has to say.
 
 ## 3.1 Formulate Hypothesis
-We take out a (fare?) coin from our pockets and we are ready to throw it. We randomly assigned success as landing Heads and if the (extreme) result was in favor of Heads, I would proceed with the purchase. <br>
+We take out a (fare?) coin from our pockets and we are ready to throw it. We randomly assigned success as landing Heads and if the (extreme) result was in favour of Heads, I would proceed with the purchase. <br>
 The hypothesis formulation is quite straightforward:
 
 \\[H_{0}: π = 0.5 \\]: The coin is fare (Fate does not care) **VS** \\[H_{1}: π > 0.5\\]: The coin is _not_ fare (Fate intervened)
@@ -94,10 +106,38 @@ We can easily understand that the sample proportion p = 0.86
 One interesting thing to note here is that under the assumption of the null hypothesis, sample proportions pˆ should follow an approximately normal distribution. <br>
 This is established thanks to the [Central-Limit theorem](https://sphweb.bumc.bu.edu/otlt/mph-modules/bs/bs704_probability/BS704_Probability12.html#:~:text=The%20central%20limit%20theorem%20states,will%20be%20approximately%20normally%20distributed.) which states that if you have a population with mean μ and standard deviation σ and take sufficiently large random samples from the population with replacement, then the distribution of the sample means will be approximately normally distributed.
 
-Therefore, I know that my sampling distribution ~ N(m = p = 0.5, $$\sigma$$  σ = 
+Therefore, I know that my sampling distribution pˆ ~ N(m = p = 0.5, σ = SE =  sqr(pq/n) = 0.19) thanks to CLT. <br>
+<u>Note:</u> For the central limit theorem to stand, there are some conditions that have to be met. For the sake of my game, I assume that they stand even though I am aware that this is not true (e.g. according to CLT, np >= 10 which does not hold in our case).
 
-# 3.3.1 Critical Region
-# 3.3.2 P-Value
+Excellent!
+
+In order to make up my mind now, all I want to know is how extreme my observation is(i.e. the outcome of my coin tosses) under the null hypothesis. In other words, how ridiculous do my observations make my null hypothesis look? <br>
+If they make it look more ridiculous than a specific tolerance level, then I can conclude that I have strong evidence to reject my null hypothesis.
+
+There are two approaches we can follow and we will discuss both of them. We are also going to include some additional terminology along the way such as the tolerance threshold I mentioned - spoiler alert; this is the significance level (a).
+
+## 3.3 Inference
+
+#### P-Value
+In statistical testing, the **p-value** is the probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is correct.
+It measures how compatible your data are with the null hypothesis. How likely the effect observed in your sample data if the null hypothesis is true?
+
+
+
+### Significance Level
+
+
+### 3.3.1 Critical Region
+
+    
+
+## 3.3.2 P-Value
+
+z = pˆ - p / SE = 0.86 - 0.5 / 0.19 = 1.89
+
+p-value = P (Z > 1.89) = 1  - P(Z < 1.89) = 1 - 0.9706 = 0.0294 
+
+# 3.3.3 Decision Making
 
 # Conclusion
 
@@ -112,6 +152,5 @@ Therefore, I know that my sampling distribution ~ N(m = p = 0.5, $$\sigma$$  σ 
 
 [Standard error of a sample](https://www.statisticshowto.com/what-is-the-standard-error-of-a-sample/)
 
-
-
+[What is a p-value](https://www.investopedia.com/terms/p/p-value.asp)
 
