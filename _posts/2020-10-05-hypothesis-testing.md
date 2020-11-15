@@ -94,9 +94,9 @@ We take out a (fare?) coin from our pockets and we are ready to throw it. We ran
 
 The hypothesis formulation is quite straightforward:
 
-```
-\\[H_{0}: π = 0.5 \\]: The coin is fare (Fate does not care) <--> \\[H_{1}: π > 0.5\\]: The coin is _not_ fare (Fate intervened)
-```
+
+$$H_{0}: π = 0.5$$ : The coin is fare (Fate does not care) <--> $$H_{1}: π > 0.5:$$ The coin is _not_ fare (Fate intervened)
+
 
 That means that I would expect the true proportion of landing Heads to be 0.5 (i.e. 50%) as opposed to the alternative saying that is larger.  
  
