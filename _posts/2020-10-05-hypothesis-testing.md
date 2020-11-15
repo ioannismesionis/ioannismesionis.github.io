@@ -154,6 +154,10 @@ For the z-score, we use the following formula:
 
 \\[z = frac{p^{^} - p}{SE}\\]
 
+$z = \frac{2}{3}$
+
+$$z = \frac{2}{3}$$
+
 Doing the maths, z = (pˆ - p) / SE = (0.86 - 0.5) / 0.19 = 1.89.
 
 ### 3.3.2 Approach - p-value
