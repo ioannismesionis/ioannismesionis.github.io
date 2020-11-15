@@ -94,7 +94,7 @@ We take out a (fare?) coin from our pockets and we are ready to throw it. We ran
 
 The hypothesis formulation is quite straightforward:
 
-\\[H_{0}: π = 0.5: The coin is fare (Fate does not care) \leftrightarrow H_{1}: π > 0.5: The coin is _not_ fare (Fate intervened)\\]
+$$ H_{0}: \pi = 0.5: The coin is fare (Fate does not care) \leftrightarrow H_{1}: \pi > 05: The coin is _not_ fare (Fate intervened) $$
 
 That means that I would expect the true proportion of landing Heads to be 0.5 (i.e. 50%) as opposed to the alternative saying that is larger.  
  
@@ -109,10 +109,9 @@ We can easily understand that the sample proportion p = 0.86
 One interesting thing to note here is that under the assumption of the null hypothesis, sample proportions pˆ  should follow an approximately normal distribution. <br>
 This is established thanks to the [Central-Limit theorem](https://sphweb.bumc.bu.edu/otlt/mph-modules/bs/bs704_probability/BS704_Probability12.html#:~:text=The%20central%20limit%20theorem%20states,will%20be%20approximately%20normally%20distributed.) which states that if you have a population with mean μ and standard deviation σ and take sufficiently large random samples from the population with replacement, then the distribution of the sample means will be approximately normally distributed.
 
-Therefore, I know that my sampling distribution is:
+Therefore, I know that, thanks to CLT, my sampling distribution is:
 
-\\[p_{^} \sim \mathcal{N}(\mu = p = 0.5, σ = SE = \sqrt{\frac{pg}{n}} = 0.19 \\]pˆ  ~ N(m = p = 0.5, σ = SE =  sqr(pq/n) = 0.19) thanks to CLT.
-
+$$ \\hat{p} \sim \mathcal{N}(\mu = p = 0.5, \sigma = SE = \sqrt{2}{\frac{pq}{n}} = 0.19 $$
 
 <u>Note:</u> For the central limit theorem to stand, some conditions have to be met. For the sake of my game, I assume that they stand even though I am aware that this is not true (e.g. according to CLT, np >= 10 which does not hold in our case).
 
@@ -136,7 +135,7 @@ In statistical testing, the **p-value** is the probability of obtaining test res
 It measures how compatible your data are with the null hypothesis. How likely the effect observed in your sample data if the null hypothesis is true?
 
 ### 3.3.1 Approach - Critical Region
-For the **critical region approach**, we are only interested to capture the z-score that will mark the "borbers" of the critical region and compare it with our z-score. By having a significance level of 0.05, we want to find the Zα value as shown below
+For the **critical region approach**, we are only interested to capture the z-score that will mark the "borbers" of the critical region and compare it with our z-score. By having a significance level of 0.05, we want to find the $z_{α}$ value as shown below
 
 ![Photo by http://www.math.iup.edu/](/img/hypothesis-testing/one-tailed-page.PNG)
 
@@ -146,7 +145,7 @@ The picture below might be able to show a nice visual if that was not clear.
 
 ![z-table](/img/hypothesis-testing/z-table.PNG)
 
-Using the z-table, we find that the z-score that marks the critical region is 1.645. In other words, Z{α} = 1.645
+Using the z-table, we find that the z-score that marks the critical region is 1.645. In other words, $z_{α}$ = 1.645
 
 Now, we need to calculate the z-score of our sample and compare it with the z-score of the critical region to know whether falls within the critical region or not.
 
@@ -154,7 +153,7 @@ For the z-score, we use the following formula:
 
 $$ z = \frac{\hat{p} - p}{SE} $$
 
-Doing the maths, $ z = \frac{\hat{p} - p}{SE} = \frac{0.86 - 0.5}{0.19} = 1.89 $
+Doing the maths, $ z = \frac{\hat{p} - p}{SE} = \frac{0.86 - 0.5}{0.19} = $ 1.89 
 
 ### 3.3.2 Approach - p-value
 We said before that a p-value is the probability of observing a result at least as extreme as the result observed. In other words, we want to know that if we live in the world that the null hypothesis is true, how extreme or how probable my observation of 6 heads and 1 tail would be. 
@@ -162,13 +161,13 @@ We said before that a p-value is the probability of observing a result at least 
 _This is what the p-value will tell me._
 
 To calculate the p-value, I need to find the z-score following the formula mentioned above. <br>
-To recall, $ z = \frac{\hat{p} - p}{SE} = \frac{0.86 - 0.5}{0.19} = 1.89 $
+To recall, $ z = \frac{\hat{p} - p}{SE} = \frac{0.86 - 0.5}{0.19} = $ 1.89 
 
 Given that we have the z-value, we use the [z-table](http://www.z-table.com/) probabilities to find our p-value
 
 ![z-table](/img/hypothesis-testing/z-table.PNG)
 
-p-value = $Prob(\hat{p} > 1.89) = 1  - P(Z < 1.89) = 1 - 0.9706 = 0.0294$
+$ p-value = P(\hat{p} > 1.89) = 1  - P(Z < 1.89) = 1 - 0.9706 = 0.0294$
 
 Our _p-value is 0.0294._
 
@@ -180,7 +179,7 @@ I was interested to know if the coin was fare (i.e. not buy my beloved product) 
 Let's go ahead and take our decision for our two approaches - Exciting stuff!
 
 ## 4.2 Critical Region
-For the critical region approach, we calculated that our z-score = 1.89 whereas the z-score of the critical region (denoted as Z{α}) is 1.645.
+For the critical region approach, we calculated that our z-score = 1.89 whereas the z-score of the critical region (denoted as $ z_{α} $) is 1.645.
 
 Given than 1.645 < 1.89 (hence our z-score falls within the critical region), we conclude that we reject the null hypothesis and that we have significant evidence to say that I can proceed and buy the product - _yeah!_
 
