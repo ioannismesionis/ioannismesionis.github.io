@@ -133,7 +133,7 @@ For the sake of our example, we will use a confidence level (a) equal to 0.05. (
 ### 3.3.1 Critical Region
 For the critical region, we are only interested to capture the z-score that will mark the borbers of the critical region a compare it with our z-score. By having a significance level of 0.05, we want to find the Za value as shown below
 
-![Photo by http://www.math.iup.edu/](/img/hypothesis-testing/one-tail-rejection-region-1.jpg)
+![Photo by http://www.math.iup.edu/](/img/hypothesis-testing/one-tailed-page.PNG)
 
 We can use the [z-table](http://www.z-table.com/) to find the z-score. We are interested to find the z-score from which point on, the shaded area (hence the probability) is 0.05 (i.e. 5%). Hence, we are interested for the shaded area that gives as a probability of 1 - a = 1 - 0.05 = 0.95. The picture below might be able to show a nice visual if that was not clear.
 
