@@ -94,9 +94,7 @@ We take out a (fare?) coin from our pockets and we are ready to throw it. We ran
 
 The hypothesis formulation is quite straightforward:
 
-\\[H_{0}: π = 0.5\\] : The coin is fare (Fate does not care) \\[leftrightarrow\\] \\[H_{1}: π > 0.5\\] The coin is _not_ fare (Fate intervened)
-
-Latex: \\[H_{0}: π = 0.5\\]
+\\[H_{0}: π = 0.5: The coin is fare (Fate does not care) \leftrightarrow H_{1}: π > 0.5: The coin is _not_ fare (Fate intervened)\\]
 
 That means that I would expect the true proportion of landing Heads to be 0.5 (i.e. 50%) as opposed to the alternative saying that is larger.  
  
@@ -154,9 +152,7 @@ Now, we need to calculate the z-score of our sample and compare it with the z-sc
 
 For the z-score, we use the following formula:
 
-```
-z = pˆ - p / SE
-```
+\\[z = \frac{p^{^} - p}{SE}\\]
 
 Doing the maths, z = (pˆ - p) / SE = (0.86 - 0.5) / 0.19 = 1.89.
 
