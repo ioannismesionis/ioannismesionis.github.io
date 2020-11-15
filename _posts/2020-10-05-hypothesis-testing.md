@@ -94,7 +94,7 @@ We take out a (fare?) coin from our pockets and we are ready to throw it. We ran
 
 The hypothesis formulation is quite straightforward:
 
-$$H_{0}: π = 0.5$$ : The coin is fare (Fate does not care) <--> $$H_{1}: π > 0.5:$$ The coin is _not_ fare (Fate intervened)
+\\[H_{0}: π = 0.5\\] : The coin is fare (Fate does not care) \\[leftrightarrow\\] \\[H_{1}: π > 0.5\\] The coin is _not_ fare (Fate intervened)
 
 Latex: \\[H_{0}: π = 0.5\\]
 
@@ -113,9 +113,8 @@ This is established thanks to the [Central-Limit theorem](https://sphweb.bumc.bu
 
 Therefore, I know that my sampling distribution is:
 
-```
-pˆ  ~ N(m = p = 0.5, σ = SE =  sqr(pq/n) = 0.19) thanks to CLT.
-```
+\\[p_{^} \sim \mathcal{N}(\mu = p = 0.5, σ = SE = \sqrt{\frac{pg}{n}} = 0.19 \\]pˆ  ~ N(m = p = 0.5, σ = SE =  sqr(pq/n) = 0.19) thanks to CLT.
+
 
 <u>Note:</u> For the central limit theorem to stand, some conditions have to be met. For the sake of my game, I assume that they stand even though I am aware that this is not true (e.g. according to CLT, np >= 10 which does not hold in our case).
 
@@ -124,7 +123,7 @@ Excellent!
 ## 3.3 Inference
 To make up my mind now, all I want to know is how extreme my observation is (i.e. the outcome of my coin tosses) under the null hypothesis. In other words, how ridiculous do my observations make my null hypothesis look; If they make it look more ridiculous than a specific tolerance level, then I can conclude that I have strong evidence to reject my null hypothesis.
 
-There are two approaches we can follow and we will discuss both of them. We are also going to include some additional terminology along the way such as the tolerance threshold I mentioned - spoiler alert; this is the significance level (a).
+There are two approaches we can follow and we will discuss both of them. We are also going to include some additional terminology along the way such as the tolerance threshold I mentioned - spoiler alert; this is the significance level (α).
 
 ### Significance Level
 The probability of making a Type-I error is denoted by alpha (α). Alpha is the maximum probability that we have a Type-I error. For a 95% confidence level, the value of alpha is 0.05 (i.e. 5%). This means that there is a 5% probability that we will reject a true null hypothesis.
