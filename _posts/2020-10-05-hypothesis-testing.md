@@ -152,13 +152,9 @@ Now, we need to calculate the z-score of our sample and compare it with the z-sc
 
 For the z-score, we use the following formula:
 
-\\[z = frac{p^{^} - p}{SE}\\]
+$$ z = \frac{\hat{p} - p}{SE} $$
 
-$z = \frac{2}{3}$
-
-$$z = \frac{2}{3}$$
-
-Doing the maths, z = (pˆ - p) / SE = (0.86 - 0.5) / 0.19 = 1.89.
+Doing the maths, $ z = \frac{\hat{p} - p}{SE} = \frac{0.86 - 0.5}{0.19} = 1.89 $
 
 ### 3.3.2 Approach - p-value
 We said before that a p-value is the probability of observing a result at least as extreme as the result observed. In other words, we want to know that if we live in the world that the null hypothesis is true, how extreme or how probable my observation of 6 heads and 1 tail would be. 
@@ -166,13 +162,13 @@ We said before that a p-value is the probability of observing a result at least 
 _This is what the p-value will tell me._
 
 To calculate the p-value, I need to find the z-score following the formula mentioned above. <br>
-To recall, z = (pˆ - p) / SE = 0.86 - 0.5 / 0.19 = 1.89
+To recall, $ z = \frac{\hat{p} - p}{SE} = \frac{0.86 - 0.5}{0.19} = 1.89 $
 
 Given that we have the z-value, we use the [z-table](http://www.z-table.com/) probabilities to find our p-value
 
 ![z-table](/img/hypothesis-testing/z-table.PNG)
 
-p-value = Prob(pˆ > 1.89) = 1  - P(Z < 1.89) = 1 - 0.9706 = 0.0294
+p-value = $Prob(\hat{p} > 1.89) = 1  - P(Z < 1.89) = 1 - 0.9706 = 0.0294$
 
 Our _p-value is 0.0294._
 
