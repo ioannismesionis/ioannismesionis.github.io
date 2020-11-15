@@ -152,7 +152,7 @@ Now, we need to calculate the z-score of our sample and compare it with the z-sc
 
 For the z-score, we use the following formula:
 
-\\[z = \frac{p^{^} - p}{SE}\\]
+\\[z = frac{p^{^} - p}{SE}\\]
 
 Doing the maths, z = (pˆ - p) / SE = (0.86 - 0.5) / 0.19 = 1.89.
 
