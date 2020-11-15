@@ -4,11 +4,13 @@ title: Hypothesis Testing
 subtitle: How I make up my mind!
 bigimg: /img/hypothesis-testing/bigimg-choice2.jpg
 image: /img/hypothesis-testing/choice.jpg
-tags: [statistics, inference, hypothesis-testing, p-value, critical-region, decision-making]
+tags: [statistics, inference, hypothesis-testing, proportion, p-value, critical-region, decision-making]
 ---
 
+Hypothesis testing in statistics is a way for you to test the results of a survey or experiment to see if you have meaningful results. You’re basically testing whether your results are valid by figuring out the odds that your results have happened by chance. If your results may have happened by chance, the experiment won’t be repeatable and so has little use.
+
 # 1. Introduction
-As a data science geek, I constantly try to base a decision based on data and facts rather than gut feeling.
+As a data science geek, I constantly try to base a decision based on data and facts rather than gut feelings.
 
 I see it more like a game - _"What would data tell me?"_
 
@@ -48,7 +50,7 @@ A **Statistic** is, in a sense, opposite from the parameter and that is because 
 
 In real-world, it is not feasible to get a complete picture of a population. Therefore, we draw a sample out of the population to estimate the population parameter. The summary description of the sample is called (sample) statistics.
 
-_Examples:_ Sample mean (x̄), Sample Variance (S²), Sample proportion(p)
+_Examples:_ Sample mean (x̄), Sample Variance (S²), Sample proportion (p)
 
 ![Parameter and Statistics by reddit](/img/hypothesis-testing/sample_statistics.png)
 
@@ -74,28 +76,28 @@ If this still does not make sense, please make sure to check this video from Sta
 ## 2.5 Type I & Type II error
 When we use the power of statistics, we are interested in making wise decisions based on data. We want to know if our action is well justified by substantial evidence - the evidence we observed. However, even in the presence of data, it is easy to be tricked and take a false decision due to an outcome that was observed by chance and not by an actual effect that is present in our population. These errors are known as the Type I & Type II error.
 
-* Type I error <br>
-**Type I error** occurs when an effect was captured by chance and we reject the null hypothesis when the null hypothesis is true.
+* **Type I error** <br>
+_Type I error_ occurs when an effect was captured by chance and we reject the null hypothesis when the null hypothesis is true.
 
-* Type II error <br>
-**Type II error** occurs when the null hypothesis is not rejected when it is, in fact, false. <br>
+* **Type II error** <br>
+_Type II error_ occurs when the null hypothesis is not rejected when it is, in fact, false. <br>
 i.e. an effect is present but we failed to detect it.
 
 ![](/img/hypothesis-testing/errors.jpg)
 
 # 3. Hypothesis Testing
-Conducting a hypothesis testing, follows a specific methodology as shown in the image below
+Conducting a hypothesis testing follows a specific methodology as shown in the image below
 
 ![](/img/hypothesis-testing/ht-framework.png)
 
-We are going to follow that exact framework to conduct our experiment and without further due, my friend and I were ready to collect the data and see what fate has to say.
+We are going to follow that exact framework to conduct our experiment. And so, without further due, my friend and I were ready to collect the data and see what fate has to say.
 
 ## 3.1 Formulate Hypothesis
 We take out a (fare?) coin from our pockets and we are ready to throw it. We randomly assigned success as landing Heads and if the (extreme) result was in favour of Heads, I would proceed with the purchase.
 
 The hypothesis formulation is quite straightforward:
 
-$$ H_{0}: \pi = 0.5 \leftrightarrow H_{1}: \pi > 05 $$
+$$ H_{0}: \pi = 0.5 \leftrightarrow H_{1}: \pi > 0.5 $$
 
 That means that I would expect the true proportion of landing Heads to be 0.5 (i.e. 50%) as opposed to the alternative saying that is larger.  
  
@@ -105,9 +107,9 @@ The outcome was the following:
 * Head (H): 6 times out of 7
 * Tails (T): 1 time out of 7.
 
-We can easily understand that the sample proportion p = 0.86
+We can easily understand that the sample proportion equals p = 0.86
 
-One interesting thing to note here is that under the assumption of the null hypothesis, sample proportions pˆ  should follow an approximately normal distribution. <br>
+One interesting thing to note here is that under the assumption of the null hypothesis, sample proportions $ \hat{p} $ should follow an approximately normal distribution. <br>
 This is established thanks to the [Central-Limit theorem](https://sphweb.bumc.bu.edu/otlt/mph-modules/bs/bs704_probability/BS704_Probability12.html#:~:text=The%20central%20limit%20theorem%20states,will%20be%20approximately%20normally%20distributed.) which states that if you have a population with mean μ and standard deviation σ and take sufficiently large random samples from the population with replacement, then the distribution of the sample means will be approximately normally distributed.
 
 Therefore, I know that, thanks to CLT, my sampling distribution is:
@@ -157,7 +159,7 @@ $$ z = \frac{\hat{p} - p}{SE} $$
 Doing the maths, $ z = \frac{\hat{p} - p}{SE} = \frac{0.86 - 0.5}{0.19} = $ 1.89 
 
 ### 3.3.2 Approach - p-value
-We said before that a p-value is the probability of observing a result at least as extreme as the result observed. In other words, we want to know that if we live in the world that the null hypothesis is true, how extreme or how probable my observation of 6 heads and 1 tail would be. 
+We said before that a **p-value** is the probability of observing a result at least as extreme as the result observed. In other words, we want to know that if we live in the world that the null hypothesis is true, how extreme or how probable my observation of 6 heads and 1 tail would be. 
 
 _This is what the p-value will tell me._
 
@@ -168,7 +170,7 @@ Given that we have the z-value, we use the [z-table](http://www.z-table.com/) pr
 
 ![z-table](/img/hypothesis-testing/z-table.PNG)
 
-$ p-value = P(\hat{p} > 1.89) = 1  - P(Z < 1.89) = 1 - 0.9706 = 0.0294$
+p-value $ = P(\hat{p} > 1.89) = 1  - P(Z < 1.89) = 1 - 0.9706 = 0.0294$
 
 Our _p-value is 0.0294._
 
@@ -177,7 +179,7 @@ With all of these calculations, we may have forgotten why we were doing the hypo
 
 I was interested to know if the coin was fare (i.e. not buy my beloved product) or if the coin was not fare (i.e. I would interpret that as fate telling me to buy the product by making me observe an extreme outcome).
 
-Let's go ahead and take our decision for our two approaches - Exciting stuff!
+Let's go ahead and take our decision for our two approaches - exciting stuff!
 
 ## 4.2 Critical Region
 For the critical region approach, we calculated that our z-score = 1.89 whereas the z-score of the critical region (denoted as $ z_{α} $) is 1.645.
