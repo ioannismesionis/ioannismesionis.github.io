@@ -4,10 +4,10 @@ title: Hypothesis Testing
 subtitle: How I make up my mind!
 bigimg: /img/hypothesis-testing/bigimg-choice2.jpg
 image: /img/hypothesis-testing/choice.jpg
-tags: [statistics, inference, hypothesis-testing, proportion, p-value, critical-region, decision-making]
+tags: [statistics, inference, hypothesis-testing, proportion, p-value, critical-region]
 ---
 
-Hypothesis testing in statistics is a way for you to test the results of a survey or experiment to see if you have meaningful results. You’re basically testing whether your results are valid by figuring out the odds that your results have happened by chance. If your results may have happened by chance, the experiment won’t be repeatable and so has little use.
+_**Hypothesis testing**_ in statistics is a way for you to test the results of a survey or experiment to see if you have meaningful results. You’re basically testing whether your results are valid by figuring out the odds that your results have happened by chance. If your results may have happened by chance, the experiment won’t be repeatable and so has little use.
 
 # 1. Introduction
 As a data science geek, I constantly try to base a decision based on data and facts rather than gut feelings.
