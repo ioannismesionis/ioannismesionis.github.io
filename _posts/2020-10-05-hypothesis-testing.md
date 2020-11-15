@@ -94,7 +94,7 @@ We take out a (fare?) coin from our pockets and we are ready to throw it. We ran
 
 The hypothesis formulation is quite straightforward:
 
-$$ H_{0}: \pi = 0.5: The coin is fare (Fate does not care) \leftrightarrow H_{1}: \pi > 05: The coin is _not_ fare (Fate intervened) $$
+$$ H_{0}: \pi = 0.5 \leftrightarrow H_{1}: \pi > 05 $$
 
 That means that I would expect the true proportion of landing Heads to be 0.5 (i.e. 50%) as opposed to the alternative saying that is larger.  
  
@@ -111,7 +111,7 @@ This is established thanks to the [Central-Limit theorem](https://sphweb.bumc.bu
 
 Therefore, I know that, thanks to CLT, my sampling distribution is:
 
-$$ \\hat{p} \sim \mathcal{N}(\mu = p = 0.5, \sigma = SE = \sqrt{2}{\frac{pq}{n}} = 0.19 $$
+$$ \hat{p} \sim \mathcal{N}(\mu = p = 0.5, \sigma = SE = \sqrt{\frac{pq}{n}}) = 0.19 $$
 
 <u>Note:</u> For the central limit theorem to stand, some conditions have to be met. For the sake of my game, I assume that they stand even though I am aware that this is not true (e.g. according to CLT, np >= 10 which does not hold in our case).
 
