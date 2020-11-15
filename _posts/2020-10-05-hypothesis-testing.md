@@ -84,8 +84,9 @@ i.e. an effect is present but we failed to detect it.
 ![](/img/hypothesis-testing/errors.jpg)
 
 # 3. Hypothesis Testing
-Conducting a hypothesis testing, follows a specific methodology as shown in the image below.
-PUT THE APPROACH HERE
+Conducting a hypothesis testing, follows a specific methodology as shown in the image below
+
+![](/img/hypothesis-testing/ht-framework.png)
 
 We are going to follow that exact framework to conduct our experiment and without further due, my friend and I were ready to collect the data and see what fate has to say.
 
