@@ -130,7 +130,7 @@ The significance levels during hypothesis testing is to help determine which hyp
 
 For the sake of our example, we will use a confidence level (a) equal to 0.05. (i.e. a = 0.05)
 
-### 3.3.1 Critical Region
+### 3.3.1 Approach - Critical Region
 For the critical region, we are only interested to capture the z-score that will mark the borbers of the critical region a compare it with our z-score. By having a significance level of 0.05, we want to find the Za value as shown below
 
 ![Photo by http://www.math.iup.edu/](/img/hypothesis-testing/one-tailed-page.PNG)
@@ -139,11 +139,11 @@ We can use the [z-table](http://www.z-table.com/) to find the z-score. We are in
 
 ![z-table](/img/hypothesis-testing/z-table.PNG)
 
-Using the z-table, we find that the z score that marks the critical region is 1.645
+Using the z-table, we find that the z score that marks the critical region is 1.645. In other words, z_{a} = 1.645
 
 z = pˆ - p / SE = 0.86 - 0.5 / 0.19 = 1.89.
 
-### 3.3.2 P-Value
+### 3.3.2 Approach - p-value
 We said before that a p-value is the probability of observing a result at least as extreme as the result observed. In other words, we want to know that if we live in the world that the null hypothesis is true, how extreme or how probable my observation of 6 heads and 1 tail would be. <br>
 This is what the p-value will tell me.
 
@@ -158,9 +158,29 @@ p-value = Prob(pˆ > 1.89) = 1  - P(Z < 1.89) = 1 - 0.9706 = 0.0294
 
 Our _p-value is 0.0294_
 
-# 3.3.3 Decision Making
+# 4. Decision Making
+With all of these calculations, we may have forgotten what we were doing the hypothesis testing in the first place. Let me refresh your memory!
 
-# Conclusion
+I was interested to know if the coin was fare (i.e. not buy my beloved product) or if the coin was not fare (i.e. I would interpret that as fate telling me to buy the product by making me observe an extreme outcome.)
+
+Let's go ahead and take our decision for our two approaches - Exciting stuff!
+
+## 4.2 Critical Region
+For the critical region approach, we calculated that our z-score = 1.89 where as the z-score of the critical region (denoted as z_{a}) is 1.645.
+
+Given than 1.645 < 1.89 (hence our z-score falls within the critical region), we conclude that we reject the null hypothesis and that we have significant evidence to say that I can proceed and buy the product (yeah!).
+
+## 4.3 P-Value
+We can expect that the p-value approach will yield the same result but for sanity's sake, let's interpret the results as well.
+
+For a significance level of 0.05 and a p-value of 0.0294, we can see that 0.0294 < 0.05. As a result, we conclude that we reject the null hypothesis and that we have significant evidence to say that I can proceed and buy the product (yeah! x2).
+
+# 5. Conclusion
+I hope you have enjoyed this read as much as I enjoyed writing it!
+
+The purpose of this post was to introduce a playful way of using hypothesis testing without going through the strict assumptions under the central limit theorem. Nevertheless, the mindset and methodology of conducting a hypothesis test can be used in any framework to make a wise decision under uncertainty.
+
+Cheers!
 
 # References
 [Everything you need to know about hypothesis testing](https://towardsdatascience.com/everything-you-need-to-know-about-hypothesis-testing-part-i-4de9abebbc8a)
