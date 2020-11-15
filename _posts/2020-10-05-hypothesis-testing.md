@@ -75,10 +75,10 @@ When we use the power of statistics, we are interested in making wise decisions 
 However, even in the presence of data, it is easy to be tricked and take a false decision due to an outcome that was observed by chance and not by an actual effect that is present in our population. These errors are known as the Type I & Type II error.
 
 *Type I error <br>
-**Type I error** occurs when an effect was captured by chance and we reject the null hypothesis when the null hypothesis is actually true
+**Type I error** occurs when an effect was captured by chance and we reject the null hypothesis when the null hypothesis is true
 
 *Type II error <br>
-**Type II error** occurs when the null hypothesis is not rejected when it is, in fact, false, i.e. an effect is actually present but we failed to detect it.
+**Type II error** occurs when the null hypothesis is not rejected when it is, in fact, false, i.e. an effect is present but we failed to detect it.
 
 ![](/img/hypothesis-testing/errors.jpg)
 
@@ -107,11 +107,11 @@ One interesting thing to note here is that under the assumption of the null hypo
 This is established thanks to the [Central-Limit theorem](https://sphweb.bumc.bu.edu/otlt/mph-modules/bs/bs704_probability/BS704_Probability12.html#:~:text=The%20central%20limit%20theorem%20states,will%20be%20approximately%20normally%20distributed.) which states that if you have a population with mean μ and standard deviation σ and take sufficiently large random samples from the population with replacement, then the distribution of the sample means will be approximately normally distributed.
 
 Therefore, I know that my sampling distribution pˆ ~ N(m = p = 0.5, σ = SE =  sqr(pq/n) = 0.19) thanks to CLT. <br>
-<u>Note:</u> For the central limit theorem to stand, there are some conditions that have to be met. For the sake of my game, I assume that they stand even though I am aware that this is not true (e.g. according to CLT, np >= 10 which does not hold in our case).
+<u>Note:</u> For the central limit theorem to stand, some conditions have to be met. For the sake of my game, I assume that they stand even though I am aware that this is not true (e.g. according to CLT, np >= 10 which does not hold in our case).
 
 Excellent!
 
-In order to make up my mind now, all I want to know is how extreme my observation is(i.e. the outcome of my coin tosses) under the null hypothesis. In other words, how ridiculous do my observations make my null hypothesis look? <br>
+To make up my mind now, all I want to know is how extreme my observation is(i.e. the outcome of my coin tosses) under the null hypothesis. In other words, how ridiculous do my observations make my null hypothesis look? <br>
 If they make it look more ridiculous than a specific tolerance level, then I can conclude that I have strong evidence to reject my null hypothesis.
 
 There are two approaches we can follow and we will discuss both of them. We are also going to include some additional terminology along the way such as the tolerance threshold I mentioned - spoiler alert; this is the significance level (a).
@@ -119,23 +119,44 @@ There are two approaches we can follow and we will discuss both of them. We are 
 ## 3.3 Inference
 
 #### P-Value
-In statistical testing, the **p-value** is the probability of obtaining test results at least as extreme as the results actually observed, under the assumption that the null hypothesis is correct.
+In statistical testing, the **p-value** is the probability of obtaining test results at least as extreme as the results observed, under the assumption that the null hypothesis is correct.
+
 It measures how compatible your data are with the null hypothesis. How likely the effect observed in your sample data if the null hypothesis is true?
 
-
-
 ### Significance Level
+The probability of making a Type-I error and it is denoted by alpha (α). Alpha is the maximum probability that we have a Type-I error. For a 95% confidence level, the value of alpha is 0.05 (i.e. 5%). This means that there is a 5% probability that we will reject a true null hypothesis.
 
+The significance levels during hypothesis testing is to help determine which hypothesis the data support. Is the threshold that measures the strength of the evidence that must be present in the sample before we can reject the null hypothesis and conclude that the effect is statistically significant.
+
+For the sake of our example, we will use a confidence level (a) equal to 0.05. (i.e. a = 0.05)
 
 ### 3.3.1 Critical Region
+For the critical region, we are only interested to capture the z-score that will mark the borbers of the critical region a compare it with our z-score. By having a significance level of 0.05, we want to find the Za value as shown below
 
-    
+![Photo by http://www.math.iup.edu/](/img/hypothesis-testing/one-tail-rejection-region-1.jpg)
 
-## 3.3.2 P-Value
+We can use the [z-table](http://www.z-table.com/) to find the z-score. We are interested to find the z-score from which point on, the shaded area (hence the probability) is 0.05 (i.e. 5%). Hence, we are interested for the shaded area that gives as a probability of 1 - a = 1 - 0.05 = 0.95. The picture below might be able to show a nice visual if that was not clear.
+
+![z-table](/img/hypothesis-testing/z-table.PNG)
+
+Using the z-table, we find that the z score that marks the critical region is 1.645
+
+z = pˆ - p / SE = 0.86 - 0.5 / 0.19 = 1.89.
+
+### 3.3.2 P-Value
+We said before that a p-value is the probability of observing a result at least as extreme as the result observed. In other words, we want to know that if we live in the world that the null hypothesis is true, how extreme or how probable my observation of 6 heads and 1 tail would be. <br>
+This is what the p-value will tell me.
+
+To calculate the p-value, I need to find the z-score.
+
+![z-table](/img/hypothesis-testing/z-table.PNG)
 
 z = pˆ - p / SE = 0.86 - 0.5 / 0.19 = 1.89
 
-p-value = P (Z > 1.89) = 1  - P(Z < 1.89) = 1 - 0.9706 = 0.0294 
+Given that we have the z-value, we use the [z-table](http://www.z-table.com/) probabilities to find our p-value: <br>
+p-value = Prob(pˆ > 1.89) = 1  - P(Z < 1.89) = 1 - 0.9706 = 0.0294
+
+Our _p-value is 0.0294_
 
 # 3.3.3 Decision Making
 
@@ -154,3 +175,4 @@ p-value = P (Z > 1.89) = 1  - P(Z < 1.89) = 1 - 0.9706 = 0.0294
 
 [What is a p-value](https://www.investopedia.com/terms/p/p-value.asp)
 
+[Significance level](https://statisticsbyjim.com/glossary/significance-level/)
