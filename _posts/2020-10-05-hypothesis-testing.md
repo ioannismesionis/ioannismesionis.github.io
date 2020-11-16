@@ -212,3 +212,7 @@ Cheers!
 [What is a p-value](https://www.investopedia.com/terms/p/p-value.asp)
 
 [Significance level](https://statisticsbyjim.com/glossary/significance-level/)
+
+[Critical region examples](https://lstat.kuleuven.be/training/coursedescriptions/Goodyear/critical_region.pdf)
+
+[One sample proportion examples](http://mathcenter.oxford.emory.edu/site/math117/hypothesisTestsProportionsOneSample/)
