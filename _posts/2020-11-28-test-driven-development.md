@@ -1,6 +1,6 @@
 ---
 layout: post
-title: An overview in Test-Driven Development
+title: Following Test-Driven Development
 subtitle: Playing with my software developing side
 bigimg: /img/test-driven-development/developer.jpg
 image: /img/test-driven-development/word-cloud-unit.png
@@ -8,7 +8,7 @@ tags: [tdd, data-science, test-driven-development, unit-test]
 ---
 
 # Introduction
-Test-Driven Development (TDD) is a software development approach in which test cases are developed to specify and validate what the code will do. In simple terms, test cases for each functionality are created and tested first and if the test fails then the new code is written in order to pass the test and make the code simple and bug-free.
+**Test-Driven Development (TDD)** is a software development approach in which test cases are developed to specify and validate what the code will do. In simple terms, test cases for each functionality are created and tested first and if the test fails then the new code is written in order to pass the test and make the code simple and bug-free.
 
 Test-Driven Development starts with designing and developing tests for every small functionality of an application. TDD instructs developers to write new code only if an automated test has failed. This avoids duplication of code.
 
@@ -16,14 +16,14 @@ The simple concept of TDD is to write and correct the failed tests before writin
 
 ![](/img/test-driven-development/tdd_cycle.png)
 
-**Red color represents:**
+* **Red color represents:**
 The unit tests written that fail at first.
 If the tests do not fail, that means that the base functionality is present already - then why do we need tests, to begin with?
 
-**Green color is:**
+* **Green color is:**
 The production code you write to get the test to pass as soon as possible.
 
-**Blue color represents:**
+* **Blue color represents:**
 The refactor element is about changing the code to make it right; until all of the tests pass.
 The cycle should last no more than ten minutes, and the idea is that you are staying succinct in what you want for your features, and you can gain confidence in refactoring because you know that everything will work as long as it continues passing the regression tests
 
@@ -31,7 +31,7 @@ The cycle should last no more than ten minutes, and the idea is that you are sta
 When it comes to automated testing, TDD, unit testing, there are many terminologies that pop up. In the section, the most important terms are introduced that are used and adapted in EasyJet.
 
 ## CI-CD
-**Continuous integration** (CI) and continuous delivery (CD) embody a culture, set of operating principles, and collection of practices that enable application development teams to deliver code changes more frequently and reliably. The implementation is also known as the CI/CD pipeline. 
+Continuous integration (CI) and continuous delivery (CD) embody a culture, set of operating principles, and collection of practices that enable application development teams to deliver code changes more frequently and reliably. The implementation is also known as the CI/CD pipeline. 
 
 CI/CD is one of the best practices for DevOps teams to implement. It is also an agile methodology best practice, as it enables software development teams to focus on meeting business requirements, code quality, and security because deployment steps are automated.
 
@@ -46,8 +46,6 @@ In other words, the technical goal of CI is to establish a consistent and automa
 
 ## Continuous Delivery
 **Continuous delivery** picks up where continuous integration ends. In continuous delivery, if the changes from CI are successfully built and tested, then CD would deliver the code to the shared repository. The shared repository would have the new code/model that the rest of the team members could access. The goal of continuous delivery is to have a codebase that is always ready for deployment to a production environment.
-
-Note: Continuous Delivery is not yet used in EasyJet
 
 # Type of Tests
 Through the CI/CD, there was a discussion of creating tests to automatically check the robustness of the code.
@@ -144,15 +142,15 @@ Some of the advantages of pytest are:
 
 There are two main guidelines needed to use it from the functional points of view (mport the module and test suffix)
 
-Import the module using python:
+1. Import the module using python:
 ```python
-"import pytest"
+import pytest
 ```
 
-Create a test .py script starting with the "test_*.py" prefix:
+2. Create a test .py script starting with the "test_*.py" prefix:
 "test_my_function.py"
 
-Use the "assert" command in python to evaluate the output of your test:
+3. Use the "assert" command in python to evaluate the output of your test: <br>
 ```python
 def test_function_increment():
     	x=5
@@ -180,7 +178,8 @@ src/ <br>
 
 Within the tests/ folder, there can be a conftest.py script (along with the remaining test_*.py scripts) that loads the data as per the example shown:
 
-- conftest.py <br>
+- conftest.py
+
 ```python
 import pytest
 
@@ -193,7 +192,8 @@ def supply_AA_BB_CC():
        return [aa, bb, cc]
 ```
 
-- test_basic_fixture.py <br>
+- test_basic_fixture.py
+
 ```python
 import pytest
 
