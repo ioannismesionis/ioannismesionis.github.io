@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Test-Driven Development
-subtitle: Playing with my software developing self
+title: Following Test-Driven Development like a pro
+subtitle: Exploring my software developer self
 bigimg: /img/test-driven-development/developer.jpg
 image: /img/test-driven-development/word-cloud-unit.png
 tags: [tdd, data-science, test-driven-development, unit-test]
