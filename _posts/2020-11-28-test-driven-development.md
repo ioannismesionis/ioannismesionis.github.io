@@ -1,9 +1,9 @@
 ---
 layout: post
-title: A quick overview in Test-Driven Development
-subtitle: My TDD approach in Data Science
-bigimg: /img/hypothesis-testing/bigimg-choice2.jpg
-image: /img/hypothesis-testing/choice.jpg
+title: An overview in Test-Driven Development
+subtitle: Playing with my software developing side
+bigimg: /img/test-driven-development/bigimg-choice2.jpg
+image: /img/test-driven-development/word-cloud-unit.png
 tags: [tdd, data-science, test-driven-development, unit-test]
 ---
 
@@ -68,16 +68,17 @@ Integration tests aim to determine whether modules that have been developed sepa
 
 In terms of a data pipeline, these can check that:
 
-The data cleaning process results in a dataset appropriate for the model
-The model training can handle the data provided to it and outputs results (ensuring that code can be refactored in the future)
-UI Tests 
+* The data cleaning process results in a dataset appropriate for the model
+* The model training can handle the data provided to it and outputs results (ensuring that code can be refactored in the future)
+
+## UI Tests 
 It is testing does the system fulfill expected business and contract requirements. It is considering the system as a black box.
 
-For example:
+<u>For example:</u>
 
-Ensure that the values produced by the model make sense in terms of the industry.
-Ensure that the model actually helps the product solve the problem at hand.
-Provide visibility of the ML components of the product in a common language understood by clients, product managers and engineers in the same way.
+* Ensure that the values produced by the model make sense in terms of the industry.
+* Ensure that the model actually helps the product solve the problem at hand.
+* Provide visibility of the ML components of the product in a common language understood by clients, product managers and engineers in the same way.
 
 # TDD Best Practices
 Despite the helpfulness of TDD, it is not always advisable to use TDD as it requires a lot of time to generate and refactor the necessary tests.
@@ -131,7 +132,7 @@ A test should fail the first time you run it. If it doesn't, ask yourself why yo
 Never refactor without tests.
 
 ## Pytest
-**Pytest** is a testing framework that allows us to write test codes using python. We can write code to test anything like database, API and even UI if needed. Within EasyJet and the Data Science team, pytest is being used to write tests for the Machine Learning pipelines.
+**Pytest** is a testing framework that allows us to write test codes using python. We can write code to test anything like database, API and even UI if needed. It is wide commong for corporations and Data Science teams to use pytest to write tests for the Machine Learning pipelines.
 
 Some of the advantages of pytest are:
 
@@ -144,16 +145,20 @@ Some of the advantages of pytest are:
 There are two main guidelines needed to use it from the functional points of view (mport the module and test suffix)
 
 Import the module using python:
+```python
 "import pytest"
+```
 
 Create a test .py script starting with the "test_*.py" prefix:
 "test_my_function.py"
 
 Use the "assert" command in python to evaluate the output of your test:
+```python
 def test_function_increment():
     	x=5
     	y=6
-       	assert x+1 == y,"test failed"
+       	assert x+1 == y, "test failed"
+```
 
 ## Useful Decorators
 - **@pytest.fixture**
@@ -167,15 +172,15 @@ For unit testing purposes, we might want to create some dummy data to test if ou
 
 Consider we have a project template structure as shown:
 
-src/
-├────config/
-...
-├──── sql/
-└────tests/
+src/ <br>
+├────config/ <br>
+... <br>
+├──── sql/ <br>
+└────tests/ <br>
 
 Within the tests/ folder, there can be a conftest.py script (along with the remaining test_*.py scripts) that loads the data as per the example shown:
 
-- conftest.py
+- conftest.py <br>
 ```python
 import pytest
 
@@ -188,7 +193,7 @@ def supply_AA_BB_CC():
        return [aa, bb, cc]
 ```
 
-- test_basic_fixture.py
+- test_basic_fixture.py <br>
 ```python
 import pytest
 
@@ -208,7 +213,7 @@ def test_comparewithCC_file(supply_AA_BB_CC):
 pytest will look for the fixture in the test file first and if not found it will look in the conftest.py. 
 For more thorough documentation of fixtures, please refer to the official [pytest documentation](https://docs.pytest.org/en/stable/).
 
-- **@pytest.mark.parameterize**
+- **@pytest.mark.parameterize** <br>
 If you’re running the same test and passing different values each time and expecting the same result, this is known as parameterization.
 
 Parameterize extends a test function by allowing us to test for multiple scenarios. We simply add the parametrize decorator and state the different scenarios.
@@ -218,11 +223,13 @@ Parameterize extends a test function by allowing us to test for multiple scenar
 A straightforward example using parameterize is from the following example taken from the official pytest documentation.
 
 # content of test_expectation.py
+```python
 import pytest
 
 @pytest.mark.parametrize("test_input,expected", [("3+5", 8), ("2+4", 6), ("6*9", 42)])
 def test_eval(test_input, expected):
     assert eval(test_input) == expected
+```
 
 <u>Example:</u>
 
@@ -230,12 +237,14 @@ For instance, imagine we are having a pd.DataFrame (df) and we have to test if a
 
 Instead of creating a single test for every single column, we can use the @pytest.mark.parameterize decorator to parallelize our test for each column; col1, col2, col3 
 
+```python
 import pytest
 @pytest.mark.parametrize("df, col",[(df,'col1'),(df,'col2'),(df,'col3')])
 deftest_non_zero_values(df,col):
 """  Test there are no negative values in the created columns  """
 
        assert df[col].min()>=0
+```
 
 # Conclusion
 Testing an ML learning pipeline is relatively different from the traditional creation of software as used in software development. Due to this, there is a misconception that data science components cannot be put through automated testing. Although some parts of the pipeline can not go through traditional testing methodologies due to their experimental and stochastic nature, most of the pipeline can.
