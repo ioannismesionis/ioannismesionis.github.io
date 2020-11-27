@@ -186,8 +186,8 @@ import pytest
 @pytest.fixture
 def supply_AA_BB_CC():
 	aa=25
-    bb=35
-    cc=45
+	bb=35
+	cc=45
 
 	return [aa, bb, cc]
 ```
@@ -251,7 +251,7 @@ Testing an ML learning pipeline is relatively different from the traditional cre
 
 ![](/img/test-driven-development/tdd-vs-ftt.png)
 
-Useful Resources
+# Useful Resources
 https://towardsdatascience.com/tdd-datascience-689c98492fcc
 
 https://medium.com/swlh/learning-to-love-tdd-f8eb60739a69
