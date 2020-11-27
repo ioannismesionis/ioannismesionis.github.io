@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Following Test-Driven Development
-subtitle: Playing with my software developing side
+title: Test-Driven Development
+subtitle: Playing with my software developing self
 bigimg: /img/test-driven-development/developer.jpg
 image: /img/test-driven-development/word-cloud-unit.png
 tags: [tdd, data-science, test-driven-development, unit-test]
@@ -185,11 +185,11 @@ import pytest
 
 @pytest.fixture
 def supply_AA_BB_CC():
-       aa=25
-       bb=35
-       cc=45
+	aa=25
+    bb=35
+    cc=45
 
-       return [aa, bb, cc]
+	return [aa, bb, cc]
 ```
 
 - test_basic_fixture.py
@@ -243,7 +243,7 @@ import pytest
 deftest_non_zero_values(df,col):
 """  Test there are no negative values in the created columns  """
 
-       assert df[col].min()>=0
+	assert df[col].min()>=0
 ```
 
 # Conclusion
