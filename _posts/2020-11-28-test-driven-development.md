@@ -2,7 +2,7 @@
 layout: post
 title: An overview in Test-Driven Development
 subtitle: Playing with my software developing side
-bigimg: /img/test-driven-development/bigimg-choice2.jpg
+bigimg: /img/test-driven-development/developer.jpg
 image: /img/test-driven-development/word-cloud-unit.png
 tags: [tdd, data-science, test-driven-development, unit-test]
 ---
@@ -222,8 +222,8 @@ Parameterize extends a test function by allowing us to test for multiple scenar
 
 A straightforward example using parameterize is from the following example taken from the official pytest documentation.
 
-# content of test_expectation.py
 ```python
+# content of test_expectation.py
 import pytest
 
 @pytest.mark.parametrize("test_input,expected", [("3+5", 8), ("2+4", 6), ("6*9", 42)])
