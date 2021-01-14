@@ -3,11 +3,9 @@ layout: post
 title: A coding challenge for a happy 2021
 subtitle: Sherlock to the rescue!
 image: /img/isvalid-sherlock-coding-challenge/sherlock-min.jpg
-bigimg: /img/svalid-sherlock-coding-challenge/new-year-resolution.jpg
+bigimg: /img/isvalid-sherlock-coding-challenge/new-year-resolution.jpg
 tags: [python, code, unit-testing, sherlock]
 ---
-
-# isValid-coding-challenge
 
 Sherlock considers a string to be valid if all characters of the string appear the same number of times. It is also valid if he can remove just  character at  index in the string, and the remaining characters will occur the same number of times. Given a string , determine if it is valid. If so, return YES, otherwise return NO.
 
