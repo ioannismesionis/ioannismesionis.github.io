@@ -3,7 +3,7 @@ layout: post
 title: A coding challenge for a happy 2021
 subtitle: Sherlock to the rescue!
 image: /img/isvalid-sherlock-coding-challenge/sherlock-min.jpg
-bigimg: /img/isvalid-sherlock-coding-challenge/new-year-resolution.jpg
+bigimg: /img/isvalid-sherlock-coding-challenge/end-new-year-calendar.jpg
 tags: [python, code, unit-testing, sherlock]
 ---
 
