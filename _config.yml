@@ -258,9 +258,7 @@ prose:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
-  
-- name: LaTeX compilation
-  uses: dante-ev/latex-action@2021-A
+  - jekyll-latex
 
 
 # Beautiful Jekyll / Dean Attali
