@@ -1,6 +1,7 @@
 ﻿---
 layout: post
 title: Machine Learning - Demolished!
+katex: true
 subtitle: Linear Regression Demolished!
 image: /img/linear-regression/brain.png
 bigimg: /img/linear-regression/yellow-mathematics.jpeg
