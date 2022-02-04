@@ -33,7 +33,7 @@ The simplest form of $\textcolor{blue}{\text{Linear Regression}}$ model is linea
 $\colorbox{lightgreen}{Simplest Formula:}$ $y(\mathbf{x}, \mathbf{w}) = w_{0} + w_{1}x_{1} + \dots + w_{D}x_{D}$
 $\hspace{3.5cm} \hookrightarrow \mathbf{x} = (x_{1}, \dots, x_{D})^{T}$
 >⚠️ $\textcolor{blue}{\text{This formual has the following properties:}}$ <br>
- >1. $\textcolor{blue}{\text{linear function of the parameters,} \space w_{1}, \dots, w_{D}}$ 
+> 1. $\textcolor{blue}{\text{linear function of the parameters,} \space w_{1}, \dots, w_{D}}$ 
 > 2. $\textcolor{blue}{\text{linear function of the input variables,} \space x_{1}, \dots ,x_{D}}$
 
 In order to remove _limitation number 2_, we introduce the **basis functions** so that the simplest formula is _extended_ to:
@@ -54,7 +54,7 @@ To use a model for prediction, we need to derive the weight parameter $\mathbf{w
 $$\colorbox{orange}{Typical Loss/Error Functions}$$
 1. **Sum of Squares:** $E_{D}(w) = \frac{1}{2} \sum\limits_{n=1}^{N}(t_{n} - \mathbf{w}^{T}\boldsymbol{\phi} (\mathbf{x_{n}}))^{2}$
 
-2. **Absolute Error:** $E_{D}(w) = \frac{1}{2} \sum\limits_{n=1}^{N}|t_{n} - \mathbf{w}^{T}\boldsymbol{\phi} (\mathbf{x_{n}})|$
+2. **Absolute Error:** $E_{D}(w) = \frac{1}{2} \sum\limits_{n=1}^{N} \lvert t_{n} - \mathbf{w}^{T}\boldsymbol{\phi} (\mathbf{x_{n}}) \rvert$
 
 >⚠️ $\textcolor{blue}{\text{The most common loss function is the \textbf{Sum of Squares}.}}$
 >$\textcolor{blue}{\text{\space\space\space\space\space These are some of the reasons why:}}$ <br>
@@ -106,8 +106,8 @@ $$
 &\Leftrightarrow \boldsymbol{\Phi^{T}\Phi w} = \boldsymbol{\Phi t}  \Leftrightarrow \\
 &\Leftrightarrow \boldsymbol{\hat{w}} = (\boldsymbol{\Phi^{T}\Phi})^{-1}\boldsymbol{\Phi^{T}} \boldsymbol{t} \hspace{0.5cm} \longrightarrow \textcolor{blue}{\textbf{Normal equations}}
 \end{split}
-
 $$
+
 where $\boldsymbol{\Phi}$ is called the _design matrix_ $\boldsymbol{\Phi} = \begin{pmatrix}  
 \phi_{o}(x_{1}) & \phi_{1}(x_{1}) & \cdots & \phi_{d}(x_{1})\\  
 \phi_{o}(x_{2}) & \phi_{1}(x_{2}) & \cdots & \phi_{d}(x_{2})\\
