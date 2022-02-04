@@ -8,19 +8,17 @@ bigimg: /img/linear-regression/yellow-mathematics.jpeg
 tags: [machine-learning, mathematics, linear-regression]
 ---
 
-# Machine Learning Demolished
-
 Having a passion about mathematics, I was delighted to find out that Machine Learning models are using algebra under their hoods. As a result, I decided to create this mini-blog series called "Machine Learning" demolished! The purpose of the blogs is for me to refresh my memory on the optimisation techniques around the Loss function used in the most common Machine Learning models and create some sort of machine learning "mind palace" as Sherlock Holmes says. Hope that you will find the following information as useful as I did.
 
 ### Linear Regression
 
 The goal of Regression is to predict the value of one or more continuous target variables **t** given the value of a D-dimensional vector x of input variables.
 
-* Training Data: X = {$\mathbf{x_1}$, $\mathbf{x_2}, \dots , \mathbf{x_N}$} 
+* Training Data: X = {$\mathbf{x_1}$, $\mathbf{x_2}, \dots , \mathbf{x_N}$} <br>
 $\quad \quad \hookrightarrow$ N training examples.
 
 * Response / Target: {$t_{n}$},  $n = 1, 2, \dots , N$  
-$\hspace{2.65cm} \hookrightarrow$ vector $\mathbf{t}$ (of dimension $N$)
+$\hspace{2.8cm} \hookrightarrow$ vector $\mathbf{t}$ (of dimension $N$)
 
 The $\textcolor{blue}{\text{D-dimensional vectors}}$ $\textcolor{blue}{\mathbf{x_{i} }}$, $\textcolor{blue}{i=1, \dots, N}$ are know as variables and they can come from different sources:
 * quantitative inputs (e.g. Income, Age, etc.)
@@ -55,6 +53,7 @@ To use a model for prediction, we need to derive the weight parameter $\mathbf{w
 
 $$\colorbox{orange}{Typical Loss/Error Functions}$$
 1. **Sum of Squares:** $E_{D}(w) = \frac{1}{2} \sum\limits_{n=1}^{N}(t_{n} - \mathbf{w}^{T}\boldsymbol{\phi} (\mathbf{x_{n}}))^{2}$
+
 2. **Absolute Error:** $E_{D}(w) = \frac{1}{2} \sum\limits_{n=1}^{N}|t_{n} - \mathbf{w}^{T}\boldsymbol{\phi} (\mathbf{x_{n}})|$
 
 >⚠️ $\textcolor{blue}{\text{The most common loss function is the \textbf{Sum of Squares}.}}$
@@ -100,12 +99,14 @@ $$
 $$
 
 Converting the equation above into using Matrix notation, we get:
+
 $$
 \begin{split}
 0 & = \boldsymbol{\Phi^{T} - \Phi^{T}\Phi w} \Leftrightarrow \\
 &\Leftrightarrow \boldsymbol{\Phi^{T}\Phi w} = \boldsymbol{\Phi t}  \Leftrightarrow \\
 &\Leftrightarrow \boldsymbol{\hat{w}} = (\boldsymbol{\Phi^{T}\Phi})^{-1}\boldsymbol{\Phi^{T}} \boldsymbol{t} \hspace{0.5cm} \longrightarrow \textcolor{blue}{\textbf{Normal equations}}
 \end{split}
+
 $$
 where $\boldsymbol{\Phi}$ is called the _design matrix_ $\boldsymbol{\Phi} = \begin{pmatrix}  
 \phi_{o}(x_{1}) & \phi_{1}(x_{1}) & \cdots & \phi_{d}(x_{1})\\  
@@ -130,9 +131,9 @@ $$\colorbox{orange}{Model Evaluation}$$
 | Mean Absolute Error (MAE)      | $\frac{1}{N} \sum\limits_{n=1}^{N} \|t_{i} - \hat{t_{i}}\|$ | More robust to outliers                                              | Not differentiable which needs <br> to the application of optimisers such as Gradient Descent |
 | Root Mean Squared Error (RMSE) | $RMSE = \sqrt{MSE}$                                         | Output is at the same unit as the input (interpretation usefullness) | Not that robust to outliers                                                                   |
 
-* $\textbf{R-Squared} (R^{2})$ $\textcolor{red}{\boldsymbol{\rightarrow} \text{Not a performance metric}}$
-$\color{blue}{\hspace{.5cm}  \hookrightarrow \text{Coefficient of Determinition}}$
-$\color{blue}{\hspace{.5cm}  \hookrightarrow \text{Goodness of Fit}}$
+* $\textbf{R-Squared} (R^{2})$ $\textcolor{red}{\boldsymbol{\rightarrow} \text{Not a performance metric}}$ <br>
+$\color{blue}{\hspace{.5cm}  \hookrightarrow \text{Coefficient of Determinition}}$ <br>
+$\color{blue}{\hspace{.5cm}  \hookrightarrow \text{Goodness of Fit}}$ <br>
 
 * **Description:** $R^{2}$ measures how much variance can be explained by your model. $R^{2}$ can also be viewed as how much the regression line is better than the mean line.
 
@@ -149,7 +150,7 @@ $\hspace{9cm} \color{blue}{\hookrightarrow \text{\footnotesize{mean of target va
 
 * **Description:** $R^{2}$ - Adjusted overcomes the incorrect increase of the $R^{2}$ by adding extra independent variables. In other words, it penalaizes the excess amount of independent variables.
 
-* **Formula:** $R_{a}^{2} = 1 - \{ (\frac {n-1}{n-k-1})(1-R^{2})\}$
+* **Formula:** $R_{a}^{2} = 1 - \{ (\frac {n-1}{n-k-1})(1-R^{2})\}$ <br>
 $\hspace{1.35cm} \color{blue}{\hookrightarrow \text{\footnotesize{Adjusted }} R^{2}}$
 
 where $n=$ Number of observations, <br> $\hspace{0.9cm} k=$ number of features
