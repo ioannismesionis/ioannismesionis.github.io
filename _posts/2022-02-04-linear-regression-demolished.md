@@ -1,14 +1,17 @@
 ﻿---
 layout: post
 title: Machine Learning - Demolished!
-katex: true
 subtitle: Linear Regression Demolished!
+katex: true
 image: /img/linear-regression/brain.png
 bigimg: /img/linear-regression/yellow-mathematics.jpeg
 tags: [machine-learning, mathematics, linear-regression]
 ---
 
 # Machine Learning Demolished
+
+Having a passion about mathematics, I was delighted to find out that Machine Learning models are using algebra under their hoods. As a result, I decided to create this mini-blog series called "Machine Learning" demolished! The purpose of the blogs is for me to refresh my memory on the optimisation techniques around the Loss function used in the most common Machine Learning models and create some sort of machine learning "mind palace" as Sherlock Holmes says. Hope that you will find the following information as useful as I did.
+
 ### Linear Regression
 
 The goal of Regression is to predict the value of one or more continuous target variables **t** given the value of a D-dimensional vector x of input variables.
