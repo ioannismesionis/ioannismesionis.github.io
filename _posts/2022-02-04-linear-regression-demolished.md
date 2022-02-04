@@ -60,7 +60,7 @@ $$\colorbox{orange}{Typical Loss/Error Functions}$$
 >$\textcolor{blue}{\text{\space\space\space\space\space These are some of the reasons why:}}$ <br>
  >1. $\textcolor{blue}{\textbf{Sum of Squares }\text{can be motivated as the \textbf{Maximum Likelihood Solution} under an assumed \textbf{Gaussian noise model}}. }$ 
  >2. $\textcolor{blue}{\text{Squared differences have the nice mathematical properties; continuously differentiable which}}$ <br>
- $\textcolor{blue}{text{is convenient when trying to mimimize it.}}$
+ $\textcolor{blue}{\text{is convenient when trying to mimimize it.}}$
  >3. $\textcolor{blue}{\text{Sum of Squares is a \textbf{convex function} which mean that the local minimum=global minimum.}}$
 
 In the context of Machine Learning, selecting a Loss function to minimize is more than enough considering that the only interest is to "fit" a line into some data. In other words, minimizing the Sum of Squares is a mathematical minimization problem with no assumptions made for the distribution of the data. To ensure that our $\mathbf{w}$ estimate is unbiased, we need to extend our assumptions about the data. 
@@ -111,12 +111,12 @@ $$
 
 where $\boldsymbol{\Phi}$ is called the _design matrix:_ 
 
-$\boldsymbol{\Phi} = \begin{pmatrix}  
+$$\boldsymbol{\Phi} = \begin{pmatrix}  
 \phi_{o}(x_{1}) & \phi_{1}(x_{1}) & \cdots & \phi_{d}(x_{1})\\  
 \phi_{o}(x_{2}) & \phi_{1}(x_{2}) & \cdots & \phi_{d}(x_{2})\\
 \vdots & \vdots & \ddots & \vdots \\  
 \phi_{o}(x_{N}) & \phi_{1}(x_{N}) & \cdots & \phi_{d}(x_{N})\\
-\end{pmatrix}$
+\end{pmatrix}$$
 
 >⚠️ $\textcolor{blue}{\text{Note:}}$
  >1. $\textcolor{blue}{\boldsymbol{\phi} = (\phi_{0}, \dots , \phi_{D})^{T}}$ 
