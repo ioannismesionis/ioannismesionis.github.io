@@ -8,7 +8,7 @@ bigimg: /img/linear-regression/yellow-mathematics.jpeg
 tags: [machine-learning, mathematics, linear-regression]
 ---
 
-Having a passion about mathematics, I was delighted to find out that Machine Learning models are using algebra under their hoods. As a result, I decided to create this mini-blog series called "Machine Learning" demolished! The purpose of the blogs is for me to refresh my memory on the optimisation techniques around the Loss function used in the most common Machine Learning models and create some sort of machine learning "mind palace" as Sherlock Holmes says. Hope that you will find the following information as useful as I did.
+Having a passion for mathematics, I was delighted to find out that Machine Learning models are using algebra under their hoods. As a result, I decided to create this mini-blog series called "Machine Learning" demolished! The purpose of the blogs is for me to refresh my memory on the optimisation techniques around the Loss function used in the most common Machine Learning models and create some sort of machine learning "mind palace" as Sherlock Holmes says. Hope that you will find the following information as useful as I did.
 
 ### Linear Regression
 
@@ -36,7 +36,7 @@ $\hspace{3.5cm} \hookrightarrow \mathbf{x} = (x_{1}, \dots, x_{D})^{T}$
 > 1. $\textcolor{blue}{\text{linear function of the parameters,} \space w_{1}, \dots, w_{D}}$ 
 > 2. $\textcolor{blue}{\text{linear function of the input variables,} \space x_{1}, \dots ,x_{D}}$
 
-In order to remove _limitation number 2_, we introduce the **basis functions** so that the simplest formula is _extended_ to:
+To remove _limitation number 2_, we introduce the **basis functions** so that the simplest formula is _extended_ to:
 
 $\colorbox{lightgreen}{Basis Formula:}$ $y(\mathbf{x}, \mathbf{w}) = w_{0} +  \sum\limits_{j=1}^{M-1} w_{j}\phi_{j}(x)=$
 $\hspace{6.2cm} \hookrightarrow \boldsymbol{\phi_{j}}:$ basis functions
@@ -65,7 +65,7 @@ $$\colorbox{orange}{Typical Loss/Error Functions}$$
 
 In the context of Machine Learning, selecting a Loss function to minimize is more than enough considering that the only interest is to "fit" a line into some data. In other words, minimizing the Sum of Squares is a mathematical minimization problem with no assumptions made for the distribution of the data. To ensure that our $\mathbf{w}$ estimate is unbiased, we need to extend our assumptions about the data. 
 
-As a reminder, we made the assumption that a linear function can be adequately approximated by a linear function. In other words, we hope that
+As a reminder, we assumed that a linear function can be adequately approximated by a linear function. In other words, we hope that
 $$E(t|x) \approx y(\mathbf{x,w})$$ holds true and is a reasonable approximation.
 We can then safely write: 
 $$ \boldsymbol{t} = y(\mathbf{x, w}) + \boldsymbol{\epsilon} $$ where, 
@@ -151,7 +151,7 @@ $\hspace{9cm} \color{blue}{\hookrightarrow \text{\footnotesize{mean of target va
 
 * $\textbf{Adjusted R-Squared} (R^{2})$
 
-* **Description:** $R^{2}$ - Adjusted overcomes the incorrect increase of the $R^{2}$ by adding extra independent variables. In other words, it penalaizes the excess amount of independent variables.
+* **Description:** $R^{2}$ - Adjusted overcomes the incorrect increase of the $R^{2}$ by adding extra independent variables. In other words, it penalizes the excess amount of independent variables.
 
 * **Formula:** $R_{a}^{2} = 1 - \{ (\frac {n-1}{n-k-1})(1-R^{2})\}$ <br>
 $\hspace{1.35cm} \color{blue}{\hookrightarrow \text{\footnotesize{Adjusted }} R^{2}}$
