@@ -71,7 +71,7 @@ We can then safely write:
 $$ \boldsymbol{t} = y(\mathbf{x, w}) + \boldsymbol{\epsilon} $$ where, 
 1. $\mathbf{t} \rightarrow$ target variable
 2. $y(\mathbf{x, w}) \rightarrow$ deterministic function
-3. $\boldsymbol{\epsilon} \rightarrow$ $\N(0, \sigma^2)$
+3. $\boldsymbol{\epsilon} \rightarrow$ $\N(0, \sigma^2)$ <br>
 $\hookrightarrow$ residuals (estimation of the error)
 
 $\textcolor{red}{\underline{\textbf{Assumption 2:}}}$
