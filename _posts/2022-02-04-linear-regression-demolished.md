@@ -88,10 +88,6 @@ The linear regression formula is a linear function of the parameters $w_{1}, \cd
 
 In the simplest example where $D=1$, the mapping $f(\mathbf{x}, \mathbf{w})$ can be represented as a single line that change for the different values of $\mathbf{x}$
 
-![Example: $y = 2x + 1$, where $w_{1}=2$ and $w_{0}=1$ ](Linear%20Reg%2032d32/Screenshot_2022-04-09_at_18.08.02.png)
-
-Example: $y = 2x + 1$, where $w_{1}=2$ and $w_{0}=1$
-
 Increasing the dimension of D can result in a hyperplane, which is inefficient in terms of visualisation.
 
 The ultimate goal of machine learning is to use some input data from which the model can learn in order to predict future data as accurately as possible. The input data is utilised to minimise a *Loss Function* to estimate the values of the *coefficient parameter* $\mathbf{w}$, and then the model may be used for prediction.
