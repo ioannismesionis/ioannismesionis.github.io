@@ -145,17 +145,17 @@ The following table displays the most popular loss functions used in Data Scienc
 
 To ensure, however, that our $\mathbf{w}$ estimate is unbiased, we need to extend our assumptions about the data.
 
-> Assumption 2:
+> Assumption 2: <br>
 The residuals are normally distributed with mean = $0$
  *Note: This is called "Normality" of the residuals.*
 >
 
-> Assumption 3:
+> Assumption 3: <br>
 The residuals have constant variance for every input of the data $\mathbf{x_{D}}, n=1, \dots ,D$
 *Note: This is known as "homoscedasticity".*
 >
 
-> Assumption 4:
+> Assumption 4: <br>
 The residuals are not correlated with each other, i.e. not auto-correlated.
 Auto-correlation takes place when there is a pattern in the rows for the data (e.g. time-series)
 >
@@ -205,7 +205,7 @@ $$
 
 with $\boldsymbol{\phi} = (\phi_{0}, \dots , \phi_{D})^{T}$ and  $\Phi$ being a $N$ x $(D+1)$ matrix.
 
-> Assumption 5:
+> Assumption 5: <br>
 For the $(\boldsymbol{\Phi}^{T}\boldsymbol{\Phi})^{-1}$ we need to assume that $\boldsymbol{\Phi}$ is of full rank
 i.e. *the independent variables are not correlated* (e.g. $\phi_{1} = 3\phi_{3}$).
 *Note: This is know as no multicollinearity.*
