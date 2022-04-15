@@ -102,7 +102,7 @@ Based on the data at hand, the Data Scientist can choose an appropriate Loss Fun
 
 ---
 
-As a reminder, we made the assumption that our data can be adequately approximated by a linear function. In other words, we hope that $E(y|\mathbf{x}) \approx f(\mathbf{x,w})$ holds true and is a reasonable approximation.
+As a reminder, we made the assumption that our data can be adequately approximated by a linear function. In other words, we hope that $$E(y|\mathbf{x}) \approx f(\mathbf{x,w})$$ holds true and is a reasonable approximation.
 
 We can then safely write:
 
@@ -115,12 +115,9 @@ y & = f(\mathbf{x, w}) + \boldsymbol{\epsilon}
 $$
 
 where $y \rightarrow$ target variable,
-
-           $\hat{y} \rightarrow$ estimated value,
-
-          $f(\mathbf{x, w}) \rightarrow$ deterministic function,
-
-          $\boldsymbol{\epsilon} \rightarrow$ *residuals (estimation of the error)*
+$\hat{y} \rightarrow$ estimated value,
+$f(\mathbf{x, w}) \rightarrow$ deterministic function,
+$\boldsymbol{\epsilon} \rightarrow$ *residuals (estimation of the error)*
 
 In order to minimise the $\epsilon$ error term, we need to find the $\mathbf{w}$ coefficient weights that will make these $y-\hat{y}$ differences (or their loss functions derivations) as small as possible.
 
@@ -144,7 +141,6 @@ The following table displays the most popular loss functions used in Data Scienc
 
 <aside>
 💡 *In the context of Machine Learning, selecting a Loss Function to minimise is more than enough considering that the only interest is to "fit" a line into some data. Minimising a Loss Function is a mathematical minimisation problem with no assumptions made for the distribution of the data. In other words, training a linear regression model does not require that the independent or target variables are normally distributed. The normality assumption is only a requirement for certain statistics and hypothesis tests.*
-
 </aside>
 
 To ensure, however, that our $\mathbf{w}$ estimate is unbiased, we need to extend our assumptions about the data.
@@ -165,6 +161,8 @@ Auto-correlation takes place when there is a pattern in the rows for the data (e
 >
 
 # Coefficients Estimation
+
+---
 
 Our goal is to estimate the $\boldsymbol{w}$ parameters that minimise the selected **Loss Function**; in our case that can be the Sum of Squares - especially when the $\epsilon$ error is assumed to be $\N(0, \sigma^{2})$ distributed :
 
