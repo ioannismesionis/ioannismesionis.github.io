@@ -22,8 +22,8 @@ $$
 X = \mathbf{x_1}, \mathbf{x_2}, \dots , \mathbf{x_D}
 $$
 
-        where, $$\mathbf{x}_{i} = 
-\begin{pmatrix}
+where, $$\mathbf{x}_{i} $$ =
+$$\begin{pmatrix}
 x_{1}^{(i)} \\
 x_{2}^{(i)} \\
 \vdots \\
