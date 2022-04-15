@@ -118,21 +118,54 @@ In order to minimise the $\epsilon$ error term, we need to find the $\mathbf{w}$
 
 The following table displays the most popular loss functions used in Data Science.
 
-| Loss Function: | Mean Squared Error (MSE) | Mean Absolute Error
-(MAE) | Root Mean Squared Error (RMSE) | Mean Absolute Percentage Error
-(MAPE) |
-| --- | --- | --- | --- | --- |
-| Formula: | ⁍ | ⁍h | ⁍ | ⁍ |
-| Advantages: | 1. Sum of Squares can be motivated as the Maximum Likelihood Solution under an assumed Gaussian noise model
+## Mean Squared Error (MSE)
 
+Formula:
+Advantages:
+
+1. Sum of Squares can be motivated as the Maximum Likelihood Solution under an assumed Gaussian noise model
 2. Squared differences have the nice mathematical properties; continuously differentiable which is convenient when trying to minimise it.
+3. Sum of Squares is a convex function which mean that the local minimum=global minimum.
 
-3. Sum of Squares is a convex function which mean that the local minimum=global minimum. | 1. More robust to outliers compared to MSE | 1. Output is at the same unit as the input (interpretation usefulness) | 1. Easy to interpret as a percentage |
-| Disadvantages | 1. Not robust to outliers as it penalises them to the power of 2
+Disadvantages:
 
-2. Scaled-dependent | 1. Not differentiable which needs the application of optimisers such as Gradient Descent to minimise | 1. Not that robust to outliers | 1. The MAPE, as a percentage, only makes sense for values where divisions and ratios make sense. E.g. not applicable for cases that need to calculate the accuracy of a temperature forecast as it doesn't make sense to calculate percentages of temperatures
+1. Not robust to outliers as it penalises them to the power of 2
+2. Scaled-dependent
 
-2. Not differentiable everywhere which means that first and second derivatives not always defined |
+## Mean Absolute Error (MAE)
+
+Formula:
+Advantages:
+
+1. More robust to outliers compared to MSE
+
+Disadvantages:
+
+1. Not differentiable which needs the application of optimisers such as Gradient Descent to minimise
+
+## Root Mean Squared Error (RMSE)
+
+Formula:
+Advantages:
+
+1. Output is at the same unit as the input (interpretation usefulness)
+
+Disadvantages:
+
+1. Not that robust to outliers
+
+## Mean Absolute Percentage Error (MAPE)
+
+Formula:
+Advantages:
+
+1. Easy to interpret as a percentage
+
+Disadvantages:
+
+1. The MAPE, as a percentage, only makes sense for values where divisions and ratios make sense. <br>
+E.g. not applicable for cases that need to calculate the accuracy of a temperature forecast as it doesn't make sense to calculate percentages of temperatures.
+2. Not differentiable everywhere which means that first and second derivatives not always defined
 
 <aside>
 💡 *In the context of Machine Learning, selecting a Loss Function to minimise is more than enough considering that the only interest is to "fit" a line into some data. Minimising a Loss Function is a mathematical minimisation problem with no assumptions made for the distribution of the data. In other words, training a linear regression model does not require that the independent or target variables are normally distributed. The normality assumption is only a requirement for certain statistics and hypothesis tests.*
