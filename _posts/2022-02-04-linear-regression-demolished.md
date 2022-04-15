@@ -22,13 +22,13 @@ $$
 X = \mathbf{x_1}, \mathbf{x_2}, \dots , \mathbf{x_D}
 $$
 
-        where, $\mathbf{x}_{i} = 
+        where, $$\mathbf{x}_{i} = 
 \begin{pmatrix}
 x_{1}^{(i)} \\
 x_{2}^{(i)} \\
 \vdots \\
 x_{N}^{(i)}
-\end{pmatrix}$ , $i=1,2, \dots, D$.
+\end{pmatrix}$$ , $$i=1,2, \dots, D$$.
 
 - **Response**: Continuous-valued target of the corresponding $N$ training examples:
 
