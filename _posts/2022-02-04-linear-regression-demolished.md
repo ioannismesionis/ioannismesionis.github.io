@@ -78,8 +78,8 @@ $$
 where $\boldsymbol{\phi_{j}}:$ basis functions and $\boldsymbol{w} = (w_{0}, w_{1}, \dots, w_{D})^{T}$ and  $\boldsymbol{\phi} =(1, \space \phi_{1}, \dots, \phi_{D})^{T}$.
 
 <aside>
-💡 <em>The basis function can be fixed non-linear functions of the input variables $\mathbf{x_{i}}$ so that the basis formula follows the properties: <br>
-1. linear function of the parameters, $w_{1}, \dots, w_{D}$ </em>
+💡 <em>The basis function can be fixed non-linear functions of the input variables $\mathbf{x_{i}}$ so that the basis formula follows the properties:</em> <br>
+1. linear function of the parameters, $w_{1}, \dots, w_{D}$
 </aside>
 
 > <span style="color:red"> Assumption 1:</span> <br>
