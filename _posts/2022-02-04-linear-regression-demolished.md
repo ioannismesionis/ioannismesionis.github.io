@@ -97,7 +97,7 @@ Based on the data at hand, the Data Scientist can choose an appropriate Loss Fun
 
 ---
 
-As a reminder, we made the assumption that our data can be adequately approximated by a linear function. In other words, we hope that $$E(y|\mathbf{x}) \approx f(\mathbf{x,w})$$ holds true and is a reasonable approximation.
+As a reminder, we made the assumption that our data can be adequately approximated by a linear function. In other words, we hope that $$E(y \mid \mathbf{x}) \approx f(\mathbf{x,w})$$ holds true and is a reasonable approximation.
 
 We can then safely write:
 
@@ -247,23 +247,40 @@ i.e. *the independent variables are not correlated* (e.g. $\phi_{1} = 3\phi_{3}$
 
 ---
 
-| Name | Description | Formula | Value’s Range | ⚠️ Comment |
-| --- | --- | --- | --- | --- |
-| R-Squared
-⁍ | ⁍ measures how much variance can be explained by your model.
+## R-Squared
 
-⁍ can also be viewed as how much the regression line is better than the mean line. | ⁍
+Description: <br>
+$R^{2}$ measures how much variance can be explained by your model.
 
-where ⁍ being the mean of target variable | From 0 (bad model) to 1 (perfect model) | A problem with the ⁍metric is that sometimes it increases as we add more variables even if the added variables are irrelevant.
+$R^{2}$ can also be viewed as how much the regression line is better than the mean line.
 
-In other words, the model can always map some data to a target variable. |
-| Adjusted R-Squared
-⁍ | ⁍ - Adjusted overcomes the incorrect increase of the ⁍ by adding extra independent variables.
+Formula: <br>
+$$R^{2} = 1 - \frac{\text{Unexplained Variance}}{\text{Total Variation}} = \\
+\hspace{0.5cm} = 1 - \frac{SS_{reg}}{SS_{mean}} = \\
+\hspace{0.5cm} = 1 - \frac{\sum\limits_{i=1}^{N} (y_{i} - \hat{y_{i}})^{2}}{\sum\limits_{i=1}^{N} (y_{i} - \overline{y_{i}})}$$
 
-In other words, it penalises the excess amount of independent variables. | ⁍
+where $\overline{y_{i}}$ being the mean of target variable.
 
-where:
-⁍ Number of observations
-⁍ number of features | From 0 (bad model) to 1 (perfect model) | As ⁍ increases, the denominator decreases which makes the entire value to be subtracted from 1 a large value.
+Value's Range: <br>
+From 0 (bad model) to 1 (perfect model)
 
-As a result, the ⁍ is decreased which means that the more irrelevant features, the worse the model |
+Comment: <br>
+A problem with the $R^{2}$ metric is that sometimes it increases as we add more variables even if the added variables are irrelevant.
+
+In other words, the model can always map some data to a target variable.
+
+## Adjusted R-Squared
+
+Description: <br>
+$R^{2}$ - Adjusted overcomes the incorrect increase of the $R^{2}$ by adding extra independent variables.
+
+Formula: <br>
+$$R_{a}^{2} = 1 - \{ (\frac {n-1}{n-k-1})(1-R^{2})\}$$
+
+where $n=$ number of obserbations <br>
+and $k=$ number of features.
+
+Value's Range: From 0 (bad model) to 1 (perfect model)
+
+Comment:
+As $k$ increases, the denominator decreases which makes the entire value to be subtracted from 1 a large value. As a result, the $R^{2}_{a}$ is decreased which means that the more irrelevant features, the worse the model
