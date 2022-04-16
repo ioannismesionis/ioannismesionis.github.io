@@ -84,6 +84,7 @@ where $\boldsymbol{\phi_{j}}:$ basis functions and $\boldsymbol{w} = (w_{0}, w_{
 
 > <font color='red'> Assumption 1: </font><br>
 The linear regression formula is a linear function of the parameters $w_{1}, \cdots, w_{D}$
+>
 
 In the simplest example where $D=1$, the mapping $f(\mathbf{x}, \mathbf{w})$ can be represented as a single line that change for the different values of $\mathbf{x}$
 
