@@ -177,9 +177,12 @@ E.g. not applicable for cases that need to calculate the accuracy of a temperatu
 2. Not differentiable everywhere which means that first and second derivatives not always defined
 
 <aside>
+<em>
 💡 In the context of Machine Learning, selecting a Loss Function to minimise is more than enough considering that the only interest is to "fit" a line into some data. Minimising a Loss Function is a mathematical minimisation problem with no assumptions made for the distribution of the data. In other words, training a linear regression model does not require that the independent or target variables are normally distributed. The normality assumption is only a requirement for certain statistics and hypothesis tests.
+</em>
+</aside>
 
-To ensure now, however, that our $\mathbf{w}$ estimate is unbiased, we need to extend our assumptions about the data.
+To ensure, however, that our $\mathbf{w}$ estimate is unbiased, we need to extend our assumptions about the data.
 
 > <span style="color:red"> Assumption 2:</span> <br>
 The residuals are normally distributed with mean = $0$
