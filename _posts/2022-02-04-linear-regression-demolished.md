@@ -211,8 +211,8 @@ In mathematics, to find the minimum of a function, we have to set the derivative
 $$
 \begin{split}
 0 = \bigtriangledown E_{D}(\boldsymbol{w})
-& = \frac{1}{2} \cdot 2 \sum\limits_{n=1}^{N}(\boldsymbol{y}_{n} - \boldsymbol{w}^T\boldsymbol{\phi(\mathbf{x})})(\boldsymbol{y}_{n} - \boldsymbol{w}^{T}\boldsymbol{\phi(\mathbf{x})^{'}})
-\\ & = \sum\limits_{n=1}^{N}(\boldsymbol{y}_{n} - \boldsymbol{w}^T\boldsymbol{\phi(\mathbf{x}))\boldsymbol{\phi(\mathbf{x})^{T}}}
+& = \frac{1}{2} \cdot 2 \sum\limits_{n=1}^{N}(\boldsymbol{y}_{n} - \boldsymbol{w}^T\boldsymbol{\phi(\mathbf{x})})(\boldsymbol{y}_{n} - \boldsymbol{w}^{T}\boldsymbol{\phi(\mathbf{x})})^{'}
+\\ & = \sum\limits_{n=1}^{N}(\boldsymbol{y}_{n} - \boldsymbol{w}^{T}\boldsymbol{\phi(\mathbf{x})})\boldsymbol{\phi(\mathbf{x})^{T}}
 \\ & = \sum\limits_{n=1}^{N}(\boldsymbol{y}_{n}\boldsymbol{\phi(\mathbf{x})^{T}} - \boldsymbol{w}^{T}\boldsymbol{\phi(\mathbf{x})^{T}})
 \end{split}
 $$
