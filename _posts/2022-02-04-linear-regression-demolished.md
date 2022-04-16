@@ -82,7 +82,7 @@ where $\boldsymbol{\phi_{j}}:$ basis functions and $\boldsymbol{w} = (w_{0}, w_{
 1. linear function of the parameters, $w_{1}, \dots, w_{D}$
 </aside>
 
-> <font color='red'> Assumption 1: </font><br>
+> Assumption 1: <br>
 The linear regression formula is a linear function of the parameters $w_{1}, \cdots, w_{D}$
 >
 
