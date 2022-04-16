@@ -78,8 +78,8 @@ $$
 where $\boldsymbol{\phi_{j}}:$ basis functions and $\boldsymbol{w} = (w_{0}, w_{1}, \dots, w_{D})^{T}$ and  $\boldsymbol{\phi} =(1, \space \phi_{1}, \dots, \phi_{D})^{T}$.
 
 <aside>
-💡 The basis function can be fixed non-linear functions of the input variables $\mathbf{x_{i}}$ so that the basis formula follows the properties: <br>
-1. linear function of the parameters, $w_{1}, \dots, w_{D}$
+💡 <em>The basis function can be fixed non-linear functions of the input variables $\mathbf{x_{i}}$ so that the basis formula follows the properties: <br>
+1. linear function of the parameters, $w_{1}, \dots, w_{D}$ </em>
 </aside>
 
 > <span style="color:red"> Assumption 1:</span> <br>
@@ -121,16 +121,16 @@ The following section displays the most popular loss functions used in Data Scie
 
 ### Mean Squared Error (MSE)
 
-*Formula:* <br>
+*<span style="color:blue"> Formula:</span>* <br>
 $$E_{D}(w) = \frac{1}{N} \sum\limits_{n=1}^{N}(y_{n} - \hat{y})^{2}$$
 
-*Advantages:*
+*<span style="color:blue"> Advantages:</span>*
 
 1. Sum of Squares can be motivated as the Maximum Likelihood Solution under an assumed Gaussian noise model
 2. Squared differences have the nice mathematical properties; continuously differentiable which is convenient when trying to minimise it.
 3. Sum of Squares is a convex function which mean that the local minimum=global minimum.
 
-*Disadvantages:*
+*<span style="color:blue"> Disadvantages:</span>*
 
 1. Not robust to outliers as it penalises them to the power of 2
 2. Scaled-dependent
@@ -140,45 +140,45 @@ $$E_{D}(w) = \frac{1}{N} \sum\limits_{n=1}^{N}(y_{n} - \hat{y})^{2}$$
 *Formula:* <br>
 $$E_{D}(w) = \frac{1}{N} \sum\limits_{n=1}^{N} \mid y_{i} - \hat{y_{i}} \mid$$
 
-*Advantages:*
+*<span style="color:blue"> Advantages:</span>*
 
 1. More robust to outliers compared to MSE
 
-*Disadvantages:*
+*<span style="color:blue"> Disadvantages:</span>*
 
 1. Not differentiable which needs the application of optimisers such as Gradient Descent to minimise
 
 ### Root Mean Squared Error (RMSE)
 
-Formula: <br>
+*<span style="color:blue"> Formula:</span>* <br>
 $$E_{D}(w) = \sqrt{MSE}$$
 
-*Advantages:*
+*<span style="color:blue"> Advantages:</span>*
 
 1. Output is at the same unit as the input (interpretation usefulness)
 
-*Disadvantages:*
+*<span style="color:blue"> Disadvantages:</span>*
 
 1. Not that robust to outliers
 
 ### Mean Absolute Percentage Error (MAPE)
 
-*Formula:* <br>
+*<span style="color:blue"> Formula:</span>* <br> <br>
 $$E_{D}(w) = \frac{100\%}{N} \sum\limits_{n=1}^{N} \mid \frac{y_{i} - \hat{y_{i}}}{y_{i}} \mid$$
 
-*Advantages:*
+*<span style="color:blue"> Advantages:</span>*
 
 1. Easy to interpret as a percentage
 
-*Disadvantages:*
+*<span style="color:blue"> Disadvantages:</span>*
 
 1. The MAPE, as a percentage, only makes sense for values where divisions and ratios make sense. <br>
 E.g. not applicable for cases that need to calculate the accuracy of a temperature forecast as it doesn't make sense to calculate percentages of temperatures.
 2. Not differentiable everywhere which means that first and second derivatives not always defined
 
 <aside>
-💡 <strong>In the context of Machine Learning, selecting a Loss Function to minimise is more than enough considering that the only interest is to "fit" a line into some data. Minimising a Loss Function is a mathematical minimisation problem with no assumptions made for the distribution of the data. In other words, training a linear regression model does not require that the independent or target variables are normally distributed. The normality assumption is only a requirement for certain statistics and hypothesis tests. </strong>
-</aside>
+💡 <em>In the context of Machine Learning, selecting a Loss Function to minimise is more than enough considering that the only interest is to "fit" a line into some data. Minimising a Loss Function is a mathematical minimisation problem with no assumptions made for the distribution of the data. In other words, training a linear regression model does not require that the independent or target variables are normally distributed. The normality assumption is only a requirement for certain statistics and hypothesis tests. </strong>
+</em>
 
 To ensure, however, that our $\mathbf{w}$ estimate is unbiased, we need to extend our assumptions about the data.
 
@@ -242,7 +242,7 @@ $$
 
 with $\boldsymbol{\phi} = (\phi_{0}, \dots , \phi_{D})^{T}$ and  $\Phi$ being a $N$ x $(D+1)$ matrix.
 
-> Assumption 5: <br>
+> <span style="color:red"> Assumption 5:</span> <br>
 For the $(\boldsymbol{\Phi}^{T}\boldsymbol{\Phi})^{-1}$ we need to assume that $\boldsymbol{\Phi}$ is of full rank
 i.e. *the independent variables are not correlated* (e.g. $\phi_{1} = 3\phi_{3}$).
 *Note: This is know as no multicollinearity.*
