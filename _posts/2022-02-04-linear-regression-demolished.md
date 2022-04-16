@@ -115,9 +115,9 @@ y & = f(\mathbf{x, w}) + \boldsymbol{\epsilon}
 $$
 
 where $y \rightarrow$ target variable, <br>
-$\hspace{2.5cm} \hat{y} \rightarrow$ estimated value, <br>
-$\hspace{2.5cm} f(\mathbf{x, w}) \rightarrow$ deterministic function, <br>
-$\hspace{2.5cm} \boldsymbol{\epsilon} \rightarrow$ *residuals (estimation of the error)*
+$\hspace{1cm} \hat{y} \rightarrow$ estimated value, <br>
+$\hspace{1cm} f(\mathbf{x, w}) \rightarrow$ deterministic function, <br>
+$\hspace{1cm} \boldsymbol{\epsilon} \rightarrow$ *residuals (estimation of the error)*
 
 In order to minimise the $\epsilon$ error term, we need to find the $\mathbf{w}$ coefficient weights that will make these $y-\hat{y}$ differences (or their loss functions derivations) as small as possible.
 
@@ -141,7 +141,7 @@ $$E_{D}(w) = \frac{1}{N} \sum\limits_{n=1}^{N}(y_{n} - \hat{y})^{2}$$
 
 ### Mean Absolute Error (MAE)
 
-*Formula:* <br>
+*<span style="color:blue"> Formula:</span>* <br>
 $$E_{D}(w) = \frac{1}{N} \sum\limits_{n=1}^{N} \mid y_{i} - \hat{y_{i}} \mid$$
 
 *<span style="color:blue"> Advantages:</span>*
@@ -167,7 +167,7 @@ $$E_{D}(w) = \sqrt{MSE}$$
 
 ### Mean Absolute Percentage Error (MAPE)
 
-*<span style="color:blue"> Formula:</span>* <br> <br>
+*<span style="color:blue"> Formula:</span>* <br>
 $$E_{D}(w) = \frac{100\%}{N} \sum\limits_{n=1}^{N} \mid \frac{y_{i} - \hat{y_{i}}}{y_{i}} \mid$$
 
 *<span style="color:blue"> Advantages:</span>*
