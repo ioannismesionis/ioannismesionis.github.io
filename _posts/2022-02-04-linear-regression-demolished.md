@@ -111,84 +111,88 @@ y & = f(\mathbf{x, w}) + \boldsymbol{\epsilon}
 $$
 
 where $y \rightarrow$ target variable, <br>
-$\hat{y} \rightarrow$ estimated value, <br>
-$f(\mathbf{x, w}) \rightarrow$ deterministic function, <br>
-$\boldsymbol{\epsilon} \rightarrow$ *residuals (estimation of the error)*
+$space{2cm} \hat{y} \rightarrow$ estimated value, <br>
+$space{2cm} f(\mathbf{x, w}) \rightarrow$ deterministic function, <br>
+$space{2cm} \boldsymbol{\epsilon} \rightarrow$ *residuals (estimation of the error)*
 
 In order to minimise the $\epsilon$ error term, we need to find the $\mathbf{w}$ coefficient weights that will make these $y-\hat{y}$ differences (or their loss functions derivations) as small as possible.
 
-The following table displays the most popular loss functions used in Data Science.
+The following section displays the most popular loss functions used in Data Science.
 
-## Mean Squared Error (MSE)
+### Mean Squared Error (MSE)
 
-Formula: $$E_{D}(w) = \frac{1}{N} \sum\limits_{n=1}^{N}(y_{n} - \hat{y})^{2}$$
+*Formula:* <br>
+$$E_{D}(w) = \frac{1}{N} \sum\limits_{n=1}^{N}(y_{n} - \hat{y})^{2}$$
 
-Advantages:
+*Advantages:*
 
 1. Sum of Squares can be motivated as the Maximum Likelihood Solution under an assumed Gaussian noise model
 2. Squared differences have the nice mathematical properties; continuously differentiable which is convenient when trying to minimise it.
 3. Sum of Squares is a convex function which mean that the local minimum=global minimum.
 
-Disadvantages:
+*Disadvantages:*
 
 1. Not robust to outliers as it penalises them to the power of 2
 2. Scaled-dependent
 
-## Mean Absolute Error (MAE)
+### Mean Absolute Error (MAE)
 
-Formula: $$E_{D}(w) = \frac{1}{N} \sum\limits_{n=1}^{N} \mid y_{i} - \hat{y_{i}} \mid$$
+*Formula:* <br>
+$$E_{D}(w) = \frac{1}{N} \sum\limits_{n=1}^{N} \mid y_{i} - \hat{y_{i}} \mid$$
 
-Advantages:
+*Advantages:*
 
 1. More robust to outliers compared to MSE
 
-Disadvantages:
+*Disadvantages:*
 
 1. Not differentiable which needs the application of optimisers such as Gradient Descent to minimise
 
-## Root Mean Squared Error (RMSE)
+### Root Mean Squared Error (RMSE)
 
-Formula: $$E_{D}(w) = \sqrt{MSE}$$
+Formula: <br>
+$$E_{D}(w) = \sqrt{MSE}$$
 
-Advantages:
+*Advantages:*
 
 1. Output is at the same unit as the input (interpretation usefulness)
 
-Disadvantages:
+*Disadvantages:*
 
 1. Not that robust to outliers
 
-## Mean Absolute Percentage Error (MAPE)
+### Mean Absolute Percentage Error (MAPE)
 
-Formula: $$E_{D}(w) = \frac{100\%}{N} \sum\limits_{n=1}^{N} \mid \frac{y_{i} - \hat{y_{i}}}{y_{i}} \mid$$
+*Formula:* <br>
+$$E_{D}(w) = \frac{100\%}{N} \sum\limits_{n=1}^{N} \mid \frac{y_{i} - \hat{y_{i}}}{y_{i}} \mid$$
 
-Advantages:
+*Advantages:*
 
 1. Easy to interpret as a percentage
 
-Disadvantages:
+*Disadvantages:*
 
 1. The MAPE, as a percentage, only makes sense for values where divisions and ratios make sense. <br>
 E.g. not applicable for cases that need to calculate the accuracy of a temperature forecast as it doesn't make sense to calculate percentages of temperatures.
 2. Not differentiable everywhere which means that first and second derivatives not always defined
 
 <aside>
-💡 ***In the context of Machine Learning, selecting a Loss Function to minimise is more than enough considering that the only interest is to "fit" a line into some data. Minimising a Loss Function is a mathematical minimisation problem with no assumptions made for the distribution of the data. In other words, training a linear regression model does not require that the independent or target variables are normally distributed. The normality assumption is only a requirement for certain statistics and hypothesis tests.***
+💡 <strong>In the context of Machine Learning, selecting a Loss Function to minimise is more than enough considering that the only interest is to "fit" a line into some data. Minimising a Loss Function is a mathematical minimisation problem with no assumptions made for the distribution of the data. In other words, training a linear regression model does not require that the independent or target variables are normally distributed. The normality assumption is only a requirement for certain statistics and hypothesis tests. </strong>
 </aside>
 
 To ensure, however, that our $\mathbf{w}$ estimate is unbiased, we need to extend our assumptions about the data.
 
-> Assumption 2: <br>
+> <span style="color:red"> Assumption 2:</span> <br>
 The residuals are normally distributed with mean = $0$
  *Note: This is called "Normality" of the residuals.*
 >
 
-> Assumption 3: <br>
+> <span style="color:red"> Assumption 3:</span> <br>
 The residuals have constant variance for every input of the data $\mathbf{x_{D}}, n=1, \dots ,D$
 *Note: This is known as "homoscedasticity".*
 >
 
-> Assumption 4: <br>
+> <span style="color:red"> Assumption 4:</span> <br>
 The residuals are not correlated with each other, i.e. not auto-correlated.
 Auto-correlation takes place when there is a pattern in the rows for the data (e.g. time-series)
 >
@@ -250,38 +254,39 @@ i.e. *the independent variables are not correlated* (e.g. $\phi_{1} = 3\phi_{3}$
 
 ## R-Squared
 
-Description: <br>
+*Description:* <br>
 $R^{2}$ measures how much variance can be explained by your model.
 
 $R^{2}$ can also be viewed as how much the regression line is better than the mean line.
 
-Formula: <br>
+*Formula:* <br>
 $$R^{2} = 1 - \frac{\text{Unexplained Variance}}{\text{Total Variation}} = \\
 \hspace{0.5cm} = 1 - \frac{SS_{reg}}{SS_{mean}} = \\
 \hspace{0.5cm} = 1 - \frac{\sum\limits_{i=1}^{N} (y_{i} - \hat{y_{i}})^{2}}{\sum\limits_{i=1}^{N} (y_{i} - \overline{y_{i}})}$$
 
 where $\overline{y_{i}}$ being the mean of target variable.
 
-Value's Range: <br>
+*Value's Range:* <br>
 From 0 (bad model) to 1 (perfect model)
 
-Comment: <br>
+*Comment:* <br>
 A problem with the $R^{2}$ metric is that sometimes it increases as we add more variables even if the added variables are irrelevant.
 
 In other words, the model can always map some data to a target variable.
 
 ## Adjusted R-Squared
 
-Description: <br>
+*Description:* <br>
 $R^{2}$ - Adjusted overcomes the incorrect increase of the $R^{2}$ by adding extra independent variables.
 
-Formula: <br>
+*Formula:* <br>
 $$R_{a}^{2} = 1 - \{ (\frac {n-1}{n-k-1})(1-R^{2})\}$$
 
 where $n=$ number of obserbations <br>
 and $k=$ number of features.
 
-Value's Range: From 0 (bad model) to 1 (perfect model)
+*Value's Range:* <br>
+From 0 (bad model) to 1 (perfect model)
 
-Comment:
+*Comment:* <br>
 As $k$ increases, the denominator decreases which makes the entire value to be subtracted from 1 a large value. As a result, the $R^{2}_{a}$ is decreased which means that the more irrelevant features, the worse the model
