@@ -16,7 +16,7 @@ Having a passion for mathematics, I was delighted to find out that Machine Learn
 
 The goal of *Regression* is to model the relationship between some input data with a continuous-valued target (response variable). Mathematically speaking, regression is a mapping of a D-dimensional vector $x$ with a real continuous target $y$
 
-- **Training data**: $$*N*$$ training examples of a $D$-dimensional input data.
+- **Training data**: $_N_$ training examples of a $D$-dimensional input data.
 
 $$
 X = \mathbf{x_1}, \mathbf{x_2}, \dots , \mathbf{x_D}
@@ -120,7 +120,8 @@ The following table displays the most popular loss functions used in Data Scienc
 
 ## Mean Squared Error (MSE)
 
-Formula:
+Formula: $$E_{D}(w) = \frac{1}{N} \sum\limits_{n=1}^{N}(y_{n} - \hat{y})^{2}$$
+
 Advantages:
 
 1. Sum of Squares can be motivated as the Maximum Likelihood Solution under an assumed Gaussian noise model
@@ -134,7 +135,7 @@ Disadvantages:
 
 ## Mean Absolute Error (MAE)
 
-Formula:
+Formula: $$E_{D}(w) = \frac{1}{N} \sum\limits_{n=1}^{N} \mid y_{i} - \hat{y_{i}} \mid$$
 Advantages:
 
 1. More robust to outliers compared to MSE
@@ -145,7 +146,8 @@ Disadvantages:
 
 ## Root Mean Squared Error (RMSE)
 
-Formula:
+Formula: $$E_{D}(w) = \sqrt{MSE}$$
+
 Advantages:
 
 1. Output is at the same unit as the input (interpretation usefulness)
@@ -156,7 +158,8 @@ Disadvantages:
 
 ## Mean Absolute Percentage Error (MAPE)
 
-Formula:
+Formula: $$E_{D}(w) = \frac{100\%}{N} \sum\limits_{n=1}^{N} |\frac{y_{i} - \hat{y_{i}}}{y_{i}}|$$
+
 Advantages:
 
 1. Easy to interpret as a percentage
@@ -168,7 +171,7 @@ E.g. not applicable for cases that need to calculate the accuracy of a temperatu
 2. Not differentiable everywhere which means that first and second derivatives not always defined
 
 <aside>
-💡 *In the context of Machine Learning, selecting a Loss Function to minimise is more than enough considering that the only interest is to "fit" a line into some data. Minimising a Loss Function is a mathematical minimisation problem with no assumptions made for the distribution of the data. In other words, training a linear regression model does not require that the independent or target variables are normally distributed. The normality assumption is only a requirement for certain statistics and hypothesis tests.*
+💡 _In the context of Machine Learning, selecting a Loss Function to minimise is more than enough considering that the only interest is to "fit" a line into some data. Minimising a Loss Function is a mathematical minimisation problem with no assumptions made for the distribution of the data. In other words, training a linear regression model does not require that the independent or target variables are normally distributed. The normality assumption is only a requirement for certain statistics and hypothesis tests._
 </aside>
 
 To ensure, however, that our $\mathbf{w}$ estimate is unbiased, we need to extend our assumptions about the data.
