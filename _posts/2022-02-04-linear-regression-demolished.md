@@ -59,9 +59,11 @@ with $\mathbf{x}$ in this simple case being $\mathbf{x} = (x_{1}, \dots, x_{D})^
 (i.e. a single observation per variable)
 
 <aside>
+<em>
 💡 The formula above has the following limitations: <br>
 1. linear function of the parameters:$\space w_{1}, \dots, w_{D}$ <br>
 2. linear function of the input variables: $\space x_{1}, \dots ,x_{D}$
+</em>
 </aside>
 
 In order to remove *limitation number 2*, we introduce the **basis functions** so that the simplest formula is *extended* to:
@@ -78,8 +80,10 @@ $$
 where $\boldsymbol{\phi_{j}}:$ basis functions and $\boldsymbol{w} = (w_{0}, w_{1}, \dots, w_{D})^{T}$ and  $\boldsymbol{\phi} =(1, \space \phi_{1}, \dots, \phi_{D})^{T}$.
 
 <aside>
+<em>
 💡 The basis function can be fixed non-linear functions of the input variables $\mathbf{x_{i}}$ so that the basis formula follows the properties: <br>
 1. linear function of the parameters, $w_{1}, \dots, w_{D}$
+</em>
 </aside>
 
 > <span style="color:red"> Assumption 1:</span> <br>
