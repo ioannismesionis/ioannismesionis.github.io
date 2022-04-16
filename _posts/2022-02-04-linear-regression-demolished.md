@@ -111,9 +111,9 @@ y & = f(\mathbf{x, w}) + \boldsymbol{\epsilon}
 $$
 
 where $y \rightarrow$ target variable, <br>
-$space{2cm} \hat{y} \rightarrow$ estimated value, <br>
-$space{2cm} f(\mathbf{x, w}) \rightarrow$ deterministic function, <br>
-$space{2cm} \boldsymbol{\epsilon} \rightarrow$ *residuals (estimation of the error)*
+$\blank{2.5cm} \hat{y} \rightarrow$ estimated value, <br>
+$\blank{2.5cm} f(\mathbf{x, w}) \rightarrow$ deterministic function, <br>
+$\blank{2.5cm} \boldsymbol{\epsilon} \rightarrow$ *residuals (estimation of the error)*
 
 In order to minimise the $\epsilon$ error term, we need to find the $\mathbf{w}$ coefficient weights that will make these $y-\hat{y}$ differences (or their loss functions derivations) as small as possible.
 
