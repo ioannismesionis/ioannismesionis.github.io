@@ -258,41 +258,43 @@ i.e. *the independent variables are not correlated* (e.g. $\phi_{1} = 3\phi_{3}$
 
 ---
 
+The Loss Functions captured in the previous section can also be used as a way to measure the evaluation of a regression model. However, these metrics can be meaningful only compared to the same metric built of another model. In order to not replicate the same content, I will focus on additonal metrics that can be used to evaluate a Machine Learning model.
+
 ## R-Squared
 
-*Description:* <br>
+*<span style="color:blue"> Description:</span>* <br>
 $R^{2}$ measures how much variance can be explained by your model.
 
 $R^{2}$ can also be viewed as how much the regression line is better than the mean line.
 
-*Formula:* <br>
+*<span style="color:blue"> Formula:</span>* <br>
 $$R^{2} = 1 - \frac{\text{Unexplained Variance}}{\text{Total Variation}} = \\
 \hspace{0.5cm} = 1 - \frac{SS_{reg}}{SS_{mean}} = \\
 \hspace{0.5cm} = 1 - \frac{\sum\limits_{i=1}^{N} (y_{i} - \hat{y_{i}})^{2}}{\sum\limits_{i=1}^{N} (y_{i} - \overline{y_{i}})}$$
 
 where $\overline{y_{i}}$ being the mean of target variable.
 
-*Value's Range:* <br>
+*<span style="color:blue"> Value's Range:</span>* <br>
 From 0 (bad model) to 1 (perfect model)
 
-*Comment:* <br>
+*<span style="color:blue"> Comment:</span>* <br>
 A problem with the $R^{2}$ metric is that sometimes it increases as we add more variables even if the added variables are irrelevant.
 
 In other words, the model can always map some data to a target variable.
 
 ## Adjusted R-Squared
 
-*Description:* <br>
+*<span style="color:blue"> Description:</span>* <br>
 $R^{2}$ - Adjusted overcomes the incorrect increase of the $R^{2}$ by adding extra independent variables.
 
-*Formula:* <br>
+*<span style="color:blue"> Formula:</span>* <br>
 $$R_{a}^{2} = 1 - \{ (\frac {n-1}{n-k-1})(1-R^{2})\}$$
 
 where $n=$ number of obserbations <br>
 and $k=$ number of features.
 
-*Value's Range:* <br>
+*<span style="color:blue"> Value's Range:</span>* <br>
 From 0 (bad model) to 1 (perfect model)
 
-*Comment:* <br>
+*<span style="color:blue"> Comment:</span>* <br>
 As $k$ increases, the denominator decreases which makes the entire value to be subtracted from 1 a large value. As a result, the $R^{2}_{a}$ is decreased which means that the more irrelevant features, the worse the model
