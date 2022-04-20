@@ -228,11 +228,10 @@ Converting the equation above into using Matrix notation, we get:
 
 $$
 \begin{split}
-0 & = \boldsymbol{\Phi^{T} - \Phi^{T}\Phi w} \Leftrightarrow \\
-&\Leftrightarrow \boldsymbol{\Phi^{T}\Phi w} = \boldsymbol{\Phi t}  \Leftrightarrow \\
-&\Leftrightarrow \boldsymbol{\hat{w}} = (\boldsymbol{\Phi^{T}\Phi})^{-1}\boldsymbol{\Phi^{T}} \boldsymbol{t} \hspace{0.5cm} \longrightarrow \textcolor{blue}{\textbf{Normal equations}}
+0 & = \boldsymbol{\Phi^{T}y - \Phi^{T}\Phi w} \Leftrightarrow \\
+&\Leftrightarrow \boldsymbol{\Phi^{T}\Phi w} = \boldsymbol{\Phi^{T}y}  \Leftrightarrow \\
+&\Leftrightarrow \boldsymbol{\hat{w}} = (\boldsymbol{\Phi^{T}\Phi})^{-1}\boldsymbol{\Phi^{T}} \boldsymbol{y} \hspace{0.5cm} \longrightarrow \textcolor{blue}{\textbf{Normal equations}}
 \end{split}
-
 $$
 
 where $\boldsymbol{\Phi}$ is called the design matrix
