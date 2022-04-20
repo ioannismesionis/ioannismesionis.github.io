@@ -249,7 +249,7 @@ with $\boldsymbol{\phi} = (\phi_{0}, \dots , \phi_{D})^{T}$ and  $\Phi$ being a 
 
 > <span style="color:red"> Assumption 5:</span> <br>
 For the $(\boldsymbol{\Phi}^{T}\boldsymbol{\Phi})^{-1}$ we need to assume that $\boldsymbol{\Phi}$ is of full rank
-i.e. *the independent variables are not correlated* (e.g. $\phi_{1} = 3\phi_{3}$).
+i.e. *the independent variables are not correlated* (e.g. $\phi_{1} = 3\phi_{3}$). <br>
 *Note: This is know as no multicollinearity.*
 >
 
@@ -262,16 +262,14 @@ The Loss Functions captured in the previous section can also be used as a way to
 ## R-Squared
 
 *<span style="color:blue"> Description:</span>* <br>
-$R^{2}$ measures how much variance can be explained by your model.
-
-$R^{2}$ can also be viewed as how much the regression line is better than the mean line.
+$R^{2}$ measures how much variance can be explained by your model. $R^{2}$ can also be viewed as how much the regression line is better than the mean line.
 
 *<span style="color:blue"> Formula:</span>* <br>
 $$R^{2} = 1 - \frac{\text{Unexplained Variance}}{\text{Total Variation}} = \\
 \hspace{0.5cm} = 1 - \frac{SS_{reg}}{SS_{mean}} = \\
-\hspace{0.5cm} = 1 - \frac{\sum\limits_{i=1}^{N} (y_{i} - \hat{y_{i}})^{2}}{\sum\limits_{i=1}^{N} (y_{i} - \overline{y_{i}})}$$
+\hspace{0.5cm} = 1 - \frac{\sum\limits_{i=1}^{N} (y_{i} - \hat{y_{i}})^{2}}{\sum\limits_{i=1}^{N} (y_{i} - \overline{y})}$$
 
-where $\overline{y_{i}}$ being the mean of target variable.
+where $\overline{y}$ being the mean of target variable.
 
 *<span style="color:blue"> Value's Range:</span>* <br>
 From 0 (bad model) to 1 (perfect model)
