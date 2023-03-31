@@ -26,7 +26,7 @@ $\rho_{X,Y} = \frac{COV(X, Y)}{\sigma_{x}\sigma_{y}} = \frac{\sum_{i=2}^{n}(x_{i
 - **Intuition:** <br>
 It is essentially a normalized measurement of the covariance.
 
-- **Assumption/Limitations** <br>
+- **Assumption/Limitations:**
     - Relationship between the two variables is linear. <br>
     - Variables are normally distributed. <br>
     - There are no significant outliers in the data. <br>
@@ -40,26 +40,19 @@ This is a non-parametric method for measuring the correlation between two variab
 df['column1'].corr(df['column2'], method='spearman')
 ```
 
-**Formula**
-
+- **Formula:**
 $r_{s} = \rho_{R(X), R(Y)} = \frac{COV(R(X), R(Y))}{\sigma_{X}\sigma_{Y}} \\ \space \space \space \space = 1 - \frac{6\sum_{i=1}^{n}d_{i}}{n(n^{2}-1)}$ 
 
 where $d_{i} = R(X_{i}) - R(Y_{i})$
 
-**Intuition**
-
+- **Intuition:** <br>
 It is the Pearson Correlation of the ranked variables.
 
-**Assumption/Limitations**
-
-- The relationship between the variables is monotonic. <br>
-(i.e. as one variable increases, the other variable either also increases or decreases)
-
-- Easier to compute compared to Kendall’s Tau correlation.
-
-- May not be appropriate for small sample sizes.
-
-
+- **Assumption/Limitations:** <br>
+    - The relationship between the variables is monotonic. <br>
+    (i.e. as one variable increases, the other variable either also increases or decreases) <br>
+    - Easier to compute compared to Kendall’s Tau correlation. <br>
+    - May not be appropriate for small sample sizes. <br>
 <br>
 
 **3) Kendall's Tau Correlation Coefficient:** <br>
