@@ -83,19 +83,9 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
 
     Also, $y_i$ is the correct output for the training example $i$, and $h_t(x_i)$ is the predicted output by classifier $t$ on this training example.
 
-    <p>💡 Here's how the predicted and actual output affect the value of $y *h(x)$:</p>
-        <ol>
-            <li>If the predicted and actual output <b>agrees</b>:
-                <ul>
-<li>$y* h(x)$ will always be +1 (either $1 *1$ or $(-1)* (-1)$).</li>
-                </ul>
-            </li>
-            <li>If the predicted and actual output <b>disagrees</b>:
-                <ul>
-                    <li>$y * h(x)$ will be negative.</li>
-                </ul>
-            </li>
-        </ol>
+    <li> If the predicted and actual output <b>agrees</b> -> $y*h(x)$ will always be +1 (either $1*1$ or $(-1)* (-1)$).</li> <br></li>
+
+    <li>If the predicted and actual output <b>disagrees</b> -> $y * h(x)$ will be negative.</li>
 
     </aside>
 
@@ -109,7 +99,7 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
 
     <ol>
         <li>$h_t(x)$ is the output of weak classifier $t$.<br>
-            <i>Note:</i> In the paper, the outputs are limited to -1 or +1.</li>
+            <i>Note:</i> In the paper, the outputs are limited to -1 or +1.</li> <br>
         <li>$\alpha_t$ is the weight applied to classifier $t$ as determined by AdaBoost in <i>step c</i>.</li>
     </ol>
 
