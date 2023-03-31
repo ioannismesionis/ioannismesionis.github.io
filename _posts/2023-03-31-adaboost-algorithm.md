@@ -24,17 +24,17 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
     a. Train a decision tree classifier $h_t(x_i)$ on the training data with weights $w_i^{(t)}$.
 
     <aside>
-    💡 The <b>Gini index</b> is being used to decide which feature will produce the best split to create the *stump* tree. <br>
+    💡 The <b>Gini index</b> is being used to decide which feature will produce the best split to create the <i>stump</i> tree. <br>
 
     The Gini index formula is $G = \sum_{i=1}^J p_i (1 - p_i)$ where $J$ is the number of classes, and $p_i$ is the proportion of instances with class $i$ in the current node. <br>
 
-    *Note:* Each weak classifier should be trained on a random subset of the total training set. <br>
-            AdaBoost assigns a “weight” (i.e. **weighted sampling method**) to each training example, which determines the **probability that each example should appear in the training set.**
+    <i>Note:</i> Each weak classifier should be trained on a random subset of the total training set. <br>
+            AdaBoost assigns a “weight” (i.e. <b>weighted sampling method</b>) to each training example, which determines the **probability that each example should appear in the training set.
 
     </aside>
 
     <aside>
-    💡 AdaBoost makes **super small decision trees** (i.e. *stumps*).
+    💡 AdaBoost makes <b>super small decision trees</b> (i.e. <i>stumps</i>).
 
     </aside>
 
@@ -44,17 +44,17 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
     >
 
     <aside>
-    💡 The error term above basically **sums up the weights** of the **misclassified** examples which is being used in the *formula c.* to calculate the weight of the classifier $h_{t}(x_{i})$.
+    💡 The error term above basically <b>sums up the weights</b> of the <b>misclassified</b> examples which is being used in the <i>formula c.</i> to calculate the weight of the classifier $h_{t}(x_{i})$.
 
     </aside>
 
-    c. Calculate the **weight** of the *****weak classifier** $h_t(x)$:
+    c. Calculate the **weight** of the **weak classifier** $h_t(x)$:
 
     > $\alpha_t = \frac{1}{2} \ln(\frac{1 - \epsilon_t}{\epsilon_t})$
     >
 
     <aside>
-    💡 This is just a straightforward calculation replacing $\epsilon_{t}$ from *formula b.* above.
+    💡 This is just a straightforward calculation replacing $\epsilon_{t}$ from <i>formula b.</i> above.
 
     Here is the graph of $\alpha$ looks for different error rates $ln(\frac{1 - \epsilon}{\epsilon})$
 
@@ -65,13 +65,13 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
     <aside>
     💡 The intuition of the graph is three-fold:
 
-    1. The classifier **weight grows exponentially** as the **error approaches 0**.
+    1. The classifier <b>weight grows exponentially</b> as the <b>error approaches 0</b>.
     Better classifiers are given exponentially more weight.
 
-    2. The classifier **weight is zero** if the **error rate is 0.5**.
+    2. The classifier <b>weight is zero</b> if the <b>error rate is 0.5</b>.
     A classifier with 50% accuracy is no better than random guessing, so we ignore it.
 
-    3. The classifier **weight grows exponentially *negative*** as the **error approaches 1**.
+    3. The classifier <b>weight grows exponentially <i>negative</i></b> as the <b>error approaches 1</b>.
     We give a negative weight to classifiers with worse than 50% accuracy. “Whatever that classifier says, do the opposite!”.
     </aside>
 
@@ -87,10 +87,10 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
 
     Also, $y_i$ is the correct output for the training example $i$, and $h_t(x_i)$ is the predicted output by classifier $t$ on this training example.
 
-    * If the predicted and actual output **agrees** :
+    * If the predicted and actual output <b>agrees</b> :
     → $y *h(x)$ will always be +1 (either $1* 1$ or $(-1) * (-1)$)
 
-    * If the predicted and actual output **disagrees**:
+    * If the predicted and actual output <b>disagrees</b>:
     → $y * h(x)$ will be negative.
 
     </aside>
@@ -104,10 +104,10 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
     💡 The final classifier consists of $T$ weak classifiers:
 
     * $h_t(x)$ is the output of weak classifier $t$.
-      *Note:* In the paper, the outputs are limited to -1 or +1
+      <i>Note:</i> In the paper, the outputs are limited to -1 or +1
 
     * $\alpha_t$ is the weight applied to classifier $t$ as determined by AdaBoost in *step c*.
 
-    As a result, the final ***output is just a linear combination** **of all of the weak classifiers***, and then we make our final decision simply by looking at the sign of this sum.
+    As a result, the final <b><i>output is just a linear combination of all of the weak classifiers</i></b>, and then we make our final decision simply by looking at the sign of this sum.
 
     </aside>
