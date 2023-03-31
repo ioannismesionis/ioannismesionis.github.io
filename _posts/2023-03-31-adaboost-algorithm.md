@@ -26,13 +26,14 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
     <aside>
     💡 The <b>Gini index</b> is being used to decide which feature will produce the best split to create the <i>stump</i> tree. <br>
 
-    The Gini index formula is $G = \sum_{i=1}^J p_i (1 - p_i)$ where $J$ is the number of classes, and $p_i$ is the proportion of instances with class $i$ in the current node. <br>
+    The Gini index formula is $G = \sum_{i=1}^J p_i (1 - p_i)$ where $J$ is the number of classes, and $p_i$ is the proportion of instances with class $i$ in the current node. <br> <br>
 
     <i>Note:</i> Each weak classifier should be trained on a random subset of the total training set. <br>
             AdaBoost assigns a “weight” (i.e. <b>weighted sampling method</b>) to each training example, which determines the **probability that each example should appear in the training set.
 
     </aside>
 
+    <br><br>
     <aside>
     💡 AdaBoost makes <b>super small decision trees</b> (i.e. <i>stumps</i>).
 
