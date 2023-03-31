@@ -27,9 +27,9 @@ $\rho_{X,Y} = \frac{COV(X, Y)}{\sigma_{x}\sigma_{y}} = \frac{\sum_{i=2}^{n}(x_{i
 It is essentially a normalized measurement of the covariance.
 
 - **Assumption/Limitations** <br>
-- Relationship between the two variables is linear. <br>
-- Variables are normally distributed. <br>
-- There are no significant outliers in the data. <br>
+    - Relationship between the two variables is linear. <br>
+    - Variables are normally distributed. <br>
+    - There are no significant outliers in the data. <br>
 <br>
 
 **2) Spearman Rank Correlation Coefficient:** <br>
