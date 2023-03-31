@@ -12,7 +12,7 @@ Correlations are like two peas in a pod - they just can't be separated. In machi
 
 # Correlations
 
-1. **Pearson Correlation Coefficient:**
+1. **Pearson Correlation Coefficient:** <br>
 This is the most commonly used method for measuring the linear correlation between two variables. It computes the strength and direction of the linear relationship between two continuous variables.
 
 ```python
@@ -20,7 +20,8 @@ This is the most commonly used method for measuring the linear correlation betwe
 df['column1'].corr(df['column2'])
 ```
 
-1. **Spearman Rank Correlation Coefficient:**
+
+2. **Spearman Rank Correlation Coefficient:** <br>
 This is a non-parametric method for measuring the correlation between two variables. It computes the strength and direction of the monotonic relationship between two continuous or ordinal variables.
 
 ```python
@@ -28,7 +29,8 @@ This is a non-parametric method for measuring the correlation between two variab
 df['column1'].corr(df['column2'], method='spearman')
 ```
 
-1. **Kendall's Tau Correlation Coefficient:**
+
+3. **Kendall's Tau Correlation Coefficient:** <br>
 This is another non-parametric method for measuring the correlation between two variables. It computes the strength and direction of the monotonic relationship between two continuous or ordinal variables.
 
 ```python
@@ -36,7 +38,8 @@ This is another non-parametric method for measuring the correlation between two 
 df['column1'].corr(df['column2'], method='kendall')
 ```
 
-1. **Point-Biserial Correlation Coefficient:**
+
+4. **Point-Biserial Correlation Coefficient:** <br>
 This is a method for measuring the correlation between a continuous variable and a binary variable. It computes the strength and direction of the correlation between a continuous variable and a binary variable (coded as 0 or 1).
 
 ```python
@@ -44,7 +47,8 @@ This is a method for measuring the correlation between a continuous variable and
 df['column1'].corr(df['binary_column'], method='pearson')
 ```
 
-1. **Phi Correlation Coefficient:**
+
+5. **Phi Correlation Coefficient:** <br>
 This is a method for measuring the correlation between two binary variables. It computes the strength and direction of the correlation between two binary variables (coded as 0 or 1).
 
 ```python
@@ -55,7 +59,12 @@ df['binary_column1'].corr(df['binary_column2'], method='phi')
 ![](/img/correlations/groups.png)
 
 
+
 ## Summary
+
+![](/img/correlations/correlations_summary.png)
+
+
 
 | Correlation name | Formula | Intuition | Assumptions / Limitations |
 | --- | --- | --- | --- |
