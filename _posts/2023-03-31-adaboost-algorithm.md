@@ -48,7 +48,7 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
 
     </aside>
 
-    c. Calculate the **weight** of the *****weak classifier**$h_t(x)$***:
+    c. Calculate the **weight** of the *****weak classifier** $h_t(x)$:
 
     > $\alpha_t = \frac{1}{2} \ln(\frac{1 - \epsilon_t}{\epsilon_t})$
     >
