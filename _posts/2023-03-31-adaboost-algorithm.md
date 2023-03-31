@@ -24,7 +24,7 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
     a. Train a decision tree classifier $h_t(x_i)$ on the training data with weights $w_i^{(t)}$.
 
     <aside>
-    💡 The **Gini index** is being used to decide which feature will produce the best split to create the *stump* tree. <br>
+    💡 The <b>Gini index</b> is being used to decide which feature will produce the best split to create the *stump* tree. <br>
 
     The Gini index formula is $G = \sum_{i=1}^J p_i (1 - p_i)$ where $J$ is the number of classes, and $p_i$ is the proportion of instances with class $i$ in the current node. <br>
 
