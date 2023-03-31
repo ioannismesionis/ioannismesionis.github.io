@@ -82,10 +82,11 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
     This just means that each weight $w_{i}$ represents the probability that training example $i$ will be selected as part of the training set. <br> <br>
 
     Also, $y_i$ is the correct output for the training example $i$, and $h_t(x_i)$ is the predicted output by classifier $t$ on this training example.
+    <ol>
+        <li> If the predicted and actual output <b>agrees</b> -> $y*h(x)$ will always be +1 (either $1*1$ or $(-1)* (-1)$).</li> <br>
 
-    <li> If the predicted and actual output <b>agrees</b> -> $y*h(x)$ will always be +1 (either $1*1$ or $(-1)* (-1)$).</li> <br>
-
-    <li>If the predicted and actual output <b>disagrees</b> -> $y * h(x)$ will be negative.</li>
+        <li>If the predicted and actual output <b>disagrees</b> -> $y * h(x)$ will be negative.</li>
+    </ol>
 
     </aside>
 
@@ -102,7 +103,7 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
             <i>Note:</i> In the paper, the outputs are limited to -1 or +1.</li> <br>
         <li>$\alpha_t$ is the weight applied to classifier $t$ as determined by AdaBoost in <i>step c</i>.</li>
     </ol>
-
+    <br>
     As a result, the final <b><i>output is just a linear combination of all of the weak classifiers</i></b>, and then we make our final decision simply by looking at the sign of this sum.
 
     </aside>
