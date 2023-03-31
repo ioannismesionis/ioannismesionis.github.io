@@ -1,297 +1,93 @@
 ﻿---
 layout: post
-title: Are we related?
-subtitle: An overview of variable correlations!
+title: An overview of variable correlations!
+subtitle: Hey, variable - are we (co)related?
 katex: true
-image: /img/correlations/small-correlation-and-causation.webp
+image: /img/correlations/small-correlation-and-causation.png
 bigimg: /img/correlations/Correlation_examples_big.png
 tags: [machine-learning, mathematics, correlation]
 ---
 
-Having a passion for mathematics, I was delighted to find out that Machine Learning models are using algebra under their hoods. As a result, I decided to create this mini-blog series called "Machine Learning" demolished! The purpose of the blogs is for me to refresh my memory on the optimisation techniques around the Loss function used in the most common Machine Learning models and create some sort of machine learning "mind palace" as Sherlock Holmes says. Hope that you will find the following information as useful as I did.
+Correlations are like two peas in a pod - they just can't be separated. In machine learning, correlations are like the secret ingredient that makes our models stand out. They help us identify patterns and relationships between features, and guide us in selecting the most relevant variables to predict our target variable. Correlations are the spice that brings flavor to our machine learning recipes, and the glue that binds our models together. So, let's embrace correlations, and make some deliciously accurate models!
 
-# Linear Regression - Demolished
+# Correlations
 
----
+1. **Pearson Correlation Coefficient:**
+This is the most commonly used method for measuring the linear correlation between two variables. It computes the strength and direction of the linear relationship between two continuous variables.
 
-The goal of *Regression* is to model the relationship between some input data with a continuous-valued target (response variable). Mathematically speaking, regression is a mapping of a D-dimensional vector $x$ with a real continuous target $y$
+```python
+# Compute Pearson correlation coefficient between two columns
+df['column1'].corr(df['column2'])
+```
 
-- **Training data**: $$N$$ training examples of a $D$-dimensional input data.
+1. **Spearman Rank Correlation Coefficient:**
+This is a non-parametric method for measuring the correlation between two variables. It computes the strength and direction of the monotonic relationship between two continuous or ordinal variables.
 
-$$
-X = \mathbf{x_1}, \mathbf{x_2}, \dots , \mathbf{x_D}
-$$
+```python
+# Compute Spearman rank correlation coefficient between two columns
+df['column1'].corr(df['column2'], method='spearman')
+```
 
-where, $$\mathbf{x}_{i} $$ =
-$$\begin{pmatrix}
-x_{1}^{(i)} \\
-x_{2}^{(i)} \\
-\vdots \\
-x_{N}^{(i)}
-\end{pmatrix}$$ , $$i=1,2, \dots, D$$.
+1. **Kendall's Tau Correlation Coefficient:**
+This is another non-parametric method for measuring the correlation between two variables. It computes the strength and direction of the monotonic relationship between two continuous or ordinal variables.
 
-- **Response**: Continuous-valued target of the corresponding $N$ training examples:
+```python
+# Compute Kendall's tau correlation coefficient between two columns
+df['column1'].corr(df['column2'], method='kendall')
+```
 
-$$
-y_{n},\space n = 1, 2, \dots , N
-$$
+1. **Point-Biserial Correlation Coefficient:**
+This is a method for measuring the correlation between a continuous variable and a binary variable. It computes the strength and direction of the correlation between a continuous variable and a binary variable (coded as 0 or 1).
 
-The input data $\mathbf{x}_{i}, \space i=1,2, \dots, D$ are know as *variables* and they can come from different sources:
+```python
+# Compute point-biserial correlation coefficient between a column and a binary column
+df['column1'].corr(df['binary_column'], method='pearson')
+```
 
-- quantitative inputs (e.g. Income, Age, etc.)
-- basis function, e.g. $\phi_{j}=\mathbf{x}^{j}$ (polynomial regression)
-- numeric or "dummy" encodings of qualitative inputs
-- interactions between variables, e.g. $\mathbf{x_{1}}=\mathbf{x_{2}} \cdot \mathbf{x_{3}}$
+1. **Phi Correlation Coefficient:**
+This is a method for measuring the correlation between two binary variables. It computes the strength and direction of the correlation between two binary variables (coded as 0 or 1).
 
-and we assume that these data points are drawn independently from the population distribution.
+```python
+# Compute phi correlation coefficient between two binary columns
+df['binary_column1'].corr(df['binary_column2'], method='phi')
+```
 
-# Mathematical Formula
+![](/img/correlations/groups.png)
 
----
 
-The *simplest form* of Linear Regression model is linear functions of the input variables:
+## Summary
 
-$$
-\hat{y} = f(\mathbf{x}, \mathbf{w}) = w_{0} + w_{1}x_{1}+ \dots + w_{D}x_{D}
-$$
+| Correlation name | Formula | Intuition | Assumptions / Limitations |
+| --- | --- | --- | --- |
+| Pearson Correlation Coefficient
 
-with $\mathbf{x}$ in this simple case being $\mathbf{x} = (x_{1}, \dots, x_{D})^{T}$. <br>
-(i.e. a single observation per variable)
+(Continuous variables) | 
+$\rho_{X,Y} = \frac{COV(X, Y)}{\sigma_{x}\sigma_{y}} = \frac{\sum_{i=2}^{n}(x_{i} - \bar{x})(y_{i} - \bar{y})}{\sqrt{\sum_{i=2}^{n}(x_{i} - \bar{x})^{2}}\sqrt{\sum_{i=1}^{n}(y_{i} - \bar{y})^{2}}}$ | It is essentially a normalized measurement of the covariance | - Relationship between the two variables is linear. - Variables are normally distributed.
+- There are no significant outliers in the data. |
+| Spearman Rank Correlation Coefficient
 
-<aside>
-<em>
-💡 The formula above has the following limitations: <br>
-1. linear function of the parameters:$\space w_{1}, \dots, w_{D}$ <br>
-2. linear function of the input variables: $\space x_{1}, \dots ,x_{D}$
-</em>
-</aside>
+(Continuous and ordinal variables)
+ | 
+$r_{s} = \rho_{R(X), R(Y)} = \frac{COV(R(X), R(Y))}{\sigma_{X}\sigma_{Y}} \\ \space \space \space \space = 1 - \frac{6\sum_{i=1}^{n}d_{i}}{n(n^{2}-1)}$ 
 
-In order to remove *limitation number 2*, we introduce the **basis functions** so that the simplest formula is *extended* to:
+where $d_{i} = R(X_{i}) - R(Y_{i})$ | It is the Pearson Correlation of the ranked variables. | - The relationship between the variables is monotonic.
+(i.e. as one variable increases, the other variable either also increases or decreases)
 
-The *basis form* of Linear Regression model is:
+- Easier to compute compared to Kendall’s Tau correlation.
 
-$$
-\hat{y} = (\mathbf{x}, \mathbf{w}) =
-w_{0} + \sum\limits_{j=1}^{D}w_{j}\phi_{j}(x) =
-\sum\limits_{j=0}^{D}w_{j}\phi_{j} = \boldsymbol{w}^{T}
-\boldsymbol{\phi(\mathbf{x})}
-$$
+- May not be appropriate for small sample sizes.
 
-where $\boldsymbol{\phi_{j}}:$ basis functions and $\boldsymbol{w} = (w_{0}, w_{1}, \dots, w_{D})^{T}$ and  $\boldsymbol{\phi} =(1, \space \phi_{1}, \dots, \phi_{D})^{T}$.
+ |
+| Kendall's Tau Correlation Coefficient
 
-<aside>
-<em>
-💡 The basis function can be fixed non-linear functions of the input variables $\mathbf{x_{i}}$ so that the basis formula follows the properties: <br>
-1. linear function of the parameters, $w_{1}, \dots, w_{D}$
-</em>
-</aside>
+(Continuous and ordinal variables) | $r = \frac{\text{number of concordant pairs}) - \text{(number of discordant pairs)}}{\text{number of pairs}} = \\ \space\space\space = 1-\frac{2(\text{number of discordant pairs})}{(n \space \text{choices} \space 2)}$
 
-> <span style="color:red"> Assumption 1:</span> <br>
-The linear regression formula is a linear function of the parameters $w_{1}, \cdots, w_{D}$
->
+where “concordant” between two variables being:
+$\text{sign}(X_{2} - X_{1}) = \text{sign}(Y_{2} - Y_{1}) $ | The intuition behind the formula is that if there are more concordant pairs than discordant pairs, then the variables have a positive monotonic relationship, and the value of tau is close to +1. | - The relationship between the variables is monotonic.
+(i.e. as one variable increases, the other variable either also increases or decreases)
 
-In the simplest example where $D=1$, the mapping $f(\mathbf{x}, \mathbf{w})$ can be represented as a single line that change for the different values of $\mathbf{x}$
+- More robust to outliers compared to Spearman’s Correlation.
 
-Increasing the dimension of D can result in a hyperplane, which is inefficient in terms of visualisation.
+- Handles tied ranks (i.e. when two or more observations in a dataset have the same value) better than Spearman's Correlation.
 
-The ultimate goal of machine learning is to use some input data from which the model can learn in order to predict future data as accurately as possible. The input data is utilised to minimise a *Loss Function* to estimate the values of the *coefficient parameter* $\mathbf{w}$, and then the model may be used for prediction.
-
-Based on the data at hand, the Data Scientist can choose an appropriate Loss Function from a list of functions accessible in the bibliography.
-
-# Loss Functions
-
----
-
-As a reminder, we made the assumption that our data can be adequately approximated by a linear function. In other words, we hope that $$E(y \mid \mathbf{x}) \approx f(\mathbf{x,w})$$ holds true and is a reasonable approximation.
-
-We can then safely write:
-
-$$
-\begin{align*}
-y & = f(\mathbf{x, w}) + \boldsymbol{\epsilon}
-\\
-& = \hat{y} + \boldsymbol{\epsilon}
-\end{align*}
-$$
-
-where $y \rightarrow$ target variable, <br>
-$\hspace{1cm} \hat{y} \rightarrow$ estimated value, <br>
-$\hspace{1cm} f(\mathbf{x, w}) \rightarrow$ deterministic function, <br>
-$\hspace{1cm} \boldsymbol{\epsilon} \rightarrow$ *residuals (estimation of the error)*
-
-In order to minimise the $\epsilon$ error term, we need to find the $\mathbf{w}$ coefficient weights that will make these $y-\hat{y}$ differences (or their loss functions derivations) as small as possible.
-
-The following section displays the most popular loss functions used in Data Science.
-
-### Mean Squared Error (MSE)
-
-*<span style="color:blue"> Formula:</span>* <br>
-$$E_{D}(w) = \frac{1}{N} \sum\limits_{n=1}^{N}(y_{n} - \hat{y})^{2}$$
-
-*<span style="color:blue"> Advantages:</span>*
-
-1. Sum of Squares can be motivated as the Maximum Likelihood Solution under an assumed Gaussian noise model
-2. Squared differences have the nice mathematical properties; continuously differentiable which is convenient when trying to minimise it.
-3. Sum of Squares is a convex function which mean that the local minimum=global minimum.
-
-*<span style="color:blue"> Disadvantages:</span>*
-
-1. Not robust to outliers as it penalises them to the power of 2
-2. Scaled-dependent
-
-### Mean Absolute Error (MAE)
-
-*<span style="color:blue"> Formula:</span>* <br>
-$$E_{D}(w) = \frac{1}{N} \sum\limits_{n=1}^{N} \mid y_{i} - \hat{y_{i}} \mid$$
-
-*<span style="color:blue"> Advantages:</span>*
-
-1. More robust to outliers compared to MSE
-
-*<span style="color:blue"> Disadvantages:</span>*
-
-1. Not differentiable which needs the application of optimisers such as Gradient Descent to minimise
-
-### Root Mean Squared Error (RMSE)
-
-*<span style="color:blue"> Formula:</span>* <br>
-$$E_{D}(w) = \sqrt{MSE}$$
-
-*<span style="color:blue"> Advantages:</span>*
-
-1. Output is at the same unit as the input (interpretation usefulness)
-
-*<span style="color:blue"> Disadvantages:</span>*
-
-1. Not that robust to outliers
-
-### Mean Absolute Percentage Error (MAPE)
-
-*<span style="color:blue"> Formula:</span>* <br>
-$$E_{D}(w) = \frac{100\%}{N} \sum\limits_{n=1}^{N} \mid \frac{y_{i} - \hat{y_{i}}}{y_{i}} \mid$$
-
-*<span style="color:blue"> Advantages:</span>*
-
-1. Easy to interpret as a percentage
-
-*<span style="color:blue"> Disadvantages:</span>*
-
-1. The MAPE, as a percentage, only makes sense for values where divisions and ratios make sense. <br>
-E.g. not applicable for cases that need to calculate the accuracy of a temperature forecast as it doesn't make sense to calculate percentages of temperatures.
-2. Not differentiable everywhere which means that first and second derivatives not always defined
-
-<aside>
-<em>
-💡 In the context of Machine Learning, selecting a Loss Function to minimise is more than enough considering that the only interest is to "fit" a line into some data. Minimising a Loss Function is a mathematical minimisation problem with no assumptions made for the distribution of the data. In other words, training a linear regression model does not require that the independent or target variables are normally distributed. The normality assumption is only a requirement for certain statistics and hypothesis tests.
-</em>
-</aside>
-
-To ensure, however, that our $\mathbf{w}$ estimate is unbiased, we need to extend our assumptions about the data.
-
-> <span style="color:red"> Assumption 2:</span> <br>
-The residuals are normally distributed with mean = $0$
- *Note: This is called "Normality" of the residuals.*
->
-
-> <span style="color:red"> Assumption 3:</span> <br>
-The residuals have constant variance for every input of the data $\mathbf{x_{D}}, n=1, \dots ,D$
-*Note: This is known as "homoscedasticity".*
->
-
-> <span style="color:red"> Assumption 4:</span> <br>
-The residuals are not correlated with each other, i.e. not auto-correlated.
-Auto-correlation takes place when there is a pattern in the rows for the data (e.g. time-series)
->
-
-# Coefficients Estimation
-
----
-
-Our goal is to estimate the $\boldsymbol{w}$ parameters that minimise the selected **Loss Function**; in our case that can be the Sum of Squares - especially when the $\epsilon$ error is assumed to be $\N(0, \sigma^{2})$ distributed :
-
-$$
-E_{D}(w) = RSS = \frac{1}{2} \sum\limits_{n=1}^{N}(\mathbf{y}_{n} - \mathbf{w}^{T}\boldsymbol{\phi} (\mathbf{x}))^{2}\\ \hspace{1.5cm} \hookrightarrow \textcolor{blue}{\text{Residual Sum of Squares}}
-$$
-
-In mathematics, to find the minimum of a function, we have to set the derivative of the function to 0. Therefore:
-
-$$
-\begin{split}
-0 = \bigtriangledown E_{D}(\boldsymbol{w})
-& = \frac{1}{2} \cdot 2 \sum\limits_{n=1}^{N}(\boldsymbol{y}_{n} - \boldsymbol{w}^T\boldsymbol{\phi(\mathbf{x})})(\boldsymbol{y}_{n} - \boldsymbol{w}^{T}\boldsymbol{\phi(\mathbf{x})})^{'}
-\\ & = \sum\limits_{n=1}^{N}(\boldsymbol{y}_{n} - \boldsymbol{w}^{T}\boldsymbol{\phi(\mathbf{x})})\boldsymbol{\phi(\mathbf{x})^{T}}
-\\ & = \sum\limits_{n=1}^{N}(\boldsymbol{y}_{n}\boldsymbol{\phi(\mathbf{x})^{T}} - \boldsymbol{w}^{T}\boldsymbol{\phi(\mathbf{x})^{T}})
-\end{split}
-$$
-
-Converting the equation above into using Matrix notation, we get:
-
-$$
-\begin{split}
-0 & = \boldsymbol{\Phi^{T}y - \Phi^{T}\Phi w} \Leftrightarrow \\
-&\Leftrightarrow \boldsymbol{\Phi^{T}\Phi w} = \boldsymbol{\Phi^{T}y}  \Leftrightarrow \\
-&\Leftrightarrow \boldsymbol{\hat{w}} = (\boldsymbol{\Phi^{T}\Phi})^{-1}\boldsymbol{\Phi^{T}} \boldsymbol{y} \hspace{0.5cm} \longrightarrow \textcolor{blue}{\textbf{Normal equations}}
-\end{split}
-$$
-
-where $\boldsymbol{\Phi}$ is called the design matrix
-
-$$
-\boldsymbol{\Phi} = \begin{pmatrix}
-\phi_{o}(x_{1}) & \phi_{1}(x_{1}) & \cdots & \phi_{D}(x_{1})\\
-\phi_{o}(x_{2}) & \phi_{1}(x_{2}) & \cdots & \phi_{D}(x_{2})\\
-\vdots & \vdots & \ddots & \vdots \\
-\phi_{o}(x_{N}) & \phi_{1}(x_{N}) & \cdots & \phi_{D}(x_{N})\\
-\end{pmatrix}
-$$
-
-with $\boldsymbol{\phi} = (\phi_{0}, \dots , \phi_{D})^{T}$ and  $\Phi$ being a $N$ x $(D+1)$ matrix.
-
-> <span style="color:red"> Assumption 5:</span> <br>
-For the $(\boldsymbol{\Phi}^{T}\boldsymbol{\Phi})^{-1}$ we need to assume that $\boldsymbol{\Phi}$ is of full rank
-i.e. *the independent variables are not correlated* (e.g. $\phi_{1} = 3\phi_{3}$). <br>
-*Note: This is know as no multicollinearity.*
->
-
-# Model Evaluation
-
----
-
-The Loss Functions captured in the previous section can also be used as a way to measure the evaluation of a regression model. However, these metrics can be meaningful only compared to the same metric built of another model. In order to not replicate the same content, I will focus on additonal metrics that can be used to evaluate a Machine Learning model.
-
-## R-Squared
-
-*<span style="color:blue"> Description:</span>* <br>
-$R^{2}$ measures how much variance can be explained by your model. $R^{2}$ can also be viewed as how much the regression line is better than the mean line.
-
-*<span style="color:blue"> Formula:</span>* <br>
-$$R^{2} = 1 - \frac{\text{Unexplained Variance}}{\text{Total Variation}} = \\
-\hspace{0.5cm} = 1 - \frac{SS_{reg}}{SS_{mean}} = \\
-\hspace{0.5cm} = 1 - \frac{\sum\limits_{i=1}^{N} (y_{i} - \hat{y_{i}})^{2}}{\sum\limits_{i=1}^{N} (y_{i} - \overline{y})}$$
-
-where $\overline{y}$ being the mean of target variable.
-
-*<span style="color:blue"> Value's Range:</span>* <br>
-From 0 (bad model) to 1 (perfect model)
-
-*<span style="color:blue"> Comment:</span>* <br>
-A problem with the $R^{2}$ metric is that sometimes it increases as we add more variables even if the added variables are irrelevant.
-
-In other words, the model can always map some data to a target variable.
-
-## Adjusted R-Squared
-
-*<span style="color:blue"> Description:</span>* <br>
-$R^{2}$ - Adjusted overcomes the incorrect increase of the $R^{2}$ by adding extra independent variables.
-
-*<span style="color:blue"> Formula:</span>* <br>
-$$R_{a}^{2} = 1 - \{ (\frac {n-1}{n-k-1})(1-R^{2})\}$$
-
-where $n=$ number of obserbations <br>
-and $k=$ number of features.
-
-*<span style="color:blue"> Value's Range:</span>* <br>
-From 0 (bad model) to 1 (perfect model)
-
-*<span style="color:blue"> Comment:</span>* <br>
-As $k$ increases, the denominator decreases which makes the entire value to be subtracted from 1 a large value. As a result, the $R^{2}_{a}$ is decreased which means that the more irrelevant features, the worse the model
+- Requires a larger sample size than Spearman's Rank Correlation Coefficient to achieve the same level of power. |
