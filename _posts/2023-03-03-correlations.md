@@ -12,17 +12,17 @@ Correlations are like two peas in a pod - they just can't be separated. In machi
 
 # Correlations
 
-1 **Pearson Correlation Coefficient:** <br>
+1. **Pearson Correlation Coefficient:** <br>
 This is the most commonly used method for measuring the linear correlation between two variables. It computes the strength and direction of the linear relationship between two continuous variables.
 
 ```python
 # Compute Pearson correlation coefficient between two columns
 df['column1'].corr(df['column2'])
 ```
-<br> <br>
+ <br>
 
 
-2 **Spearman Rank Correlation Coefficient:** <br>
+2. **Spearman Rank Correlation Coefficient:** <br>
 This is a non-parametric method for measuring the correlation between two variables. It computes the strength and direction of the monotonic relationship between two continuous or ordinal variables.
 
 ```python
