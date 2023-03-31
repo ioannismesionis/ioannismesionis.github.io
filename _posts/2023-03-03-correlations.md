@@ -29,7 +29,7 @@ $\rho_{X,Y} = \frac{COV(X, Y)}{\sigma_{x}\sigma_{y}} = \frac{\sum_{i=2}^{n}(x_{i
 - **Intuition:** <br>
 It is essentially a normalized measurement of the covariance.
 
-- **Assumption/Limitations:**
+- **Assumption/Limitations:** <br>
   - Relationship between the two variables is linear. <br>
   - Variables are normally distributed. <br>
   - There are no significant outliers in the data. <br>
@@ -46,8 +46,7 @@ df['column1'].corr(df['column2'], method='spearman')
 ```
 
 - **Formula:** <br>
-$r_{s} = \rho_{R(X), R(Y)} = \frac{COV(R(X), R(Y))}{\sigma_{X}\sigma_{Y}} = 1 - \frac{6\sum_{i=1}^{n}d_{i}}{n(n^{2}-1)}$ <br>
-    where $d_{i} = R(X_{i}) - R(Y_{i})$
+$r_{s} = \rho_{R(X), R(Y)} = \frac{COV(R(X), R(Y))}{\sigma_{X}\sigma_{Y}} = 1 - \frac{6\sum_{i=1}^{n}d_{i}}{n(n^{2}-1)}$ where $d_{i} = R(X_{i}) - R(Y_{i})$
 
 - **Intuition:** <br>
 It is the Pearson Correlation of the ranked variables.
@@ -70,7 +69,7 @@ df['column1'].corr(df['column2'], method='kendall')
 ```
 
 - **Formula:** <br>
-$r = \frac{\text{number of concordant pairs}) - \text{(number of discordant pairs)}}{\text{number of pairs}} = 1-\frac{2(\text{number of discordant pairs})}{(n \space \text{choices} \space 2)}$ <br>
+$r = \frac{(\text{number of concordant pairs}) - \text{(number of discordant pairs)}}{\text{number of pairs}} = 1-\frac{2(\text{number of discordant pairs})}{(n \space \text{choices} \space 2)}$ <br>
 
 where “concordant” between two variables being: <br>
 $\text{sign}(X_{2} - X_{1}) = \text{sign}(Y_{2} - Y_{1})$
