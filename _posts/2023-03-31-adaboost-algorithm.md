@@ -83,7 +83,7 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
 
     Also, $y_i$ is the correct output for the training example $i$, and $h_t(x_i)$ is the predicted output by classifier $t$ on this training example.
 
-    <li> If the predicted and actual output <b>agrees</b> -> $y*h(x)$ will always be +1 (either $1*1$ or $(-1)* (-1)$).</li> <br></li>
+    <li> If the predicted and actual output <b>agrees</b> -> $y*h(x)$ will always be +1 (either $1*1$ or $(-1)* (-1)$).</li> <br>
 
     <li>If the predicted and actual output <b>disagrees</b> -> $y * h(x)$ will be negative.</li>
 
