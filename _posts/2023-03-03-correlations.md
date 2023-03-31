@@ -15,6 +15,8 @@ Correlations are like two peas in a pod - they just can't be separated. In machi
 **1) Pearson Correlation Coefficient:** <br>
 *Continuous variables* <br>
 This is the most commonly used method for measuring the linear correlation between two variables. It computes the strength and direction of the linear relationship between two continuous variables.
+
+- **Code** <br>
 ```python
 # Compute Pearson correlation coefficient between two columns
 df['column1'].corr(df['column2'])
