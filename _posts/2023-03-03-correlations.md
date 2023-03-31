@@ -69,8 +69,6 @@ This is another non-parametric method for measuring the correlation between two 
 df['column1'].corr(df['column2'], method='kendall')
 ```
 
-<br>
-
 - **Formula:** <br>
 $r = \frac{\text{number of concordant pairs}) - \text{(number of discordant pairs)}}{\text{number of pairs}} = 1-\frac{2(\text{number of discordant pairs})}{(n \space \text{choices} \space 2)}$ <br>
 
@@ -98,9 +96,7 @@ df['column1'].corr(df['binary_column'], method='pearson')
 ```
 
 - **Intuition:** <br>
-The point biserial correlation coefficient ($r_{pb}$) is a correlation coefficient used when one variable (e.g. $Y$) is dichotomous; $Y$ can either be "naturally" dichotomous, like whether a coin lands heads or tails, or an artificially dichotomized variable. In most situations it is not advisable to dichotomize variables artificially. When a new variable is artificially dichotomized the new dichotomous variable may be conceptualized as having an underlying continuity. If this is the case, a biserial correlation would be the more appropriate calculation.
-
-The point-biserial correlation is mathematically equivalent to the Pearson (product moment) correlation; that is, if we have one continuously measured variable $X$ and a dichotomous variable $Y$, $r_{XY} = r_{pb}$. This can be shown by assigning two distinct numerical values to the dichotomous variable. <br>
+The point biserial correlation coefficient ($r_{pb}$) is a correlation coefficient used when one variable (e.g. $Y$) is dichotomous; $Y$ can either be "naturally" dichotomous, like whether a coin lands heads or tails, or an artificially dichotomized variable. In most situations it is not advisable to dichotomize variables artificially. When a new variable is artificially dichotomized the new dichotomous variable may be conceptualized as having an underlying continuity. If this is the case, a biserial correlation would be the more appropriate calculation. The point-biserial correlation is mathematically equivalent to the Pearson (product moment) correlation; that is, if we have one continuously measured variable $X$ and a dichotomous variable $Y$, $r_{XY} = r_{pb}$. This can be shown by assigning two distinct numerical values to the dichotomous variable. <br>
 
 **5) Phi Correlation Coefficient:** <br>
 *Binary variables* <br>
@@ -114,12 +110,12 @@ df['binary_column1'].corr(df['binary_column2'], method='phi')
 ![](/img/correlations/groups.png)
 
 - **Formula:** <br>
-$\phi = \frac{n_{11}n_{00} - n_{10}n_{01}}{\sqrt{n_{1\dot}n_{0\dot}n_{\dot 0}n_{\dot 1}}}$
+$\phi = \frac{n_{11}n_{00} - n_{10}n_{01}}{\sqrt{n_{1 \cdot}n_{0 \cdot}n_{\cdot 0}n_{\cdot 1}}}$
 
 - **Intuition:** <br>
 The intuition behind the phi correlation coefficient is that it compares the observed frequencies of the two variables to the expected frequencies under the assumption of independence. If the two variables are independent, then the observed and expected frequencies should be similar, and the phi correlation coefficient will be close to 0. On the other hand, if the two variables are associated, then the observed and expected frequencies will differ, and the phi correlation coefficient will be higher.
 
-- **Assumption/Limitations**
+- **Assumption/Limitations:**
   - The phi correlation coefficient may be affected by the prevalence of one of the categories. When one category is more frequent than the other, the correlation coefficient may be biased towards that category.
   - The phi correlation coefficient only measures the strength of the linear relationship between two variables and may not capture other types of relationships, such as non-linear or curvilinear relationships.
   - The phi correlation coefficient may be affected by the prevalence of one of the categories. When one category is more frequent than the other, the correlation coefficient may be biased towards that category.
