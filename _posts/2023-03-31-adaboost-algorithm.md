@@ -30,7 +30,6 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
 
     </aside>
 
-    <br>
     <aside>
     💡 AdaBoost makes <b>super small decision trees</b> (i.e. <i>stumps</i>).
 
@@ -61,16 +60,15 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
     ![](/img/adaboost/adaboost.png)
 
     <aside>
-    💡 The intuition of the graph is three-fold:
-
-    1. The classifier <b>weight grows exponentially</b> as the <b>error approaches 0</b>.
-    Better classifiers are given exponentially more weight.
-
-    2. The classifier <b>weight is zero</b> if the <b>error rate is 0.5</b>.
-    A classifier with 50% accuracy is no better than random guessing, so we ignore it.
-
-    3. The classifier <b>weight grows exponentially <i>negative</i></b> as the <b>error approaches 1</b>.
-    We give a negative weight to classifiers with worse than 50% accuracy. “Whatever that classifier says, do the opposite!”.
+        <p>💡 The intuition of the graph is three-fold:</p>
+        <ol>
+            <li>The classifier <b>weight grows exponentially</b> as the <b>error approaches 0</b>.
+                Better classifiers are given exponentially more weight.</li>
+            <li>The classifier <b>weight is zero</b> if the <b>error rate is 0.5</b>.
+                A classifier with 50% accuracy is no better than random guessing, so we ignore it.</li>
+            <li>The classifier <b>weight grows exponentially <i>negative</i></b> as the <b>error approaches 1</b>.
+                We give a negative weight to classifiers with worse than 50% accuracy. “Whatever that classifier says, do the opposite!”.</li>
+        </ol>
     </aside>
 
     d. Update the **weights** of the *training instances*:
@@ -81,15 +79,23 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
 
     <aside>
     💡 In the original paper, the weights $w_{i}$ are described as a distribution. To make it a distribution, all of these probabilities should add up to 1. To ensure this, we normalize the weights by dividing each of them by the sum of all the weights, $Z_t$.
-    This just means that each weight $w_{i}$ represents the probability that training example $i$ will be selected as part of the training set.
+    This just means that each weight $w_{i}$ represents the probability that training example $i$ will be selected as part of the training set. <br> <br>
 
     Also, $y_i$ is the correct output for the training example $i$, and $h_t(x_i)$ is the predicted output by classifier $t$ on this training example.
 
-    * If the predicted and actual output <b>agrees</b> :
-    → $y *h(x)$ will always be +1 (either $1* 1$ or $(-1) * (-1)$)
-
-    * If the predicted and actual output <b>disagrees</b>:
-    → $y * h(x)$ will be negative.
+    <p>💡 Here's how the predicted and actual output affect the value of $y *h(x)$:</p>
+        <ol>
+            <li>If the predicted and actual output <b>agrees</b>:
+                <ul>
+<li>$y* h(x)$ will always be +1 (either $1 *1$ or $(-1)* (-1)$).</li>
+                </ul>
+            </li>
+            <li>If the predicted and actual output <b>disagrees</b>:
+                <ul>
+                    <li>$y * h(x)$ will be negative.</li>
+                </ul>
+            </li>
+        </ol>
 
     </aside>
 
@@ -101,10 +107,11 @@ Assume we have some data $$\{(x_{i}, y_{i} )\}_{i=1}^{n}$$ with $y_{i}$ being a 
     <aside>
     💡 The final classifier consists of $T$ weak classifiers:
 
-    * $h_t(x)$ is the output of weak classifier $t$.
-      <i>Note:</i> In the paper, the outputs are limited to -1 or +1
-
-    * $\alpha_t$ is the weight applied to classifier $t$ as determined by AdaBoost in *step c*.
+    <ol>
+        <li>$h_t(x)$ is the output of weak classifier $t$.<br>
+            <i>Note:</i> In the paper, the outputs are limited to -1 or +1.</li>
+        <li>$\alpha_t$ is the weight applied to classifier $t$ as determined by AdaBoost in <i>step c</i>.</li>
+    </ol>
 
     As a result, the final <b><i>output is just a linear combination of all of the weak classifiers</i></b>, and then we make our final decision simply by looking at the sign of this sum.
 
