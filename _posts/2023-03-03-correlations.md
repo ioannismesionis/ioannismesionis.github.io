@@ -65,11 +65,12 @@ This is another non-parametric method for measuring the correlation between two 
 df['column1'].corr(df['column2'], method='kendall')
 ```
 
+
 - **Formula:** <br>
-$r = \frac{\text{number of concordant pairs}) - \text{(number of discordant pairs)}}{\text{number of pairs}} = 1-\frac{2(\text{number of discordant pairs})}{(n \space \text{choices} \space 2)}$
+$r = \frac{\text{number of concordant pairs}) - \text{(number of discordant pairs)}}{\text{number of pairs}} = 1-\frac{2(\text{number of discordant pairs})}{(n \space \text{choices} \space 2)}$ <br>
 
 where “concordant” between two variables being: <br>
-$\text{sign}(X_{2} - X_{1}) = \text{sign}(Y_{2} - Y_{1}) $
+$\text{sign}(X_{2} - X_{1}) = \text{sign}(Y_{2} - Y_{1})$
 
 - **Intuition:** <br>
 The intuition behind the formula is that if there are more concordant pairs than discordant pairs, then the variables have a positive monotonic relationship, and the value of tau is close to +1.
@@ -80,7 +81,6 @@ The intuition behind the formula is that if there are more concordant pairs than
     - More robust to outliers compared to Spearman’s Correlation. <br>
     - Handles tied ranks (i.e. when two or more observations in a dataset have the same value) better than Spearman's Correlation. <br>
     - Requires a larger sample size than Spearman's Rank Correlation Coefficient to achieve the same level of power. <br>
-<br>
 
 **4) Point-Biserial Correlation Coefficient:** <br>
 This is a method for measuring the correlation between a continuous variable and a binary variable. It computes the strength and direction of the correlation between a continuous variable and a binary variable (coded as 0 or 1).
@@ -91,14 +91,15 @@ This is a method for measuring the correlation between a continuous variable and
 df['column1'].corr(df['binary_column'], method='pearson')
 ```
 
-**Intuition:** <br>
-The point biserial correlation coefficient ($r_{pb}$) is a correlation coefficient used when one variable (e.g. $Y$) is dichotomous; Y can either be "naturally" dichotomous, like whether a coin lands heads or tails, or an artificially dichotomized variable. In most situations it is not advisable to dichotomize variables artificially. When a new variable is artificially dichotomized the new dichotomous variable may be conceptualized as having an underlying continuity. If this is the case, a biserial correlation would be the more appropriate calculation.
+- **Intuition:** <br>
+The point biserial correlation coefficient ($r_{pb}$) is a correlation coefficient used when one variable (e.g. $Y$) is dichotomous; $Y$ can either be "naturally" dichotomous, like whether a coin lands heads or tails, or an artificially dichotomized variable. In most situations it is not advisable to dichotomize variables artificially. When a new variable is artificially dichotomized the new dichotomous variable may be conceptualized as having an underlying continuity. If this is the case, a biserial correlation would be the more appropriate calculation.
 
 The point-biserial correlation is mathematically equivalent to the Pearson (product moment) correlation; that is, if we have one continuously measured variable $X$ and a dichotomous variable $Y$, $r_{XY} = r_{pb}$. This can be shown by assigning two distinct numerical values to the dichotomous variable. <br>
 
 **5) Phi Correlation Coefficient:** <br>
 *Binary variables* <br>
 This is a method for measuring the correlation between two binary variables. It computes the strength and direction of the correlation between two binary variables (coded as 0 or 1). The value range of a phi correlation coefficient is between -1 and 1, inclusive with a phi correlation coefficient of -1 indicates a perfect negative association between the two variables, 0 indicates no association, and 1 indicates a perfect positive association. In other words, a higher absolute value of the phi correlation coefficient indicates a stronger association between the two variables.
+
 ```python
 # Compute phi correlation coefficient between two binary columns
 df['binary_column1'].corr(df['binary_column2'], method='phi')
@@ -107,7 +108,7 @@ df['binary_column1'].corr(df['binary_column2'], method='phi')
 ![](/img/correlations/groups.png)
 
 **Formula:** <br>
-$\phi = \frac{n_{11}n_{00} - n_{10}n_{01}}{\sqrt{n_{1\dot}n_{0\dot}n_{\dot0}n_{\dot1}}} $ 
+$\phi = \frac{n_{11}n_{00} - n_{10}n_{01}}{\sqrt{n_{1\dot}n_{0\dot}n_{\dot 0}n_{\dot 1}}}$ 
 
 **Intuition:** <br>
 The intuition behind the phi correlation coefficient is that it compares the observed frequencies of the two variables to the expected frequencies under the assumption of independence. If the two variables are independent, then the observed and expected frequencies should be similar, and the phi correlation coefficient will be close to 0. On the other hand, if the two variables are associated, then the observed and expected frequencies will differ, and the phi correlation coefficient will be higher.
