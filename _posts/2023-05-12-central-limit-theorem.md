@@ -17,7 +17,7 @@ The central limit theorem (CLT) is a powerful tool that allows us to make infere
 The population of interest that we want to do some inference on (e.g. average height).
 
 - **Sample** <br>
-A large sample from the population (e.g. 100 random people). <br>
+A large sample from the population (e.g. the height of 100 random people). <br>
     - Each of these samples, will have its *own distribution (i.e. sample distribution).* <br>
 
 - **Sample Statistic** <br>
@@ -51,5 +51,21 @@ All of the sample statistics (e.g. means), have their own distribution named the
     b. Either the distribution is skewed, the sample size is large (rule of thumb: $n>30$). <br>
 [CLT for means - Interactive examples](https://gallery.shinyapps.io/CLT_mean/)
 
-**Layman’s term explanation:**
+**Layman’s term explanation:** <br>
 The *center limit theorem* states that if any random variable, regardless of the distribution, is sampled a large enough times, the sample mean will be approximately normally distributed. This allows for studying the properties of any statistical distribution as long as there is a large enough sample size.
+
+**Applications in Data Science** <br>
+The CLT is a powerful tool that can be used to make inferences about populations. It is an important theorem for data scientists to understand.
+
+Here are some additional examples of how the CLT is used in data science:
+
+- *Machine learning:* <br>
+The CLT is used in machine learning algorithms such as linear regression, logistic regression, and support vector machines. <br>
+
+- *Quality control:* <br>
+The CLT is used to monitor the quality of products or services. For example, a company might use the CLT to ensure that the average weight of a bag of cereal is within a certain range. <br>
+
+- *Finance:* <br>
+The CLT is used to calculate the probability of certain financial events, such as the probability of a stock price going up or down. 
+
+The CLT is a versatile tool that can be used in a variety of different applications. It is an important theorem for data scientists to understand.
