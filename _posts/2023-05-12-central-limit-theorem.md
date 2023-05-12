@@ -15,7 +15,7 @@ The central limit theorem (CLT) is a powerful tool that allows us to make infere
  ![](/img/central-limit-theorem/sampling_distribution.png)
 
 - **Population** <br>
-The population of interest that we want to do some inference on (e.g. average height).
+The population of interest that we want to do some inference on
 
 - **Sample** <br>
 A large sample from the population (e.g. the height of 100 random people). <br>
@@ -40,12 +40,11 @@ All of the sample statistics (e.g. means), have their own distribution named the
 *Sampled observations must be independent*
     a. If sampling without replacement, $n <10$%  of the population.
 
-  <aside>
-💡 We don’t want to sample too large because it is highly likely that we will select an observation that is not independent.
+    <aside>
+    💡 We don’t want to sample too large because it is highly likely that we will select an observation that is not independent.
+    E.g. If a take a sample of myself, if I have a too large sample size, it is likely I will also sample my mother/father etc.
 
-E.g. If a take a sample of myself, if I have a too large sample size, it is likely I will also sample my mother/father etc.
-
-</aside>
+    </aside>
 
 2. *Sample size/skew:* <br>
     a. Either the population distribution is normal. <br>
