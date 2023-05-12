@@ -16,6 +16,7 @@ The central limit theorem (CLT) is a powerful tool that allows us to make infere
 
 - **Population** <br>
 The population of interest that we want to do some inference on (e.g. average height).
+
 - **Sample** <br>
 A large sample from the population (e.g. the height of 100 random people). <br>
   - Each of these samples, will have its <i> own distribution (i.e. sample distribution).</i>
@@ -36,7 +37,7 @@ All of the sample statistics (e.g. means), have their own distribution named the
 **Conditions for the CLT:**
 
 1. *Independence:* <br>
-*Sampled observations must be independent* <br>
+*Sampled observations must be independent*. <br>
     a. If sampling without replacement, $n <10$%  of the population.
 
     > 💡 We don’t want to sample too large because it is highly likely that we will select an observation that is not independent. <br>
@@ -49,7 +50,7 @@ All of the sample statistics (e.g. means), have their own distribution named the
 
 ## Layman’s term explanation
 
-The *center limit theorem* states that if any random variable, regardless of the distribution, is sampled a large enough times, the sample mean will be approximately normally distributed. This allows for studying the properties of any statistical distribution as long as there is a large enough sample size.
+The *Center Limit Theorem* states that if any random variable, regardless of the distribution, is sampled a large enough times, the sample mean will be approximately normally distributed. This allows for studying the properties of any statistical distribution as long as there is a large enough sample size.
 
 ## Applications in Data Science
 
