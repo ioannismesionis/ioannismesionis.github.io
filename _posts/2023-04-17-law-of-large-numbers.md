@@ -1,7 +1,7 @@
 ---
 layout: post
-title: The Law of Large Numbers - How to Make Sense of Randomness.
-subtitle: A Data Scientist's Guide to the Central Limit Theorem.
+title: The Law of Large Numbers!
+subtitle: How to Make Sense of Randomness.
 katex: true
 image: /img/law-of-large-numbers/dice-inline.jpeg
 bigimg: /img/law-of-large-numbers/big_law.jpeg
