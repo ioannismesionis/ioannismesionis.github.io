@@ -143,7 +143,7 @@ Recall = TP / (TP + FN)
 
 3. **F1 score:** <br>
 The F1 score is the harmonic mean of precision and recall and is a useful metric when both precision and recall are important. <br>
-$$F1 score = 2*(precision*recall) / (precision + recall)$$
+$$\text{F1 score} = 2*(\text{precision}* \text{recall}) / (\text{precision} + \text{recall})$$
 
 4. **ROC curve and AUC:** <br>
 The ROC curve is a plot of the true positive rate (TPR) against the false positive rate (FPR) at different threshold values. The area under the ROC curve (AUC) measures the performance of the model across all possible threshold values and is a commonly used metric for evaluating the performance of a binary classification model.
