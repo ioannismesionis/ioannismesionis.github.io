@@ -128,25 +128,22 @@ In general, we want to **minimize the negative log-likelihood $-L(w)$** and we u
 
 1. **Batch gradient descent**
 2. **Newtons method** <br>
-*Note:* ****derives to the solution quicker
+*Note:* derives to the solution quicker.
 
 # Model Evaluation
 
 1. **Accuracy**: <br>
-Accuracy is the most commonly used metric for evaluating the performance of a classification model. It measures the proportion of correctly classified instances out of the total number of instances. While accuracy can be a useful metric, it may not be appropriate when the classes are imbalanced.
-
-*Accuracy = (TP + TN) / (TP + TN + FP + FN)*
+Accuracy is the most commonly used metric for evaluating the performance of a classification model. It measures the proportion of correctly classified instances out of the total number of instances. While accuracy can be a useful metric, it may not be appropriate when the classes are imbalanced. <br>
+Accuracy = (TP + TN) / (TP + TN + FP + FN)
 
 2. **Precision and Recall:** <br>
-Precision and recall are metrics that are useful when the classes are imbalanced. Precision measures the proportion of true positive predictions out of all positive predictions, while recall measures the proportion of true positive predictions out of all actual positive instances. A trade-off between precision and recall can be made by adjusting the threshold for classification.
-
-*Precision = TP / (TP + FP)
-Recall = TP / (TP + FN)*
+Precision and recall are metrics that are useful when the classes are imbalanced. Precision measures the proportion of true positive predictions out of all positive predictions, while recall measures the proportion of true positive predictions out of all actual positive instances. A trade-off between precision and recall can be made by adjusting the threshold for classification. <br>
+Precision = TP / (TP + FP) <br>
+Recall = TP / (TP + FN)
 
 3. **F1 score:** <br>
-The F1 score is the harmonic mean of precision and recall and is a useful metric when both precision and recall are important.
-
-*F1 score = 2* (precision *recall) / (precision + recall)*
+The F1 score is the harmonic mean of precision and recall and is a useful metric when both precision and recall are important. <br>
+$F1 score = 2*(precision*recall) / (precision + recall)$
 
 4. **ROC curve and AUC:** <br>
 The ROC curve is a plot of the true positive rate (TPR) against the false positive rate (FPR) at different threshold values. The area under the ROC curve (AUC) measures the performance of the model across all possible threshold values and is a commonly used metric for evaluating the performance of a binary classification model.
