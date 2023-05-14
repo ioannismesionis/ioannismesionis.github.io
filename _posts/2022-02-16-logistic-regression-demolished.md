@@ -4,8 +4,8 @@ title: Machine Learning - Demolished!
 subtitle: Logistic Regression Demolished!
 katex: true
 image: /img/logistic-regression/log-reg-small.png
-bigimg: /img/logisic-regression/log_reg_big.webp
-tags: [machine-learning, mathematics, linear-regression]
+bigimg: /img/logistic-regression/log-reg-big.webp
+tags: [machine-learning, mathematics, logistic-regression, classification]
 ---
 
 Logistic regression is a powerful and versatile statistical technique that has been widely used in various fields, including machine learning, statistics, and social sciences. It is a simple yet effective method for modeling the relationship between a binary response variable and one or more predictor variables.
@@ -14,23 +14,21 @@ The beauty of logistic regression lies in its ability to provide interpretable r
 
 # Logistic Regression - Demolished
 
----
+Logistic regression is **a process of modelling the probability of a discrete outcome given an input variable.** The most common logistic regression models a binary outcome; something that can take two values such as true/false, yes/no, 1/0 and so on.
 
-Logistic regression is **a process of modelling the probability of a discrete outcome given an input variable.** The most common logistic regression models a binary outcome; something that can take two values such as true/false, yes/no, 1/0 and so on. 
-
-- **Training data**: $*N*$ training examples of a $D$-dimensional input data.
+- **Training data**: $N$ training examples of a $D$-dimensional input data.
 
 $$
 X = \mathbf{x_1}, \mathbf{x_2}, \dots , \mathbf{x_D}
 $$
 
-        where, $\mathbf{x}_{i} = 
-\begin{pmatrix}
-x_{1}^{(i)} \\ 
+where, $$\mathbf{x}_{i} $$ =
+$$\begin{pmatrix}
+x_{1}^{(i)} \\
 x_{2}^{(i)} \\
 \vdots \\
 x_{N}^{(i)}
-\end{pmatrix}$ , $i=1,2, \dots, D$.
+\end{pmatrix}$$ , $$i=1,2, \dots, D$$.
 
 - **Response**: Binary-valued target of the corresponding $N$ training examples:
 
@@ -49,15 +47,13 @@ and we assume that these data points are drawn independently from the population
 
 # Mathematical Formula
 
----
-
-The *simplest form* of Linear Regression model is linear functions of the input variables:
+The *simplest form* of Linear Regression model as seen in the previoys post is linear functions of the input variables:
 
 $$
 \hat{y} = f(\mathbf{x}, \mathbf{w}) = w_{0} + w_{1}x_{1}+ \dots + w_{D}x_{D}
 $$
 
-with $\mathbf{x}$ in this simple case being $\mathbf{x} = (x_{1}, \dots, x_{D})^{T}$.
+with $\mathbf{x}$ in this simple case being $\mathbf{x} = (x_{1}, \dots, x_{D})^{T}$. <br>
 (i.e. a single observation per variable).
 
 We can use linear regression to even predict the **log of odds** as follows:
@@ -68,11 +64,8 @@ $$
 
 where $p_{+}(\mathbf{x})$ represent the model’s estimate of the probability to belong to the positive class (e.g. $y = 1$)
 
-<aside>
-💡 The log of odds function is known as the *logit* function:
-$logit(p) = log(\frac{p}{1-p})$
-
-</aside>
+> 💡 The log of odds function is known as the *logit* function:
+> $logit(p) = log(\frac{p}{1-p})$
 
 Since often we actually want the estimated probability of class membership, not the log of odds, we can solve the above equation for the $p_{+}$probability leading to the following - relatively ugly equation - of the positive class:
 
@@ -88,11 +81,11 @@ $$
 
 Plotting the equation above leads to the well-known ***logistic (sigmoid) function.***
 
-***Put plot here***
+![](/img/logistic-regression/log-reg-inline-sigma.jpeg)
 
 This curve is called a “sigmoid” curve because of its “S” shape which squeezes the probabilities into their correct range (between 0 and 1).
 
-As you can see above, there is an association between the linear regression and logistic regression and can help us build intuition about their connection. As a result, we define the **Logistic Regression** model as: 
+As you can see above, there is an association between the linear regression and logistic regression and can help us build intuition about their connection. As a result, we define the **Logistic Regression** model as:
 
 $$
 f_{w}(\mathbf{x}) = \frac{1}{1 + e^{-\mathbf{w^{T}x}}}
@@ -114,10 +107,12 @@ We have defined the following relationship:
 It’s easy to derive the following unified equation:
 
 $$
-L(w) = f_{w}(x_{i})^{y_i}(1-f_{w}(x_{i}))^{1-y_i} 
+L(w) = f_{w}(x_{i})^{y_i}(1-f_{w}(x_{i}))^{1-y_i}
 $$
 
 ### Maximum Likelihood Estimation
+
+---
 
 $$
 L(w) = \prod\limits_{i=1}^{N}f_{w}(x_{i})^{y_i}(1-f_{w}(x_{i}))^{1-y_i} \equiv \sum\limits_{i=1}^{N}[y_i log(f_{w}(x_i)) + (1-y_i) log(1-f_{w}(x_i))]
@@ -125,38 +120,36 @@ $$
 
 The equation is known as the **Log-Loss** and instead of maximising the following equation, we can safely add a $-$ sign and minimise the *negative* **Log-Loss** (or **negative Log-Likelihood**).
 
-<aside>
-💡 In the context of binary classification, minimizing cross-entropy and minimizing log-loss are equivalent. Therefore, saying that you are minimizing either the cross-entropy or the log-loss in binary classification is essentially the same thing.
-
-However, in the context of multi-class classification, cross-entropy and log-loss can have different interpretations and formulations. The cross-entropy loss for multi-class classification is also known as the softmax loss or negative log-likelihood loss. It is a more general measure of the difference between the predicted probabilities and the true labels, and is commonly used as the loss function for training neural networks. On the other hand, the log-loss is specific to binary classification and does not have a straightforward generalization to multi-class problems.
-
-</aside>
+> 💡 In the context of binary classification, minimizing cross-entropy and minimizing log-loss are equivalent. Therefore, saying that you are minimizing either the cross-entropy or the log-loss in binary classification is essentially the same thing.
+>
+> However, in the context of multi-class classification, cross-entropy and log-loss can have different interpretations and formulations. The cross-entropy loss for multi-class classification is also known as the softmax loss or negative log-likelihood loss. It is a more general measure of the difference between the predicted probabilities and the true labels, and is commonly used as the loss function for training neural networks. On the other hand, the log-loss is specific to binary classification and does not have a straightforward generalization to multi-class problems.
 
 In general, we want to **minimize the negative log-likelihood $-L(w)$** and we use to optimisation algorithms to make that happen:
 
 1. **Batch gradient descent**
-2. **Newtons method**
+2. **Newtons method** <br>
 *Note:* ****derives to the solution quicker
 
 # Model Evaluation
 
----
-
-1. **Accuracy**: 
+1. **Accuracy**: <br>
 Accuracy is the most commonly used metric for evaluating the performance of a classification model. It measures the proportion of correctly classified instances out of the total number of instances. While accuracy can be a useful metric, it may not be appropriate when the classes are imbalanced.
 
 *Accuracy = (TP + TN) / (TP + TN + FP + FN)*
-2. **Precision and Recall:** 
+
+2. **Precision and Recall:** <br>
 Precision and recall are metrics that are useful when the classes are imbalanced. Precision measures the proportion of true positive predictions out of all positive predictions, while recall measures the proportion of true positive predictions out of all actual positive instances. A trade-off between precision and recall can be made by adjusting the threshold for classification.
 
 *Precision = TP / (TP + FP)
 Recall = TP / (TP + FN)*
-3. **F1 score:** 
-The F1 score is the harmonic mean of precision and recall and is a useful metric when both precision and recall are important. 
 
-*F1 score = 2 * (precision * recall) / (precision + recall)*
-4. **ROC curve and AUC:** 
+3. **F1 score:** <br>
+The F1 score is the harmonic mean of precision and recall and is a useful metric when both precision and recall are important.
+
+*F1 score = 2* (precision *recall) / (precision + recall)*
+
+4. **ROC curve and AUC:** <br>
 The ROC curve is a plot of the true positive rate (TPR) against the false positive rate (FPR) at different threshold values. The area under the ROC curve (AUC) measures the performance of the model across all possible threshold values and is a commonly used metric for evaluating the performance of a binary classification model.
 
-5. **Confusion matrix:** 
+5. **Confusion matrix:** <br>
 A confusion matrix is a table that summarizes the performance of a binary classification model. It shows the number of true positives, false positives, true negatives, and false negatives and can be used to calculate metrics such as accuracy, precision, recall, and F1 score.
