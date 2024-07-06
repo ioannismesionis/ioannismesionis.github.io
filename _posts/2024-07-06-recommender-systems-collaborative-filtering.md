@@ -7,7 +7,7 @@ image: /img/recommender-systems-collaborative-filtering/small-popcorn.jpg
 tags: [recommender-systems, python, collaborative-filtering, model-based, memory-based]
 ---
 
-The primary goal of a recommender system is to increase "product" sales. Recommender systems are, after all, utilized by merchants to increase their profits. Although the primary goal of a recommendation system is to increase revenue for the merchant, this is often achieved in ways that are less obvious than might seem at first sight.
+The primary goal of a recommender system is to increase "product" sales. Recommender systems are, after all, utilised by merchants to increase their profits. Although the primary goal of a recommendation system is to increase revenue for the merchant, this is often achieved in ways that are less obvious than might seem at first sight.
 
 # 1. The Goal Of Recommendation Systems
 
