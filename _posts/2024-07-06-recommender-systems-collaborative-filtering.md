@@ -217,11 +217,11 @@ We can see that all the components of the predictive function are known apart fr
 There are different similarities that can be used with each one having their pros and cons. An example of popular similarities are the Pearson similarity and the Raw Cosine similarity:
 
 $$
-\text{Sim}(u,v) = \text{Pearson}(u,v) = \frac{\Sigma_{k \in \I_u \cap \I_v} (r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in I_u \cap I_v} (r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in I_u \cap I_v} (r_{vk} - \mu_v)^2}}
+\text{Sim}(u,v) = \text{Pearson}(u,v) = \frac{\Sigma_{k \in I_u \cap I_v} (r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in I_u \cap I_v} (r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in I_u \cap I_v} (r_{vk} - \mu_v)^2}}
 $$
 
 $$
-\text{Sim}(u,v) = \text{RawCosine}(u,v) = \frac{\Sigma_{k \in I_u \cap \I_v} r_{uk} * r_{vk}}{\sqrt{\Sigma_{k \in I_u \cap I_v} r_{uk}^2} * \sqrt{\Sigma_{k \in I_u \cap I_v} r_{vk}^2}}
+\text{Sim}(u,v) = \text{RawCosine}(u,v) = \frac{\Sigma_{k \in I_u \cap I_v} r_{uk} * r_{vk}}{\sqrt{\Sigma_{k \in I_u \cap I_v} r_{uk}^2} * \sqrt{\Sigma_{k \in I_u \cap I_v} r_{vk}^2}}
 $$
 
 The reliability of the similarity function $\text{Sim}(u, v)$ is often affected by the number of common ratings $|I_u ∩ I_v|$ between users $u$ and $v$. <br>
@@ -362,7 +362,7 @@ In real life, the rating matrix we observe is very sparse. If we then assume tha
 
 💡The key differences among various matrix factorization methods arise in terms of the constraints imposed on U and V (e.g., orthogonality or non-negativity of the latent vectors) and the nature of the objective function (e.g., minimizing the Frobenius norm or maximizing the likelihood estimation in a generative model). These differences play a key role in the usability of the matrix factorization model in various real-world scenarios.💡
 
-##### [a] Singular Value Decomposition (SVD) in Linear Algebra
+#### [a] Singular Value Decomposition (SVD) in Linear Algebra
 
 **Singular value decomposition (SVD)** in classical linear algebra a form of matrix factorisation in which the _columns of $U$ and $V$ are constrained to be mutually orthogonal_. Mutual orthogonality has the advantage that the concepts can be completely independent of one another, and they can be geometrically interpreted in scatterplots. However, the semantic interpretation of such a decomposition is generally more difficult, because these latent vectors contain both positive and negative quantities, and are constrained by their orthogonality to other concepts.
 
@@ -386,7 +386,7 @@ subject to:
 - Columns of $U$ are mutually orthogonal.
 - Columns of $V$ are mutually orthogonal.
 
-##### [b] Singular Value Decomposition (SVD) in Collaborative Filtering
+#### [b] Singular Value Decomposition (SVD) in Collaborative Filtering
 
 In collaborative filtering, the goal is to approximate the user-item rating matrix $R$ by factorizing it into two lower-rank matrices $U$ and $V$, such that $R≈UV^T$. The optimisation methods (such as Stochastic Gradient Descent or Alternating Least Squares) focus on minimizing the prediction error on the observed entries, not on maintaining orthogonality. Also, the SVD implementation of collaborative filtering includes bias terms for users and items to account for systematic rating deviations. The inclusion of these biases alters the structure of the factorization compared to the traditional SVD, making orthogonality less relevant.
 
