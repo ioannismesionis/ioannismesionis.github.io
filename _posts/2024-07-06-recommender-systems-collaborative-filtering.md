@@ -149,7 +149,7 @@ ratings_matrix
 ```
 
 For the purpose of subsequent discussion, we assume that the user-item ratings matrix (i.e. ratings_matrix)
-is an incomplete $m × n$ matrix $$R = [r_{uj}]$$ containing $$m=943$$ users and $$n=1682$$ items.
+is an incomplete $m × n$ matrix $R = [r_{uj}]$ containing $m=943$ users and $n=1682$ items.
 
 We can see that only a small subset of the ratings matrix is specified or observed. Our goal would be to understand which items (i.e. movies) we should recommend to the users that would be likely to see. Like all other collaborative filtering algorithms, neighborhood-based collaborative filtering algorithms can be formulated in one of two ways to address the the recommendation problem:
 1. Predicting the rating value of a user-item combination.
@@ -201,7 +201,7 @@ where:
 - $s_{vj} = r_{vj} - \mu_v, \space\space \forall v \in \{1, \dots, m\}$.
 
 The average rating $\mu_u$ of the user is calculated as:
-$$ \mu_u = \frac{\Sigma_{k \in \mathcal{I}_u} r_{uk}}{|\mathcal{I}_u|} \ \ \forall u \in \{1, \dots, m\}$$
+$ \mu_u = \frac{\Sigma_{k \in \mathcal{I}_u} r_{uk}}{|\mathcal{I}_u|} /space \forall u \in \{1, \dots, m\}$
 
 ```python
 # Average rating of user 196
@@ -215,13 +215,12 @@ We can see that all the components of the predictive function are known apart fr
 
 There are different similarities that can be used with each one having their pros and cons. An example of popular similarities are the Pearson similarity and the Raw Cosine similarity:
 
-\begin{align*}
-\mathrm{Sim}(u,v) = \mathrm{Pearson}(u,v) &= \frac{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{vk} - \mu_v)^2}}
-\end{align*}
+$\mathrm{Sim}(u,v) = \mathrm{Pearson}(u,v) &= \frac{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{vk} - \mu_v)^2}}
+$
 
-\begin{align*}
+$
 \mathrm{Sim}(u,v) = \mathrm{RawCosine}(u,v) &= \frac{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} r_{uk} * r_{vk}}{\sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} r_{uk}^2} * \sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} r_{vk}^2}}
-\end{align*}
+$
 
 The reliability of the similarity function $\text{Sim}(u, v)$ is often affected by the number of common ratings $|I_u ∩ I_v|$ between users $u$ and $v$. <br>
 **Note:** The Pearson correlation coefficient is preferable to the raw cosine because of the bias adjustment effect of mean-centering.
@@ -311,11 +310,9 @@ where
 
 As a result, the Pearson similarity can be rewritten using the idf weights creating the following formula:
 
-\begin{align*}
-
+$
 \mathrm{Pearson}(u,v) &= \frac{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} w_{k}(r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} w_{k}(r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} w_{k}(r_{vk} - \mu_v)^2}}
-
-\end{align*}
+$
 
 ```python
 # Create idf weighting model using the pearson similarity metric
@@ -367,7 +364,7 @@ In real life, the rating matrix we observe is very sparse. If we then assume tha
 
 **Singular value decomposition (SVD)** in classical linear algebra a form of matrix factorisation in which the _columns of $U$ and $V$ are constrained to be mutually orthogonal_. Mutual orthogonality has the advantage that the concepts can be completely independent of one another, and they can be geometrically interpreted in scatterplots. However, the semantic interpretation of such a decomposition is generally more difficult, because these latent vectors contain both positive and negative quantities, and are constrained by their orthogonality to other concepts.
 
-In SVD, one can approximately factorise the ratings matrix $R$ by using truncated SVD of rank $k ≪ min\{m, n\}$. <br>
+In SVD, one can approximately factorise the ratings matrix $R$ by using truncated SVD of rank $k ≪ min(m, n)$. <br>
 For any real rating matrix $ R \in \mathbb{R}^{M \times N} $, SVD seeks the following decomposition:
 
 $$ R = Q_k \Sigma_k P_{k}^{T} $$
@@ -393,10 +390,10 @@ In collaborative filtering, the goal is to approximate the user-item rating matr
 
 As a result, the optimisation problem (with regularisation) that is being solved in the SVD implementation is the following:
 
-$$ \text{Minimize } J = \frac{1}{2} \sum_{(u, i) \in \mathcal{S}} \left( R_{ui} - \mu - b_u - b_i - U_u \cdot V_i \right)^2 + \frac{\lambda}{2} \left( \sum_{u=1}^{M} \|U_u\|^2 + \sum_{i=1}^{N} \|V_i\|^2 + \sum_{u=1}^{M} b_u^2 + \sum_{i=1}^{N} b_i^2 \right) $$ 
+$$ \text{Minimize } J = \frac{1}{2} \sum_{(u, i) \in \S} \left( R_{ui} - \mu - b_u - b_i - U_u \cdot V_i \right)^2 + \frac{\lambda}{2} \left( \sum_{u=1}^{M} \|U_u\|^2 + \sum_{i=1}^{N} \|V_i\|^2 + \sum_{u=1}^{M} b_u^2 + \sum_{i=1}^{N} b_i^2 \right) $$ 
 
 where:
-- $\mathcal{S}$ be the set of specified entries in the ratings matrix.
+- $S$ be the set of specified entries in the ratings matrix.
 - $ \mu $ is the global average rating.
 - $ b_u $ is the bias of user $u$.
 - $ b_i $ is the bias of item $i$.
