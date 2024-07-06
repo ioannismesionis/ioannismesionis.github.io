@@ -29,7 +29,7 @@ $\rho_{X,Y} = \frac{COV(X, Y)}{\sigma_{x}\sigma_{y}} = \frac{\sum_{i=2}^{n}(x_{i
 - **Intuition:** <br>
 It is essentially a normalized measurement of the covariance.
 
-- **Assumption/Limitations:** <br>
+- **Assumption/Limitations:**
   - Relationship between the two variables is linear. <br>
   - Variables are normally distributed. <br>
   - There are no significant outliers in the data. <br>

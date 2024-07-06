@@ -14,7 +14,7 @@ Having a passion for mathematics, I was delighted to find out that Machine Learn
 
 ---
 
-The goal of *Regression* is to model the relationship between some input data with a continuous-valued target (response variable). Mathematically speaking, regression is a mapping of a D-dimensional vector $x$ with a real continuous target $y$
+The goal of *Regression* is to model the relationship between some input data with a continuous-valued target (response variable). Mathematically speaking, regression is a mapping of a D-dimensional vector $x$ with a real continuous target $y$.
 
 - **Training data**: $$N$$ training examples of a $D$-dimensional input data.
 
