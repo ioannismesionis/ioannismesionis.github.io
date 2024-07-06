@@ -201,7 +201,7 @@ where:
 - $s_{vj} = r_{vj} - \mu_v, \space\space \forall v \in \(1, \dots, m\)$.
 
 The average rating $\mu_u$ of the user is calculated as:
-$$ \mu_u = \frac{\Sigma_{k \in \mathcal{I}_u} r_{uk}}{|\mathcal{I}_u|} /space \forall u \in \{1, \dots, m\}$$
+$$ \mu_u = \frac{\Sigma_{k \in \mathcal{I}_u} r_{uk}}{|\mathcal{I}_u|} \space \forall u \in (1, \dots, m) $$
 
 ```python
 # Average rating of user 196
