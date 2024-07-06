@@ -3,26 +3,22 @@ layout: post
 title: An Introduction to Recommender Systems
 subtitle: Collaborative Filtering 
 bigimg: /img/recommender-systems-collaborative-filtering/big-popcorn.jpg
-image: /img/recommender-systems-collaborative-filtering/popcorn-small.jpg
+image: /img/recommender-systems-collaborative-filtering/small-popcorn.jpg
 tags: [recommender-systems, python, collaborative-filtering, model-based, memory-based]
 ---
 
-Comparethemarket.com is exploring ways to offer a more personalised, relevant experience to each of its customers. In order to achieve a great content recommendation and targeted products, it is strongly advised to model BGL's user data to better understand customer's behaviour.
+The primary goal of a recommender system is to increase "product" sales. Recommender systems are, after all, utilized by merchants to increase their profits. Although the primary goal of a recommendation system is to increase revenue for the merchant, this is often achieved in ways that are less obvious than might seem at first sight.
 
-For the purpose of this case study, a sample dataset was kindly provided by BGL to assist in the process. RStudio is the software that is used with the modelling of the data being implemented using Machine Learning techniques.  
-
-# 1. Introduction
-
-The primary goal of a recommender system is to increase "product" sales. Recommender systems are, after all, utilized by merchants to increase their profits. Although the primary goal of a recommendation system is to increase revenue for the merchant, this is often achieved in ways that are less obvious than might seem at first sight. 
+# 1. The Goal Of Recommendation Systems
 
 In order to achieve the broader business-centric goal of increasing revenue, the common operational and technical goals of recommender systems are as follows:
-1. *Relevance:* 
+1. *Relevance:*
    - Recommend items that are relevant to the user.
-2. *Novelty:* 
+2. *Novelty:*
    - Recommend items that the user has not seen in the past.
-3. *Serendipity:* 
+3. *Serendipity:*
    - Recommend items that that somewhat "unexpected" (i.e. surprising to the user).
-4. *Recommendation Diversity*:
+4. *Diversity:*
    - Recommend items that are not very similar.
 
 ### 1a. Types of Recommenders
@@ -132,6 +128,8 @@ plt.tight_layout()
 # Capture what the long tail problem is and how it affects collaborative filtering
 ```
 
+![][img/recommender-systems-collaborative-filtering/long-tail.png]
+
 In many cases, the high-frequency items tend to be relatively competitive items with little profit for the merchant. On the other hand, the lower frequency items have larger profit margins. In such cases, it may be advantageous to the merchant to recommend lower frequency items. In fact, analysis suggests that many companies, such as Amazon.com, make most of their profit by selling items in the long tail.
 
 Because of the rarity of observed ratings in the long tail it is generally more difficult to provide robust rating predictions in the long tail. In fact, many recommendation algorithms have a tendency to suggest popular items rather than infrequent items. This phenomenon also has a **negative impact on diversity** and users may often become bored by receiving the same set of recommendations of popular items.
@@ -151,7 +149,7 @@ ratings_matrix
 ```
 
 For the purpose of subsequent discussion, we assume that the user-item ratings matrix (i.e. ratings_matrix)
-is an incomplete $m × n$ matrix $R = [r_{uj}]$ containing $m=943$ users and $n=1682$ items.
+is an incomplete $m × n$ matrix $$R = [r_{uj}]$$ containing $$m=943$$ users and $$n=1682$$ items.
 
 We can see that only a small subset of the ratings matrix is specified or observed. Our goal would be to understand which items (i.e. movies) we should recommend to the users that would be likely to see. Like all other collaborative filtering algorithms, neighborhood-based collaborative filtering algorithms can be formulated in one of two ways to address the the recommendation problem:
 1. Predicting the rating value of a user-item combination.
