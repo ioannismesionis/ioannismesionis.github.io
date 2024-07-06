@@ -184,7 +184,7 @@ from cornac.eval_methods import RatioSplit
 from cornac.models import UserKNN
 ```
 
-In the memory-based collaborative filtering approach, user-based neighborhoods are defined in order to identify similar users to the _target_ user for whom the rating predictions are being computed. 
+In the memory-based collaborative filtering approach, user-based neighborhoods are defined in order to identify similar users to the _target_ user for whom the rating predictions are being computed.
 
 For the $m × n$ ratings matrix $R = [r_{uj}]$ with $m$ users and $n$ items, let $I_u$ denote the set of item indices for which ratings have been specified by user (row) $u$. The problem at hand is to predict the user's rating for item $j$.
 
