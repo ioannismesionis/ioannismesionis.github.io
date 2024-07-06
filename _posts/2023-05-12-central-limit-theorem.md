@@ -31,7 +31,7 @@ All of the sample statistics (e.g. means), have their own distribution named the
 > **Central Limit Theorem:** The sampling distribution of the mean is nearly normally centred at the population mean, with standard error equal to the population standard deviation divided by the square root of the sample size.
 >
 >
-> $\hat{x} \approx N(\text{mean} = \mu, \text{SE} = \frac{\sigma}{\sqrt{n}})$
+> $\hat{x} \space \approx N(\text{mean} = \mu, \text{SE} = \frac{\sigma}{\sqrt{n}})$
 >
 
 **Conditions for the CLT:**

@@ -198,10 +198,10 @@ where:
 - $r_{uj} $ being the rating of user $u$ for item $j$.
 - $ P_u(j) = $ be the set of $k$ closest users to target user $u$, who have specified ratings for item $ j $.
 - $\text{Sim}(u, v)$ being the similarity of target user $u$ with user $v$.
-- $s_{vj} = r_{vj} - \mu_v, \space\space \forall v \in \{1, \dots, m\}$.
+- $s_{vj} = r_{vj} - \mu_v, \space\space \forall v \in \(1, \dots, m\)$.
 
 The average rating $\mu_u$ of the user is calculated as:
-$ \mu_u = \frac{\Sigma_{k \in \mathcal{I}_u} r_{uk}}{|\mathcal{I}_u|} /space \forall u \in \{1, \dots, m\}$
+$$ \mu_u = \frac{\Sigma_{k \in \mathcal{I}_u} r_{uk}}{|\mathcal{I}_u|} /space \forall u \in \{1, \dots, m\}$$
 
 ```python
 # Average rating of user 196
@@ -211,16 +211,17 @@ print("# Average rating of user 196:", round(ratings_df[ratings_df["user_id"] ==
 print("# Average rating of user 350:", round(ratings_df[ratings_df["user_id"] == "350"]["rating"].mean(), 2))
 ```
 
-We can see that all the components of the predictive function are known apart from the $\text{Sim}(u,v)$ which is not specified yet. In order to determine the neighborhood of the target user $u$, their **similarity** to all the other users needs to computed. 
+We can see that all the components of the predictive function are known apart from the $\text{Sim}(u,v)$ which is not specified yet. In order to determine the neighborhood of the target user $u$, their **similarity** to all the other users needs to computed.
 
 There are different similarities that can be used with each one having their pros and cons. An example of popular similarities are the Pearson similarity and the Raw Cosine similarity:
 
-$\mathrm{Sim}(u,v) = \mathrm{Pearson}(u,v) &= \frac{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{vk} - \mu_v)^2}}
-$
+$$
+\mathrm{Sim}(u,v) = \mathrm{Pearson}(u,v) &= \frac{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{vk} - \mu_v)^2}}
+$$
 
-$
+$$
 \mathrm{Sim}(u,v) = \mathrm{RawCosine}(u,v) &= \frac{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} r_{uk} * r_{vk}}{\sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} r_{uk}^2} * \sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} r_{vk}^2}}
-$
+$$
 
 The reliability of the similarity function $\text{Sim}(u, v)$ is often affected by the number of common ratings $|I_u ∩ I_v|$ between users $u$ and $v$. <br>
 **Note:** The Pearson correlation coefficient is preferable to the raw cosine because of the bias adjustment effect of mean-centering.
@@ -310,9 +311,9 @@ where
 
 As a result, the Pearson similarity can be rewritten using the idf weights creating the following formula:
 
-$
+$$
 \mathrm{Pearson}(u,v) &= \frac{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} w_{k}(r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} w_{k}(r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} w_{k}(r_{vk} - \mu_v)^2}}
-$
+$$
 
 ```python
 # Create idf weighting model using the pearson similarity metric
