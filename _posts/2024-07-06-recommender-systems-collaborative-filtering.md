@@ -128,7 +128,7 @@ plt.tight_layout()
 # Capture what the long tail problem is and how it affects collaborative filtering
 ```
 
-![][/img/recommender-systems-collaborative-filtering/long-tail.png]
+![](/img/recommender-systems-collaborative-filtering/long-tail.png)
 
 In many cases, the high-frequency items tend to be relatively competitive items with little profit for the merchant. On the other hand, the lower frequency items have larger profit margins. In such cases, it may be advantageous to the merchant to recommend lower frequency items. In fact, analysis suggests that many companies, such as Amazon.com, make most of their profit by selling items in the long tail.
 
