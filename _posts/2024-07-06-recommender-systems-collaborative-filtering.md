@@ -201,7 +201,8 @@ where:
 - $s_{vj} = r_{vj} - \mu_v, \space\space \forall v \in \(1, \dots, m\)$.
 
 The average rating $\mu_u$ of the user is calculated as:
-$$ \mu_u = \frac{\Sigma_{k \in \mathcal{I}_u} r_{uk}}{|\mathcal{I}_u|} \space \forall u \in (1, \dots, m) $$
+
+$$ \mu_u = \frac{\Sigma_{k \in I_u} r_{uk}}{|I_u|} \space \forall u \in (1, \dots, m) $$
 
 ```python
 # Average rating of user 196
@@ -216,11 +217,11 @@ We can see that all the components of the predictive function are known apart fr
 There are different similarities that can be used with each one having their pros and cons. An example of popular similarities are the Pearson similarity and the Raw Cosine similarity:
 
 $$
-\mathrm{Sim}(u,v) = \mathrm{Pearson}(u,v) &= \frac{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} (r_{vk} - \mu_v)^2}}
+\text{Sim}(u,v) = \text{Pearson}(u,v) &= \frac{\Sigma_{k \in \I_u \cap \I_v} (r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in I_u \cap I_v} (r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in I_u \cap I_v} (r_{vk} - \mu_v)^2}}
 $$
 
 $$
-\mathrm{Sim}(u,v) = \mathrm{RawCosine}(u,v) &= \frac{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} r_{uk} * r_{vk}}{\sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} r_{uk}^2} * \sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} r_{vk}^2}}
+\text{Sim}(u,v) = \text{RawCosine}(u,v) &= \frac{\Sigma_{k \in I_u \cap \I_v} r_{uk} * r_{vk}}{\sqrt{\Sigma_{k \in I_u \cap I_v} r_{uk}^2} * \sqrt{\Sigma_{k \in I_u \cap I_v} r_{vk}^2}}
 $$
 
 The reliability of the similarity function $\text{Sim}(u, v)$ is often affected by the number of common ratings $|I_u ∩ I_v|$ between users $u$ and $v$. <br>
@@ -302,7 +303,7 @@ The negative impact of these recommendations can be experienced both during the 
 Just as the notion of Inverse Document Frequency (idf) exists in the information retrieval, one can use the notion of Inverse User Frequency as follows:
 
 
-$$ w_j = \log \bigg( \frac{m}{m_j} \bigg), \space \forall j \in \{1, \dots n\} $$
+$$ w_j = \log \bigg( \frac{m}{m_j} \bigg), \space \forall j \in \(1, \dots n) $$
 
 where 
 - $ m= $ total number of users.
@@ -312,7 +313,7 @@ where
 As a result, the Pearson similarity can be rewritten using the idf weights creating the following formula:
 
 $$
-\mathrm{Pearson}(u,v) &= \frac{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} w_{k}(r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} w_{k}(r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in \mathcal{I}_u \cap \mathcal{I}_v} w_{k}(r_{vk} - \mu_v)^2}}
+\text{Pearson}(u,v) &= \frac{\Sigma_{k \in I_u \cap I_v} w_{k}(r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in I_u \cap I_v} w_{k}(r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in I_u \cap I_v} w_{k}(r_{vk} - \mu_v)^2}}
 $$
 
 ```python
@@ -391,7 +392,7 @@ In collaborative filtering, the goal is to approximate the user-item rating matr
 
 As a result, the optimisation problem (with regularisation) that is being solved in the SVD implementation is the following:
 
-$$ \text{Minimize } J = \frac{1}{2} \sum_{(u, i) \in \S} \left( R_{ui} - \mu - b_u - b_i - U_u \cdot V_i \right)^2 + \frac{\lambda}{2} \left( \sum_{u=1}^{M} \|U_u\|^2 + \sum_{i=1}^{N} \|V_i\|^2 + \sum_{u=1}^{M} b_u^2 + \sum_{i=1}^{N} b_i^2 \right) $$ 
+$$ \text{Minimize } J = \frac{1}{2} \sum_{(u, i) \in \S} \left( R_{ui} - \mu - b_u - b_i - U_u \cdot V_i \right)^2 + \frac{\lambda}{2} \left( \sum_{u=1}^{M} \|U_u\|^2 + \sum_{i=1}^{N} \|V_i\|^2 + \sum_{u=1}^{M} b_u^2 + \sum_{i=1}^{N} b_i^2 \right) $$
 
 where:
 - $S$ be the set of specified entries in the ratings matrix.
@@ -451,51 +452,3 @@ There are different factorisation techniques that can be used. The following tab
 | Unconstrained   | No constraints  | Frobenius + regularizer       | Highest quality solution<br>Good for most matrices<br>Regularization prevents overfitting<br>Poor interpretability  |
 | SVD             | Orthogonal Basis| Frobenius + regularizer       | Good visual interpretability<br>Out-of-sample recommendations<br>Good for dense matrices<br>Poor semantic interpretability<br>Suboptimal in sparse matrices |
 | NMF             | Non-negativity  | Frobenius + regularizer       | Good quality solution<br>High semantic interpretability<br>Loses interpretability with both like/dislike ratings<br>Less overfitting in some cases |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
