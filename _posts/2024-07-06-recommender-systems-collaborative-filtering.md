@@ -217,11 +217,11 @@ We can see that all the components of the predictive function are known apart fr
 There are different similarities that can be used with each one having their pros and cons. An example of popular similarities are the Pearson similarity and the Raw Cosine similarity:
 
 $$
-\text{Sim}(u,v) = \text{Pearson}(u,v) &= \frac{\Sigma_{k \in \I_u \cap \I_v} (r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in I_u \cap I_v} (r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in I_u \cap I_v} (r_{vk} - \mu_v)^2}}
+\text{Sim}(u,v) = \text{Pearson}(u,v) = \frac{\Sigma_{k \in \I_u \cap \I_v} (r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in I_u \cap I_v} (r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in I_u \cap I_v} (r_{vk} - \mu_v)^2}}
 $$
 
 $$
-\text{Sim}(u,v) = \text{RawCosine}(u,v) &= \frac{\Sigma_{k \in I_u \cap \I_v} r_{uk} * r_{vk}}{\sqrt{\Sigma_{k \in I_u \cap I_v} r_{uk}^2} * \sqrt{\Sigma_{k \in I_u \cap I_v} r_{vk}^2}}
+\text{Sim}(u,v) = \text{RawCosine}(u,v) = \frac{\Sigma_{k \in I_u \cap \I_v} r_{uk} * r_{vk}}{\sqrt{\Sigma_{k \in I_u \cap I_v} r_{uk}^2} * \sqrt{\Sigma_{k \in I_u \cap I_v} r_{vk}^2}}
 $$
 
 The reliability of the similarity function $\text{Sim}(u, v)$ is often affected by the number of common ratings $|I_u ∩ I_v|$ between users $u$ and $v$. <br>
@@ -303,7 +303,7 @@ The negative impact of these recommendations can be experienced both during the 
 Just as the notion of Inverse Document Frequency (idf) exists in the information retrieval, one can use the notion of Inverse User Frequency as follows:
 
 
-$$ w_j = \log \bigg( \frac{m}{m_j} \bigg), \space \forall j \in \(1, \dots n) $$
+$$ w_j = \log \bigg( \frac{m}{m_j} \bigg), \space \forall j \in (1, \dots n) $$
 
 where 
 - $ m= $ total number of users.
@@ -313,7 +313,7 @@ where
 As a result, the Pearson similarity can be rewritten using the idf weights creating the following formula:
 
 $$
-\text{Pearson}(u,v) &= \frac{\Sigma_{k \in I_u \cap I_v} w_{k}(r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in I_u \cap I_v} w_{k}(r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in I_u \cap I_v} w_{k}(r_{vk} - \mu_v)^2}}
+\text{Pearson}(u,v) = \frac{\Sigma_{k \in I_u \cap I_v} w_{k}(r_{uk} - \mu_u) * (r_{vk} - \mu_v)}{\sqrt{\Sigma_{k \in I_u \cap I_v} w_{k}(r_{uk} - \mu_u)^2} * \sqrt{\Sigma_{k \in I_u \cap I_v} w_{k}(r_{vk} - \mu_v)^2}}
 $$
 
 ```python
