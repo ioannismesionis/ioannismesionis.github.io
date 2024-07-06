@@ -228,6 +228,9 @@ The reliability of the similarity function $\text{Sim}(u, v)$ is often affected 
 
 In order to build our model, we will split our data into train and test set similarly to traditional ML models.
 
+![](/img/recommender-systems-collaborative-filtering/train-test-ml-recsys.png)
+
+
 ```python
 VERBOSE=False
 SEED=42
@@ -240,8 +243,6 @@ train_test_ratio_split = RatioSplit(
     seed=SEED,
     verbose=VERBOSE,
     )
-
-![](/img/recommender-systems-collaborative-filtering/train-test-ml-recsys.png)
 
 # Define evaluation metrics for the collaborative filtering model
 METRICS = [
