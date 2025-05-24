@@ -7,13 +7,13 @@ image: /img/counterfactuals-explanations/cf-small.jpg
 tags: [machine-learning, interpretability, counterfactuals, python, dice-ml]
 ---
 
-In the era of complex machine learning models, understanding why a model makes certain predictions has become increasingly important. While traditional approaches focus on global model interpretability, counterfactual explanations offer a unique perspective by answering the question: "What changes would be needed to achieve a different outcome?"
+In the era of complex machine learning models, understanding _why_ a model makes certain predictions has become increasingly important. While traditional approaches focus on global model interpretability, **counterfactual explanations** offer a unique perspective by answering the question: "What changes would be needed to achieve a different outcome?"
 
-> 💡 The complete implementation of this article, including code and examples, is available in my [GitHub repository](https://github.com/ioannismesionis/counterfactual-explanations).
+> 💡 The complete implementation of the generation of counterfactuals using the famous Kaggle House Prices dataset is available in my [GitHub repository](https://github.com/ioannismesionis/counterfactual-explanations).
 
 # 1. The Goal of Counterfactual Explanations
 
-Counterfactual explanations are a powerful tool in the field of explainable AI that help us understand model predictions by showing how input features need to change to achieve a desired outcome. The primary goals of counterfactual explanations are:
+Counterfactual explanations are a powerful tool in the field of **explainable AI** that help us understand model predictions by showing how input features need to change to achieve a desired outcome. The primary goals of counterfactual explanations are:
 
 1. *Actionability:*
    - Provide actionable insights about what changes would lead to a different outcome.
@@ -48,28 +48,9 @@ Counterfactual explanations have numerous practical applications across differen
    - Explaining hiring decisions
    - Providing career development guidance
 
-# 2. Understanding Counterfactual Explanations
+# 2. Understanding The Mathematics Behind Counterfactual Explanations
 
-Counterfactual explanations work by finding alternative versions of an input that would result in a different predicted outcome. Let's explore this concept using the Kaggle House Prices dataset, which contains various features about residential homes in Ames, Iowa, to predict their sale prices.
-
-```python
-# Import necessary libraries
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-# Import DiCE for counterfactual explanations
-import dice_ml
-
-# Silence warnings
-import warnings
-warnings.filterwarnings("ignore")
-```
-
-### 2a. The Mathematics Behind Counterfactuals
-
-The core idea of counterfactual explanations can be formalised as an optimisation problem. For a given instance x and a prediction function f(x), we seek to find a counterfactual x' that minimises:
+Counterfactual explanations work by finding alternative versions of an input that would result in a different predicted outcome. The core idea of counterfactual explanations can be formalised as an optimisation problem. For a given instance $x$ and a prediction function $f(x)$, we seek to find a counterfactual $x'$ that minimises:
 
 $$ L(x, x', y', λ) = λ · (f(x') - y')^2 + d(x, x') $$
 
@@ -84,7 +65,7 @@ This optimisation is subject to various constraints:
 2. Feature relationships
 3. Data manifold constraints
 
-### 2b. Generating Counterfactuals with Modern Frameworks
+### 2a. Generating Counterfactuals with Modern Frameworks
 
 There are several powerful frameworks available for generating counterfactual explanations:
 
@@ -103,7 +84,7 @@ There are several powerful frameworks available for generating counterfactual ex
    - Robust counterfactual generation
    - Supports both classification and regression
 
-Let's see how DiCE works with our house price prediction model:
+However, DiCE was the only one that allowed the generation of counterfactual for regression problems. Let's see how DiCE works with our house price prediction model:
 
 ```python
 # Create a DiCE data object
@@ -141,7 +122,7 @@ counterfactuals = explainer.generate_counterfactuals(
 )
 ```
 
-### 2c. Interpreting Counterfactual Results
+### 2b. Interpreting Counterfactual Results
 
 When analyzing counterfactual explanations, several key aspects should be considered:
 
