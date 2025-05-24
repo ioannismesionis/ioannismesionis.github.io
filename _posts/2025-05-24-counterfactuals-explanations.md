@@ -30,7 +30,7 @@ Counterfactual explanations can be generated using various approaches, each with
 
 | **Approach** | **Description** | **Key Features** |
 |--------------|----------------|------------------|
-| **Optimization-based** | Uses gradient-based optimization to find counterfactuals | Fast, but may not respect feature constraints |
+| **Optimisation-based** | Uses gradient-based optimisation to find counterfactuals | Fast, but may not respect feature constraints |
 | **Genetic Algorithms** | Uses evolutionary algorithms to search for counterfactuals | Can handle complex constraints, but slower |
 | **Prototype-based** | Finds similar instances with different outcomes | More realistic suggestions, but limited by available data |
 
@@ -50,7 +50,7 @@ Counterfactual explanations have numerous practical applications across differen
 
 # 2. Understanding Counterfactual Explanations
 
-Counterfactual explanations work by finding alternative versions of an input that would result in a different predicted outcome. Let's explore this concept using a house price prediction example.
+Counterfactual explanations work by finding alternative versions of an input that would result in a different predicted outcome. Let's explore this concept using the Kaggle House Prices dataset, which contains various features about residential homes in Ames, Iowa, to predict their sale prices.
 
 ```python
 # Import necessary libraries
@@ -69,24 +69,41 @@ warnings.filterwarnings("ignore")
 
 ### 2a. The Mathematics Behind Counterfactuals
 
-The core idea of counterfactual explanations can be formalized as an optimization problem. For a given instance x and a prediction function f(x), we seek to find a counterfactual x' that minimizes:
+The core idea of counterfactual explanations can be formalised as an optimisation problem. For a given instance x and a prediction function f(x), we seek to find a counterfactual x' that minimises:
 
 $$ L(x, x', y', λ) = λ · (f(x') - y')^2 + d(x, x') $$
 
 where:
-- f(x') is the model's prediction for the counterfactual
-- y' is the desired outcome
-- d(x, x') is the distance between original and counterfactual instances
-- λ balances the importance of achieving the desired outcome versus maintaining similarity
+- $f(x')$ is the model's prediction for the counterfactual
+- $y'$ is the desired outcome
+- $d(x, x')$ is the distance between original and counterfactual instances
+- $λ$ balances the importance of achieving the desired outcome versus maintaining similarity
 
-This optimization is subject to various constraints:
+This optimisation is subject to various constraints:
 1. Feature value ranges
 2. Feature relationships
 3. Data manifold constraints
 
-### 2b. Generating Counterfactuals with DiCE
+### 2b. Generating Counterfactuals with Modern Frameworks
 
-DiCE (Diverse Counterfactual Explanations) is a powerful library that implements various approaches to generate counterfactual explanations. Let's see how it works with our house price prediction model:
+There are several powerful frameworks available for generating counterfactual explanations:
+
+1. **DiCE (Diverse Counterfactual Explanations):**
+   - Supports multiple ML frameworks
+   - Offers diverse counterfactual generation
+   - Provides visualisation tools
+
+2. **COLA (Counterfactual Learning Algorithm):**
+   - Focuses on generating actionable counterfactuals
+   - Maintains data manifold consistency
+   - Efficient optimisation strategy
+
+3. **Alibi:**
+   - Comprehensive explainability toolkit
+   - Robust counterfactual generation
+   - Supports both classification and regression
+
+Let's see how DiCE works with our house price prediction model:
 
 ```python
 # Create a DiCE data object
@@ -154,7 +171,7 @@ counterfactuals.visualize_as_dataframe(show_only_changes=True)
    - Help users understand what's possible and what's not
 
 2. **Individual-Level Explanations:**
-   - Offer personalized explanations for each instance
+   - Offer personalised explanations for each instance
    - More relevant than global model interpretability
 
 3. **Model-Agnostic:**
